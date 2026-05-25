@@ -84,16 +84,6 @@ const PASS_THRESHOLD = 60; // percentuale minima per "Promosso"
 const FEEDBACK_DELAY = 1500; // ms di attesa dopo risposta prima di avanzare
 const TIMER_DURATION = 20; // secondi per ogni domanda
 
-/* Stato globale */
-
-let currentScreen = "welcome"; // "welcome" | "quiz" | "results"
-let currentQuestion = 0;
-let correctAnswers = 0;
-let wrongAnswers = 0;
-let questionIndex = 0;
-let score = 0;
-let timerId = null;
-
 /* SCRIVI QUI LE TUE FUNZIONI:
    - render() che chiama renderWelcome / renderQuiz / renderResults in base a currentScreen
    - renderWelcome() per la schermata iniziale con button Inizia
