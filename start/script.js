@@ -6,6 +6,18 @@
   - Pattern: stato → render → eventi.
 */
 
+  */
+
+/* SCRIVI QUI LE TUE FUNZIONI:
+    - render() che chiama renderWelcome / renderQuiz / renderResults in base a currentScreen
+    - renderWelcome() per la schermata iniziale con button Inizia
+    - renderQuiz() per la domanda corrente con i button risposta + counter + timer
+    - renderResults() per la schermata finale con percentuale + barre + verdetto
+    - startTimer() / stopTimer() per il countdown
+    - handleAnswer(button, answer) per il click su una risposta
+    - handleTimeUp() per il tempo scaduto
+    - advance() per andare alla domanda successiva o ai risultati
+ */
 /*
   Array di domande.
   Ogni question è un object con:
@@ -95,8 +107,6 @@ const TIMER_DURATION = 20; // secondi per ogni domanda
    - advance() per andare alla domanda successiva o ai risultati
 */
 
-const app = document.querySelector("#app"); // const globale
-
 let questionIndex = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
@@ -151,7 +161,7 @@ function showResult() {
   // per creare e mostrare la schermata finale del quiz
   app.innerHTML = "";
 
-  const resultTitle = document.createElement("h1");
+  const resultTitle = document.createElement("h2");
   resultTitle.textContent = "Quiz finito!";
 
   const correctText = document.createElement("p");
@@ -182,3 +192,34 @@ function showResult() {
   app.appendChild(scoreText);
   app.appendChild(verdict);
 }
+/* Stato globale */
+let currentScreen = "welcome"; // "welcome" | "quiz" | "results"
+let currentQuestion = 0;
+let score = 0;
+let timerId = null;
+
+const app = document.querySelector("#app");
+
+function showQuestion() {
+  const domanda = document.createElement("h2");
+  domanda.textContent = QUESTIONS[currentQuestion].question;
+  app.appendChild(domanda);
+
+  const btnCorretta = document.createElement("button");
+  btnCorretta.textContent = QUESTIONS[currentQuestion].correct_answer;
+  btnCorretta.addEventListener("click", function () {
+    currentQuestion++;
+    showQuestion();
+  });
+  app.appendChild(btnCorretta);
+  for (
+    let i = 0;
+    i < QUESTIONS[currentQuestion].incorrect_answers.length;
+    i++
+  ) {
+    const btnErrata = document.createElement("button");
+    btnErrata.textContent = QUESTIONS[currentQuestion].incorrect_answers[i];
+    app.appendChild(btnErrata);
+  }
+}
+showQuestion();
