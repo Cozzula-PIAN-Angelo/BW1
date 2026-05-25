@@ -88,6 +88,9 @@ const TIMER_DURATION = 20; // secondi per ogni domanda
 
 let currentScreen = "welcome"; // "welcome" | "quiz" | "results"
 let currentQuestion = 0;
+let correctAnswers = 0;
+let wrongAnswers = 0;
+let questionIndex = 0;
 let score = 0;
 let timerId = null;
 
@@ -104,10 +107,88 @@ let timerId = null;
 
 const app = document.querySelector("#app"); // const globale
 
+let questionIndex = 0;
+let correctAnswers = 0;
+let wrongAnswers = 0;
+
+// Funzione per controllare la risposta //
+
 const isCorrect = (question, userAnswer) => {
-  if (question.correct_answer === userAnswer) {
-    return true;
-  } else {
-    return false;
-  }
+  return question.correct_answer === userAnswer; // ritorna vero se la risposta dell’utente è uguale alla risposta corretta della domanda.
 };
+
+function showQuestion() {
+  // Mostra la domanda corrente
+  app.innerHTML = ""; // pulisce la schermata
+
+  // controlla se il quiz è finito
+  if (questionIndex >= QUESTIONS.length) {
+    showResult();
+    return;
+  }
+
+  const currentQuestion = QUESTIONS[questionIndex]; // prende la domanda corrente
+
+  const questionTitle = document.createElement("h2"); // crea titolo domanda per mostrare la domanda all’utente nell’interfaccia
+  questionTitle.textContent = currentQuestion.question;
+
+  app.appendChild(questionTitle);
+
+  const options = ["Vero", "Falso"]; // solo per le domande vero/falso
+
+  // crea i bottoni, da implementare in codice degli altri??
+  options.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+
+    button.addEventListener("click", () => {
+      if (isCorrect(currentQuestion, option)) {
+        // controlla risposta e incrementa
+        correctAnswers++;
+      } else {
+        wrongAnswers++;
+      }
+
+      questionIndex++; // passa alla domanda successiva
+      showQuestion(); // mostra nuova domanda
+    });
+
+    app.appendChild(button); // per mettere il bottone dentro l'elemento app
+  });
+}
+
+function showResult() {
+  // per creare e mostrare la schermata finale del quiz
+  app.innerHTML = "";
+
+  const resultTitle = document.createElement("h1");
+  resultTitle.textContent = "Quiz finito!";
+
+  const correctText = document.createElement("p");
+  correctText.textContent = `Risposte corrette: ${correctAnswers}`;
+
+  const wrongText = document.createElement("p");
+  wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
+
+  // calcolo percentuale
+  const percentage = Math.round((correctAnswers / QUESTIONS.length) * 100);
+
+  const scoreText = document.createElement("p");
+  scoreText.textContent = `Punteggio finale: ${percentage}%`;
+
+  // messaggio finale
+  const verdict = document.createElement("h2");
+
+  if (percentage >= 60) {
+    verdict.textContent = "Promosso!";
+  } else {
+    verdict.textContent = "Riprova!";
+  }
+
+  // aggiunge tutto alla pagina
+  app.appendChild(resultTitle);
+  app.appendChild(correctText);
+  app.appendChild(wrongText);
+  app.appendChild(scoreText);
+  app.appendChild(verdict);
+}
