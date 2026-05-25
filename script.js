@@ -103,10 +103,18 @@ let timerId = null;
 const app = document.querySelector("#app");
 
 function showQuestion() {
+  const numeroDomanda = document.createElement('p');
+  numeroDomanda.textContent = 'domanda 1 di 10'
+  const timer = document.createElement('span')
+  timer.textContent = '9'
   const domanda = document.createElement("h2");
+  const numeroTimer = document.createElement('div')
   domanda.textContent = QUESTIONS[currentQuestion].question;
+  app.appendChild(numeroTimer);
+  numeroTimer.appendChild(numeroDomanda);
+  numeroTimer.appendChild(timer);
   app.appendChild(domanda);
-
+  numeroTimer.classList.add('numeroTimer');
   const btnCorretta = document.createElement("button");
   btnCorretta.textContent = QUESTIONS[currentQuestion].correct_answer;
   btnCorretta.addEventListener("click", function () {
