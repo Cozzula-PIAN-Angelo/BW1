@@ -204,3 +204,12 @@ let timerId = null;
    - advance() per andare alla domanda successiva o ai risultati
 */
 
+function render() {
+    if (currentScreen === 'welcome') {
+        renderWelcome();
+    } else if  (currentScreen === 'quiz') {
+        renderQuiz();
+    } else if (currentScreen === 'results') {
+        renderResults();
+    }
+}
