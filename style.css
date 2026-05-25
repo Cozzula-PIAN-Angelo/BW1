@@ -9,7 +9,7 @@
 body {
     font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
     letter-spacing: 3px;
-    background-image: linear-gradient(rgba(0,0,0,0.45)), url('assets/img/25052026_1779715029_iOS.png'); 
+    background-image: linear-gradient(rgba(0,0,0,0.45)), url('../img/25052026_1779715029_iOS.png'); 
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -66,7 +66,7 @@ body {
     margin-bottom: 30px;
 }
 
-#app h2:first-child {
+.cardQuiz h2 {
     margin-bottom: 30px;
     color: white;
     font-size: 2em;
@@ -88,7 +88,7 @@ body {
     font-size: 13px;
 }
 
-#app button {
+.risposte button {
     display: flex;
     margin-bottom: 8px;
     width: 100%;
@@ -99,8 +99,10 @@ body {
     background-color: rgba(245, 245, 245, 0.92);
 }
 
-#app button:hover {
+.risposte button:hover {
     background-color: rgb(255, 255, 255);
     cursor: pointer;
     box-shadow: 0 8px 20px;
 }
+
+/*benvenuto*/
