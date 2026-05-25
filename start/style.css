@@ -22,7 +22,7 @@ body {
 
 .brand {
     width: 100%;
-    max-width: 560px;
+    max-width: 720px;
     text-align: left;
     
 }
@@ -36,12 +36,12 @@ body {
 }
 
 #app {
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 40px;
-    max-width: 560px;
+    max-width: 720px;
     width: 100%;
     background: rgba(15, 15, 15, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid red;
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     backdrop-filter: blur(6px);
 }
@@ -66,10 +66,10 @@ body {
     margin-bottom: 30px;
 }
 
-#app h2:first-child {
+#app h2 {
     margin-bottom: 30px;
+    font-size: 24px;
     color: white;
-    font-size: 2em;
     font-weight: bold;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
     
@@ -77,7 +77,7 @@ body {
 
 .numeroTimer p {
     font-size: 14px;
-    color: white
+    color: white;
 }
 
 .numeroTimer span {
