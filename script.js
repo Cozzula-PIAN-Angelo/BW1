@@ -205,12 +205,33 @@ function stopTimer() {
 
 /* ********Bozza Results Page */
 function renderResults() {
-  const percentage = (score / TOTAL_QUESTIONS) * 100;
+  const percentage = Math.round((score / QUESTIONS.length) * 100);
+  let verdict;
+  let barColor;
+  let verdictClass;
+
+  if (percentage >= 60) {
+    verdict = "PROMOSSO";
+    barColor = "#4CAF50"; 
+    verdictClass = "passed"; 
+  } else {
+    verdict = "BOCCIATO";
+    barColor = "#f44336"; 
+    verdictClass = "failed"; 
+  }
+
+  /* ********Interfaccia Results */
   app.innerHTML = `
     <div class="results">
-      <h1>Risultati</h1>
-      <p>Hai risposto correttamente a ${score} su ${TOTAL_QUESTIONS} domande.</p>
-      <p>Percentuale: ${percentage}%</p>
+      <h1>Risultato</h1>
+      <h2 class="${verdictClass}">${verdict}</h2>
+      <p>Hai risposto correttamente a ${score} su ${QUESTIONS.length} domande.</p>
+      
+      <div class="progress-container">
+        <div class="progress-fill" style="width: ${percentage}%; background-color: ${barColor};"></div>
+      </div>
+      
+      <p>${percentage}%</p>
       <button id="restart-btn">Riprova</button>
     </div>
   `;
