@@ -277,9 +277,9 @@ const QUESTIONS = [
     incorrect_answers: ["3", "5", "2"],
   },
   {
-    question: "Qual'è la serie netflix preferita di Angelo?",
-    correct_answer: "USA",
-    incorrect_answers: ["bojack horseman", "UK", "Australia"],
+    question: "Qual'è la serie netflix preferita di Valentina?",
+    correct_answer: "Machos Alfa",
+    incorrect_answers: ["Squid Game", "Black Mirror", "La casa di carta"],
   },
   {
     question: "Qual'è la serie Netflix preferita da Angelo?",
@@ -555,12 +555,12 @@ function showResult() {
   percentageCircle.classList.add("percentage-circle");
 
   // cerchio vuoto
-  const EmptyBarCircle = document.createElementNS(svgDictionary, 'circle');
-  EmptyBarCircle.classList.add('empty-bar-circle');
+  const EmptyBarCircle = document.createElementNS(svgDictionary, "circle");
+  EmptyBarCircle.classList.add("empty-bar-circle");
 
-  EmptyBarCircle.setAttribute('cx', '100') // asse orizzontale
-  EmptyBarCircle.setAttribute('cy', '100') // asse verticale
-  EmptyBarCircle.setAttribute('r', '90') // perimetro
+  EmptyBarCircle.setAttribute("cx", "100"); // asse orizzontale
+  EmptyBarCircle.setAttribute("cy", "100"); // asse verticale
+  EmptyBarCircle.setAttribute("r", "90"); // perimetro
 
   // bisogna dichiarare le misure geometriche
   percentageCircle.setAttribute("cx", "100"); // asse orizzontale
@@ -597,7 +597,7 @@ function showResult() {
   const circonferenza = 565.4;
   percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
   // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
-  const offsetValue = circonferenza - percentage / 100 * circonferenza;
+  const offsetValue = circonferenza - (percentage / 100) * circonferenza;
   percentageCircle.style.strokeDashoffset = offsetValue;
 
   const restartButton = document.createElement("button");
