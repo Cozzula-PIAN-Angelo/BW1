@@ -279,7 +279,3 @@ function showResult() {
   app.appendChild(scoreText);
   app.appendChild(verdict);
 }
-
-
-
-
