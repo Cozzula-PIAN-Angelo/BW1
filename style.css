@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  letter-spacing: 3px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.45)),
+    url("assets/img/25052026_1779715029_iOS.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+}
+
+.brand {
+  width: 100%;
+  max-width: 720px;
+  text-align: left;
+}
+
+.brand-logo {
+  height: 40px;
+  background-color: transparent;
+  margin-bottom: 20px;
+  margin-top: 130px;
+  filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.7));
+}
+
+#app {
+  border-radius: 4px;
+  padding: 40px;
+  max-width: 720px;
+  width: 100%;
+  background: rgba(15, 15, 15, 0.4);
+  border: 1px solid red;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+/* Aggiungi qui le tue regole CSS per:
+   - .welcome (titolo, intro, button Inizia)
+   - .quiz (counter, timer, domanda, button risposta, classi correct/wrong)
+   - .results (percentuale, barre orizzontali, verdetto promosso/bocciato, restart)
+*/
+
+/*layout*/
+
+/*quiz*/
+
+.cardQuiz {
+  height: auto;
+}
+
+.numeroTimer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#app h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+.numeroTimer p {
+  font-size: 14px;
+  color: white;
+}
+
+.numeroTimer span {
+  color: white;
+  font-size: 30px;
+}
+
+#app button {
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  align-items: center;
+  padding-left: 10px;
+  background-color: rgba(54, 53, 53, 0.92);
+  color: white;
+}
+
+#app button.correct {
+  background-color: green;
+  color: white;
+}
+
+#app button.wrong {
+  background-color: red;
+  color: white;
+}
+
+#app button:not(.correct):not(.wrong):hover {
+  background-color: rgb(36, 35, 35);
+  cursor: pointer;
+  border: 0.8px solid red;
+}
+
+/*benvenuto*/
+
+h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.quiz-description {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.instruction-list {
+  color: white;
+  list-style-type: circle;
+  margin-bottom: 40px;
+}
+
+.instruction-list li {
+  margin-bottom: 10px;
+}
+
+#app .start-button {
+  display: inline-block;
+  color: red;
+  text-align: center;
+  width: 15%;
+}
+
+.results p {
+  color: white;
+}
