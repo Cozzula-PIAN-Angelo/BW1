@@ -152,6 +152,7 @@ h1 {
 
 * risultati */
 .results {
+    display: flex;
     flex-direction: column;
     position: relative;
 }
@@ -184,10 +185,9 @@ h1 {
 .percentage-container {
     width: 200px;
     height: 200px;
-
-    float: right;
     position: absolute;
-    left: 300px;
+    right: 80px;
+    top: 30%;
 }
 
 .percentage-circle {
