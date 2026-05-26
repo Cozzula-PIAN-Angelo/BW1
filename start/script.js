@@ -110,6 +110,8 @@ let questionIndex = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 
+
+
 // Funzione per controllare la risposta //
 
 const isCorrect = (question, userAnswer) => {
@@ -156,6 +158,92 @@ function showQuestion() {
   });
 }
 
+
+/* Stato globale */
+let currentScreen = "welcome"; // "welcome" | "quiz" | "results"
+let currentQuestion = 0;
+let score = 0;
+let timerId = null;
+
+const app = document.querySelector("#app");
+
+// Creazione di pagina di benvenuto 
+function showWelcome () {
+  app.innerHTML = "";
+
+const welcomeTitle = document.createElement('h1');
+welcomeTitle.textContent = 'Benvenuto al tuo esame';
+
+const quizDescription = document.createElement('p');
+quizDescription.classList.add('quiz-description');
+quizDescription.textContent = "Una serie di 10 domande sul mondo dell'informatica e del web. Per ogni domanda hai 20 secondi di tempo."
+
+const instructionList = document.createElement('ul');
+instructionList.classList.add('instruction-list')
+const instructionLi1 = document.createElement('li');
+instructionLi1.textContent = 'Ogni domanda è a tempo e può ricevere una sola risposta.';
+const instructionLi2 = document.createElement('li');
+instructionLi2.textContent = 'Una volta cliccata una risposta, la domanda è chiusa';
+const instructionLi3 = document.createElement('li');
+instructionLi3.textContent = 'Il quiz dura circa 3 minuti';
+
+// Assemblaggio lista
+instructionList.appendChild(instructionLi1);
+instructionList.appendChild(instructionLi2);
+instructionList.appendChild(instructionLi3);
+
+const startButton = document.createElement('button');
+startButton.classList.add('start-button');
+startButton.textContent = 'INIZIA';
+
+// Funzione del bottone
+startButton.addEventListener('click', (e) => {
+showQuestion();
+});
+
+// Aggiunge alla pagina
+app.appendChild(welcomeTitle);
+app.appendChild(quizDescription);
+app.appendChild(instructionList);
+app.appendChild(startButton);
+};
+
+// Richiamo pagina di benvenuto
+showWelcome();
+
+// Pagina domande
+function showQuestion() {
+  const numeroDomanda = document.createElement('p');
+  numeroDomanda.textContent = 'domanda 1 di 10'
+  const timer = document.createElement('span')
+  timer.textContent = '9'
+  const domanda = document.createElement("h2");
+  const numeroTimer = document.createElement('div')
+  domanda.textContent = QUESTIONS[currentQuestion].question;
+  app.appendChild(numeroTimer);
+  numeroTimer.appendChild(numeroDomanda);
+  numeroTimer.appendChild(timer);
+  app.appendChild(domanda);
+  numeroTimer.classList.add('numeroTimer');
+  const btnCorretta = document.createElement("button");
+  btnCorretta.textContent = QUESTIONS[currentQuestion].correct_answer;
+  btnCorretta.addEventListener("click", function () {
+    currentQuestion++;
+    showQuestion();
+  });
+  app.appendChild(btnCorretta);
+  for (
+    let i = 0;
+    i < QUESTIONS[currentQuestion].incorrect_answers.length;
+    i++
+  ) {
+    const btnErrata = document.createElement("button");
+    btnErrata.textContent = QUESTIONS[currentQuestion].incorrect_answers[i];
+    app.appendChild(btnErrata);
+  }
+}
+
+// Pagina risultati
 function showResult() {
   // per creare e mostrare la schermata finale del quiz
   app.innerHTML = "";
@@ -191,42 +279,3 @@ function showResult() {
   app.appendChild(scoreText);
   app.appendChild(verdict);
 }
-/* Stato globale */
-let currentScreen = "welcome"; // "welcome" | "quiz" | "results"
-let currentQuestion = 0;
-let score = 0;
-let timerId = null;
-
-const app = document.querySelector("#app");
-
-function showQuestion() {
-  const numeroDomanda = document.createElement('p');
-  numeroDomanda.textContent = 'domanda 1 di 10'
-  const timer = document.createElement('span')
-  timer.textContent = '9'
-  const domanda = document.createElement("h2");
-  const numeroTimer = document.createElement('div')
-  domanda.textContent = QUESTIONS[currentQuestion].question;
-  app.appendChild(numeroTimer);
-  numeroTimer.appendChild(numeroDomanda);
-  numeroTimer.appendChild(timer);
-  app.appendChild(domanda);
-  numeroTimer.classList.add('numeroTimer');
-  const btnCorretta = document.createElement("button");
-  btnCorretta.textContent = QUESTIONS[currentQuestion].correct_answer;
-  btnCorretta.addEventListener("click", function () {
-    currentQuestion++;
-    showQuestion();
-  });
-  app.appendChild(btnCorretta);
-  for (
-    let i = 0;
-    i < QUESTIONS[currentQuestion].incorrect_answers.length;
-    i++
-  ) {
-    const btnErrata = document.createElement("button");
-    btnErrata.textContent = QUESTIONS[currentQuestion].incorrect_answers[i];
-    app.appendChild(btnErrata);
-  }
-}
-showQuestion();
