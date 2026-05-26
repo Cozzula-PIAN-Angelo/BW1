@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 * {
     box-sizing: border-box;
@@ -7,9 +7,11 @@
 }
 
 body {
-    font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+    font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
     letter-spacing: 3px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45)), url('assets/img/25052026_1779715029_iOS.png');
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.45)),
+        url("assets/img/25052026_1779715029_iOS.png");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -24,7 +26,6 @@ body {
     width: 100%;
     max-width: 720px;
     text-align: left;
-
 }
 
 .brand-logo {
@@ -73,7 +74,6 @@ body {
     color: white;
     font-weight: bold;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
-
 }
 
 .numeroTimer p {
@@ -86,7 +86,7 @@ body {
     font-size: 30px;
 }
 
-#app button {
+.risposte button {
     display: flex;
     margin-bottom: 10px;
     width: 100%;
@@ -98,7 +98,17 @@ body {
     color: white;
 }
 
-#app button:hover {
+#app button.correct {
+    background-color: green;
+    color: white;
+}
+
+#app button.wrong {
+    background-color: red;
+    color: white;
+}
+
+#app button:not(.correct):not(.wrong):hover {
     background-color: rgb(36, 35, 35);
     cursor: pointer;
     border: 0.8px solid red;
@@ -131,5 +141,114 @@ h1 {
     display: inline-block;
     color: red;
     text-align: center;
-    width: 15%
+    width: 17%;
+    background-color: rgba(54, 53, 53, 0.92);
+    height: 50px;
+    border-radius: 8px;
+}
+
+/* risultati */
+
+.results p {
+    color: white;
+}
+
+/* risultati */ 
+
+.results {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.result-title {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.result-list {
+    color: white;
+    list-style-type: circle;
+    margin-bottom: 40px;
+}
+
+.result-list li {
+    margin-bottom: 10px;
+}
+
+#app .result-button {
+    display: block;
+    color: red;
+    text-align: center;
+    width: 17%;
+    background-color: rgba(54, 53, 53, 0.92);
+    height: 50px;
+    border-radius: 8px;
+}
+
+/* circle bar */
+
+.percentage-container {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 80px;
+    top: 30%;
+}
+
+.empty-bar-circle {
+    fill: transparent;
+    stroke: rgb(36, 35, 35);
+    stroke-width: 20px;
+}
+
+.percentage-circle {
+    fill: transparent;
+    /* Interno vuoto */
+    stroke-width: 20px;
+    /* spessore dello stroke */
+}
+
+.percentage-text {
+    stroke-width: 2px;
+    fill: white;
+    font-size: 3rem;
+    transform: translateX(-10px);
+}
+
+/*valutazione*/
+
+.valutazione-button {
+    display: block;
+    color: red;
+    text-align: center;
+    width: 17%;
+    background-color: rgba(54, 53, 53, 0.92);
+    height: 50px;
+    border-radius: 8px;
+}
+
+.button-container {
+    display: flex;
+    gap: 12px;
+    justify-content: start;
+    margin-top: 20px;
+}
+
+.restart-valutazione {
+    display: block;
+    color: red;
+    text-align: center;
+    width: 17%;
+    background-color: rgba(54, 53, 53, 0.92);
+    height: 50px;
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.valutazione-card h2, p {
+    color: white;
+    text-align: center;
 }
