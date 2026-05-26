@@ -386,9 +386,8 @@ function showQuestion() {
   numeroTimer.classList.add("numeroTimer");
 
   const numeroDomanda = document.createElement("p");
-  numeroDomanda.textContent = `Domanda ${
-    currentQuestion + 1
-  } di ${SELECTED_QUESTIONS.length}`;
+  numeroDomanda.textContent = `Domanda ${currentQuestion + 1
+    } di ${SELECTED_QUESTIONS.length}`;
 
   const timer = document.createElement("span");
   timer.id = "timer";
@@ -525,6 +524,7 @@ function showResult() {
   results.classList.add("results");
 
   const resultTitle = document.createElement("h1");
+  resultTitle.classList.add('result-title');
   resultTitle.textContent = "Risultato";
 
   const verdict = document.createElement("h2");
@@ -537,17 +537,71 @@ function showResult() {
     verdict.classList.add("failed");
   }
 
-  const correctText = document.createElement("p");
+  const resultList = document.createElement('ul');
+  resultList.classList.add('result-list');
+
+  const correctText = document.createElement("li");
   correctText.textContent = `Risposte corrette: ${correctAnswers}`;
 
-  const wrongText = document.createElement("p");
+  const wrongText = document.createElement("li");
   wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
 
-  const scoreText = document.createElement("p");
+  const scoreText = document.createElement("li");
   scoreText.textContent = `Punteggio finale: ${percentage}%`;
 
-  const restartButton = document.createElement("button");
+  resultList.appendChild(correctText);
+  resultList.appendChild(wrongText);
+  resultList.appendChild(scoreText);
 
+  // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
+  const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
+
+  // contenitore del cerchio
+  const percentageContainer = document.createElementNS(svgDictionary, 'svg'); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
+  percentageContainer.classList.add('percentage-container');
+
+  // cerchio 
+  const percentageCircle = document.createElementNS(svgDictionary, 'circle');
+  percentageCircle.classList.add('percentage-circle');
+
+  // bisogna dichiarare le misure geometriche
+  percentageCircle.setAttribute('cx', '100') // asse orizzontale
+  percentageCircle.setAttribute('cy', '100') // asse verticale
+  percentageCircle.setAttribute('r', '90') // perimetro
+  // remind: area del cerchio: C = 2 * pi * r. - 2 * 3.141259 * 90 = 565.4
+
+  // scritta nel cerchio
+  const percentageText = document.createElementNS(svgDictionary, 'text');
+  percentageText.classList.add('percentage-text');
+  percentageText.textContent = `${percentage}%`;
+
+  // coordinate geometriche del text
+  percentageText.setAttribute('x', '80');
+  percentageText.setAttribute('y', '115');
+
+  percentageContainer.appendChild(percentageText);
+  percentageContainer.appendChild(percentageCircle);
+
+  // riempimento della barra percentuale
+  if (percentage >= 80) { // definisco ciclo if/ else if per cambiare il colore a seconda della percnetuale
+    percentageCircle.style.stroke = 'lightgreen';
+    percentageText.style.stroke = 'lightgreen';
+  } else if (percentage >= 60 && percentage <= 79) {
+    percentageCircle.style.stroke = 'yellow';
+    percentageText.style.stroke = 'yellow';
+  } else {
+    percentageCircle.style.stroke = 'red';
+    percentageText.style.stroke = 'red';
+  };
+
+  const circonferenza = 565.4;
+  percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
+  // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
+  const offsetValue = circonferenza - (percentage / 100) + circonferenza;
+  percentageCircle.style.strokeDashoffset = offsetValue;
+
+  const restartButton = document.createElement("button");
+  restartButton.classList.add('result-button');
   restartButton.textContent = "RIPROVA";
 
   restartButton.addEventListener("click", () => {
@@ -556,9 +610,8 @@ function showResult() {
 
   results.appendChild(resultTitle);
   results.appendChild(verdict);
-  results.appendChild(correctText);
-  results.appendChild(wrongText);
-  results.appendChild(scoreText);
+  results.appendChild(resultList);
+  results.appendChild(percentageContainer);
   results.appendChild(restartButton);
 
   app.appendChild(results);
