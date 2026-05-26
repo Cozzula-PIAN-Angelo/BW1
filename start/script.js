@@ -6,24 +6,16 @@
   - Pattern: stato → render → eventi.
 */
 
+/* =========================
+   DOM
+========================= */
 
-/* SCRIVI QUI LE TUE FUNZIONI:
-    - render() che chiama renderWelcome / renderQuiz / renderResults in base a currentScreen
-    - renderWelcome() per la schermata iniziale con button Inizia
-    - renderQuiz() per la domanda corrente con i button risposta + counter + timer
-    - renderResults() per la schermata finale con percentuale + barre + verdetto
-    - startTimer() / stopTimer() per il countdown
-    - handleAnswer(button, answer) per il click su una risposta
-    - handleTimeUp() per il tempo scaduto
-    - advance() per andare alla domanda successiva o ai risultati
- */
-/*
-  Array di domande.
-  Ogni question è un object con:
-   - question: testo della domanda
-   - correct_answer: la risposta corretta (string)
-   - incorrect_answers: array di risposte sbagliate (string[])
-*/
+const app = document.querySelector("#app");
+
+/* =========================
+   DATI QUIZ
+========================= */
+
 const QUESTIONS = [
   {
     question: "Cosa significa l'acronimo CPU?",
@@ -89,79 +81,240 @@ const QUESTIONS = [
   },
 ];
 
-/* Costanti del quiz */
+/* =========================
+   COSTANTI
+========================= */
+
 const TOTAL_QUESTIONS = QUESTIONS.length;
-const PASS_THRESHOLD = 60; // percentuale minima per "Promosso"
-const FEEDBACK_DELAY = 1500; // ms di attesa dopo risposta prima di avanzare
-const TIMER_DURATION = 20; // secondi per ogni domanda
+const TIMER_DURATION = 20;
+const PASS_THRESHOLD = 60;
 
-/* SCRIVI QUI LE TUE FUNZIONI:
-   - render() che chiama renderWelcome / renderQuiz / renderResults in base a currentScreen
-   - renderWelcome() per la schermata iniziale con button Inizia
-   - renderQuiz() per la domanda corrente con i button risposta + counter + timer
-   - renderResults() per la schermata finale con percentuale + barre + verdetto
-   - startTimer() / stopTimer() per il countdown
-   - handleAnswer(button, answer) per il click su una risposta
-   - handleTimeUp() per il tempo scaduto
-   - advance() per andare alla domanda successiva o ai risultati
-*/
+/* =========================
+   STATO GLOBALE
+========================= */
 
-let questionIndex = 0;
+let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
+let timerId = null;
+let timeLeft = TIMER_DURATION;
 
-// Funzione per controllare la risposta //
+/* =========================
+   WELCOME PAGE
+========================= */
 
-const isCorrect = (question, userAnswer) => {
-  return question.correct_answer === userAnswer; // ritorna vero se la risposta dell’utente è uguale alla risposta corretta della domanda.
-};
+function showWelcome() {
+  app.innerHTML = "";
+
+  const welcomeTitle = document.createElement("h1");
+  welcomeTitle.textContent = "Benvenuto al tuo esame";
+
+  const quizDescription = document.createElement("p");
+  quizDescription.classList.add("quiz-description");
+
+  quizDescription.textContent =
+    "Una serie di 10 domande sul mondo dell'informatica e del web. Per ogni domanda hai 20 secondi di tempo.";
+
+  const instructionList = document.createElement("ul");
+  instructionList.classList.add("instruction-list");
+
+  const instructionLi1 = document.createElement("li");
+  instructionLi1.textContent =
+    "Ogni domanda è a tempo e può ricevere una sola risposta.";
+
+  const instructionLi2 = document.createElement("li");
+  instructionLi2.textContent =
+    "Una volta cliccata una risposta, la domanda è chiusa.";
+
+  const instructionLi3 = document.createElement("li");
+  instructionLi3.textContent =
+    "Il quiz dura circa 3 minuti.";
+
+  instructionList.appendChild(instructionLi1);
+  instructionList.appendChild(instructionLi2);
+  instructionList.appendChild(instructionLi3);
+
+  const startButton = document.createElement("button");
+  startButton.classList.add("start-button");
+
+  startButton.textContent = "INIZIA";
+
+  startButton.addEventListener("click", () => {
+    currentQuestion = 0;
+    correctAnswers = 0;
+    wrongAnswers = 0;
+
+    showQuestion();
+  });
+
+  app.appendChild(welcomeTitle);
+  app.appendChild(quizDescription);
+  app.appendChild(instructionList);
+  app.appendChild(startButton);
+}
+
+/* =========================
+   QUIZ PAGE
+========================= */
 
 function showQuestion() {
-  // Mostra la domanda corrente
-  app.innerHTML = ""; // pulisce la schermata
+  app.innerHTML = "";
 
-  // controlla se il quiz è finito
-  if (questionIndex >= QUESTIONS.length) {
+  // quiz finito
+  if (currentQuestion >= QUESTIONS.length) {
     showResult();
     return;
   }
 
-  const currentQuestion = QUESTIONS[questionIndex]; // prende la domanda corrente
+  const question = QUESTIONS[currentQuestion];
 
-  const questionTitle = document.createElement("h2"); // crea titolo domanda per mostrare la domanda all’utente nell’interfaccia
-  questionTitle.textContent = currentQuestion.question;
+  const cardQuiz = document.createElement("div");
+  cardQuiz.classList.add("cardQuiz");
 
-  app.appendChild(questionTitle);
+  // header domanda
+  const numeroTimer = document.createElement("div");
+  numeroTimer.classList.add("numeroTimer");
 
-  const options = ["Vero", "Falso"]; // solo per le domande vero/falso
+  const numeroDomanda = document.createElement("p");
+  numeroDomanda.textContent = `Domanda ${
+    currentQuestion + 1
+  } di ${TOTAL_QUESTIONS}`;
 
-  // crea i bottoni, da implementare in codice degli altri??
-  options.forEach((option) => {
+  const timer = document.createElement("span");
+  timer.id = "timer";
+
+  numeroTimer.appendChild(numeroDomanda);
+  numeroTimer.appendChild(timer);
+
+  // domanda
+  const domanda = document.createElement("h2");
+  domanda.textContent = question.question;
+
+  // contenitore risposte
+  const risposte = document.createElement("div");
+  risposte.classList.add("risposte");
+
+  // array risposte mischiate
+  const answers = [
+    question.correct_answer,
+    ...question.incorrect_answers,
+  ];
+
+  answers.sort(() => Math.random() - 0.5);
+
+  // creazione bottoni
+  answers.forEach((answer) => {
     const button = document.createElement("button");
-    button.textContent = option;
+
+    button.textContent = answer;
 
     button.addEventListener("click", () => {
-      if (isCorrect(currentQuestion, option)) {
-        // controlla risposta e incrementa
+      stopTimer();
+
+      // disabilita tutti i bottoni
+      const allButtons = document.querySelectorAll(".risposte button");
+
+      allButtons.forEach((btn) => {
+        btn.disabled = true;
+      });
+
+      // risposta corretta
+      if (answer === question.correct_answer) {
         correctAnswers++;
+        button.classList.add("correct");
       } else {
         wrongAnswers++;
+        button.classList.add("wrong");
+
+        // evidenzia corretta
+        allButtons.forEach((btn) => {
+          if (btn.textContent === question.correct_answer) {
+            btn.classList.add("correct");
+          }
+        });
       }
 
-      questionIndex++; // passa alla domanda successiva
-      showQuestion(); // mostra nuova domanda
+      setTimeout(() => {
+        currentQuestion++;
+        showQuestion();
+      }, 1000);
     });
 
-    app.appendChild(button); // per mettere il bottone dentro l'elemento app
+    risposte.appendChild(button);
   });
+
+  // assemblaggio
+  cardQuiz.appendChild(numeroTimer);
+  cardQuiz.appendChild(domanda);
+  cardQuiz.appendChild(risposte);
+
+  app.appendChild(cardQuiz);
+
+  startTimer();
 }
 
+/* =========================
+   TIMER
+========================= */
+
+function startTimer() {
+  timeLeft = TIMER_DURATION;
+
+  const timer = document.getElementById("timer");
+
+  timer.textContent = timeLeft;
+
+  timerId = setInterval(() => {
+    timeLeft--;
+
+    timer.textContent = timeLeft;
+
+    if (timeLeft <= 5) {
+      timer.style.color = "red";
+    }
+
+    if (timeLeft <= 0) {
+      stopTimer();
+
+      wrongAnswers++;
+
+      currentQuestion++;
+
+      showQuestion();
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerId);
+}
+
+/* =========================
+   RESULTS PAGE
+========================= */
+
 function showResult() {
-  // per creare e mostrare la schermata finale del quiz
   app.innerHTML = "";
 
-  const resultTitle = document.createElement("h2");
-  resultTitle.textContent = "Quiz finito!";
+  const percentage = Math.round(
+    (correctAnswers / QUESTIONS.length) * 100
+  );
+
+  const results = document.createElement("div");
+  results.classList.add("results");
+
+  const resultTitle = document.createElement("h1");
+  resultTitle.textContent = "Risultato";
+
+  const verdict = document.createElement("h2");
+
+  if (percentage >= PASS_THRESHOLD) {
+    verdict.textContent = "PROMOSSO";
+    verdict.classList.add("passed");
+  } else {
+    verdict.textContent = "BOCCIATO";
+    verdict.classList.add("failed");
+  }
 
   const correctText = document.createElement("p");
   correctText.textContent = `Risposte corrette: ${correctAnswers}`;
@@ -169,64 +322,29 @@ function showResult() {
   const wrongText = document.createElement("p");
   wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
 
-  // calcolo percentuale
-  const percentage = Math.round((correctAnswers / QUESTIONS.length) * 100);
-
   const scoreText = document.createElement("p");
   scoreText.textContent = `Punteggio finale: ${percentage}%`;
 
-  // messaggio finale
-  const verdict = document.createElement("h2");
+  const restartButton = document.createElement("button");
 
-  if (percentage >= 60) {
-    verdict.textContent = "Promosso!";
-  } else {
-    verdict.textContent = "Riprova!";
-  }
+  restartButton.textContent = "RIPROVA";
 
-  // aggiunge tutto alla pagina
-  app.appendChild(resultTitle);
-  app.appendChild(correctText);
-  app.appendChild(wrongText);
-  app.appendChild(scoreText);
-  app.appendChild(verdict);
-}
-/* Stato globale */
-let currentScreen = "welcome"; // "welcome" | "quiz" | "results"
-let currentQuestion = 0;
-let score = 0;
-let timerId = null;
-
-const app = document.querySelector("#app");
-
-function showQuestion() {
-  const numeroDomanda = document.createElement('p');
-  numeroDomanda.textContent = 'domanda 1 di 10'
-  const timer = document.createElement('span')
-  timer.textContent = '9'
-  const domanda = document.createElement("h2");
-  const numeroTimer = document.createElement('div')
-  domanda.textContent = QUESTIONS[currentQuestion].question;
-  app.appendChild(numeroTimer);
-  numeroTimer.appendChild(numeroDomanda);
-  numeroTimer.appendChild(timer);
-  app.appendChild(domanda);
-  numeroTimer.classList.add('numeroTimer');
-  const btnCorretta = document.createElement("button");
-  btnCorretta.textContent = QUESTIONS[currentQuestion].correct_answer;
-  btnCorretta.addEventListener("click", function () {
-    currentQuestion++;
-    showQuestion();
+  restartButton.addEventListener("click", () => {
+    showWelcome();
   });
-  app.appendChild(btnCorretta);
-  for (
-    let i = 0;
-    i < QUESTIONS[currentQuestion].incorrect_answers.length;
-    i++
-  ) {
-    const btnErrata = document.createElement("button");
-    btnErrata.textContent = QUESTIONS[currentQuestion].incorrect_answers[i];
-    app.appendChild(btnErrata);
-  }
+
+  results.appendChild(resultTitle);
+  results.appendChild(verdict);
+  results.appendChild(correctText);
+  results.appendChild(wrongText);
+  results.appendChild(scoreText);
+  results.appendChild(restartButton);
+
+  app.appendChild(results);
 }
-showQuestion();
+
+/* =========================
+   START
+========================= */
+
+showWelcome();
