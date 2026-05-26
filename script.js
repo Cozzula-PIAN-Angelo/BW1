@@ -127,8 +127,7 @@ function showWelcome() {
     "Una volta cliccata una risposta, la domanda è chiusa.";
 
   const instructionLi3 = document.createElement("li");
-  instructionLi3.textContent =
-    "Il quiz dura circa 3 minuti.";
+  instructionLi3.textContent = "Il quiz dura circa 3 minuti.";
 
   instructionList.appendChild(instructionLi1);
   instructionList.appendChild(instructionLi2);
@@ -195,10 +194,7 @@ function showQuestion() {
   risposte.classList.add("risposte");
 
   // array risposte mischiate
-  const answers = [
-    question.correct_answer,
-    ...question.incorrect_answers,
-  ];
+  const answers = [question.correct_answer, ...question.incorrect_answers];
 
   answers.sort(() => Math.random() - 0.5);
 
@@ -278,9 +274,25 @@ function startTimer() {
 
       wrongAnswers++;
 
-      currentQuestion++;
+      const allButtons = document.querySelectorAll(".risposte button");
 
-      showQuestion();
+      allButtons.forEach((btn) => {
+        btn.disabled = true;
+      });
+
+      // evidenzia corretta
+      const question = QUESTIONS[currentQuestion];
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent === question.correct_answer) {
+          btn.classList.add("correct");
+        }
+      });
+
+      setTimeout(() => {
+        currentQuestion++;
+        showQuestion();
+      }, 1000);
     }
   }, 1000);
 }
@@ -296,9 +308,7 @@ function stopTimer() {
 function showResult() {
   app.innerHTML = "";
 
-  const percentage = Math.round(
-    (correctAnswers / QUESTIONS.length) * 100
-  );
+  const percentage = Math.round((correctAnswers / QUESTIONS.length) * 100);
 
   const results = document.createElement("div");
   results.classList.add("results");
