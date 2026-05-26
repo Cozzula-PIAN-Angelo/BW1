@@ -485,25 +485,9 @@ function startTimer() {
 
       wrongAnswers++;
 
-      const allButtons = document.querySelectorAll(".risposte button");
+      currentQuestion++;
 
-      allButtons.forEach((btn) => {
-        btn.disabled = true;
-      });
-
-      // evidenzia corretta
-      const question = QUESTIONS[currentQuestion];
-
-      allButtons.forEach((btn) => {
-        if (btn.textContent === question.correct_answer) {
-          btn.classList.add("correct");
-        }
-      });
-
-      setTimeout(() => {
-        currentQuestion++;
-        showQuestion();
-      }, 1000);
+      showQuestion();
     }
   }, 1000);
 }
@@ -519,7 +503,9 @@ function stopTimer() {
 function showResult() {
   app.innerHTML = "";
 
-  const percentage = Math.round((correctAnswers / QUESTIONS.length) * 100);
+  const percentage = Math.round(
+    (correctAnswers / SELECTED_QUESTIONS.length) * 100,
+  );
 
   const results = document.createElement("div");
   results.classList.add("results");
