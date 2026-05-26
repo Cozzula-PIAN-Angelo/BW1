@@ -134,3 +134,54 @@ h1 {
     text-align: center;
     width: 15%
 }
+
+/* risultati */
+.results {
+    flex-direction: column;
+    position: relative;
+}
+
+.result-title {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.result-list {
+    color: white;
+    list-style-type: circle;
+    margin-bottom: 40px;
+}
+
+.result-list li {
+    margin-bottom: 10px;
+}
+
+#app .result-button {
+    display: inline-block;
+    color: red;
+    text-align: center;
+    width: 15%
+}
+
+/* circle bar */
+
+.percentage-container {
+    width: 200px;
+    height: 200px;
+
+    float: right;
+    position: absolute;
+    left: 300px;
+}
+
+.percentage-circle {
+    fill: transparent; /* Interno vuoto */
+    stroke-width: 20px; /* spessore dello stroke */
+}
+
+.percentage-text {
+    stroke-width: 2px;
+    fill: white;
+    font-size: 3rem;
+}
