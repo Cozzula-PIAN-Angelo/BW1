@@ -190,6 +190,12 @@ h1 {
     left: 300px;
 }
 
+.empty-bar-circle {
+fill: transparent;
+stroke: rgb(36, 35, 35);
+stroke-width: 20px;
+}
+
 .percentage-circle {
     fill: transparent; /* Interno vuoto */
     stroke-width: 20px; /* spessore dello stroke */
