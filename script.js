@@ -289,8 +289,6 @@ const QUESTIONS = [
   },
 ];
 
-//COSTANTE RANDOMICA
-
 let SELECTED_QUESTIONS = [];
 
 /* =========================
