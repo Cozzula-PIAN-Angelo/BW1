@@ -550,6 +550,14 @@ function showResult() {
   const percentageCircle = document.createElementNS(svgDictionary, 'circle');
   percentageCircle.classList.add('percentage-circle');
 
+  // cerchio vuoto
+  const EmptyBarCircle = document.createElementNS(svgDictionary, 'circle');
+  EmptyBarCircle.classList.add('empty-bar-circle');
+
+  EmptyBarCircle.setAttribute('cx', '100') // asse orizzontale
+  EmptyBarCircle.setAttribute('cy', '100') // asse verticale
+  EmptyBarCircle.setAttribute('r', '90') // perimetro
+
   // bisogna dichiarare le misure geometriche
   percentageCircle.setAttribute('cx', '100') // asse orizzontale
   percentageCircle.setAttribute('cy', '100') // asse verticale
@@ -566,6 +574,7 @@ function showResult() {
   percentageText.setAttribute('y', '115');
 
   percentageContainer.appendChild(percentageText);
+  percentageContainer.appendChild(EmptyBarCircle);
   percentageContainer.appendChild(percentageCircle);
 
   // riempimento della barra percentuale
@@ -583,7 +592,7 @@ function showResult() {
   const circonferenza = 565.4;
   percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
   // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
-  const offsetValue = circonferenza - (percentage / 100) + circonferenza;
+  const offsetValue = circonferenza - (percentage / 100) * circonferenza;
   percentageCircle.style.strokeDashoffset = offsetValue;
 
   const restartButton = document.createElement("button");
