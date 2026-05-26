@@ -6,6 +6,12 @@
   - Pattern: stato → render → eventi.
 */
 
+
+const app = document.querySelector("#app");
+
+/* =========================
+   DATI QUIZ
+
 /*
   Array di domande.
   Ogni question è un object con:
@@ -78,6 +84,201 @@ const QUESTIONS = [
   },
 ];
 
+
+const TOTAL_QUESTIONS = QUESTIONS.length;
+const TIMER_DURATION = 20;
+const PASS_THRESHOLD = 60;
+
+/* =========================
+   STATO GLOBALE
+
+let currentQuestion = 0;
+let correctAnswers = 0;
+let wrongAnswers = 0;
+let timerId = null;
+let timeLeft = TIMER_DURATION;
+
+/* =========================
+   WELCOME PAGE
+
+function showWelcome() {
+  app.innerHTML = "";
+
+  const welcomeTitle = document.createElement("h1");
+  welcomeTitle.textContent = "Benvenuto al tuo esame";
+
+  const quizDescription = document.createElement("p");
+  quizDescription.classList.add("quiz-description");
+
+  quizDescription.textContent =
+    "Una serie di 10 domande sul mondo dell'informatica e del web. Per ogni domanda hai 20 secondi di tempo.";
+
+  const instructionList = document.createElement("ul");
+  instructionList.classList.add("instruction-list");
+
+  const instructionLi1 = document.createElement("li");
+  instructionLi1.textContent =
+    "Ogni domanda è a tempo e può ricevere una sola risposta.";
+
+  const instructionLi2 = document.createElement("li");
+  instructionLi2.textContent =
+    "Una volta cliccata una risposta, la domanda è chiusa.";
+
+  const instructionLi3 = document.createElement("li");
+  instructionLi3.textContent =
+    "Il quiz dura circa 3 minuti.";
+
+  instructionList.appendChild(instructionLi1);
+  instructionList.appendChild(instructionLi2);
+  instructionList.appendChild(instructionLi3);
+
+  const startButton = document.createElement("button");
+  startButton.classList.add("start-button");
+
+  startButton.textContent = "INIZIA";
+
+  startButton.addEventListener("click", () => {
+    currentQuestion = 0;
+    correctAnswers = 0;
+    wrongAnswers = 0;
+
+    showQuestion();
+  });
+
+  app.appendChild(welcomeTitle);
+  app.appendChild(quizDescription);
+  app.appendChild(instructionList);
+  app.appendChild(startButton);
+}
+
+/* =========================
+   QUIZ PAGE
+
+function showQuestion() {
+  app.innerHTML = "";
+
+  // quiz finito
+  if (currentQuestion >= QUESTIONS.length) {
+    showResult();
+    return;
+  }
+
+  const question = QUESTIONS[currentQuestion];
+
+  const cardQuiz = document.createElement("div");
+  cardQuiz.classList.add("cardQuiz");
+
+  // header domanda
+  const numeroTimer = document.createElement("div");
+  numeroTimer.classList.add("numeroTimer");
+
+  const numeroDomanda = document.createElement("p");
+  numeroDomanda.textContent = `Domanda ${
+    currentQuestion + 1
+  } di ${TOTAL_QUESTIONS}`;
+
+  const timer = document.createElement("span");
+  timer.id = "timer";
+
+  numeroTimer.appendChild(numeroDomanda);
+  numeroTimer.appendChild(timer);
+
+  // domanda
+  const domanda = document.createElement("h2");
+  domanda.textContent = question.question;
+
+  // contenitore risposte
+  const risposte = document.createElement("div");
+  risposte.classList.add("risposte");
+
+  // array risposte mischiate
+  const answers = [
+    question.correct_answer,
+    ...question.incorrect_answers,
+  ];
+
+  answers.sort(() => Math.random() - 0.5);
+
+  // creazione bottoni
+  answers.forEach((answer) => {
+    const button = document.createElement("button");
+
+    button.textContent = answer;
+
+    button.addEventListener("click", () => {
+      stopTimer();
+
+      // disabilita tutti i bottoni
+      const allButtons = document.querySelectorAll(".risposte button");
+
+      allButtons.forEach((btn) => {
+        btn.disabled = true;
+      });
+
+      // risposta corretta
+      if (answer === question.correct_answer) {
+        correctAnswers++;
+        button.classList.add("correct");
+      } else {
+        wrongAnswers++;
+        button.classList.add("wrong");
+
+        // evidenzia corretta
+        allButtons.forEach((btn) => {
+          if (btn.textContent === question.correct_answer) {
+            btn.classList.add("correct");
+          }
+        });
+      }
+
+      setTimeout(() => {
+        currentQuestion++;
+        showQuestion();
+      }, 1000);
+    });
+
+    risposte.appendChild(button);
+  });
+
+  // assemblaggio
+  cardQuiz.appendChild(numeroTimer);
+  cardQuiz.appendChild(domanda);
+  cardQuiz.appendChild(risposte);
+
+  app.appendChild(cardQuiz);
+
+  startTimer();
+}
+
+/* =========================
+   TIMER
+
+function startTimer() {
+  timeLeft = TIMER_DURATION;
+
+  const timer = document.getElementById("timer");
+
+  timer.textContent = timeLeft;
+
+  timerId = setInterval(() => {
+    timeLeft--;
+
+    timer.textContent = timeLeft;
+
+    if (timeLeft <= 5) {
+      timer.style.color = "red";
+    }
+
+    if (timeLeft <= 0) {
+      stopTimer();
+
+      wrongAnswers++;
+
+      currentQuestion++;
+
+      showQuestion();
+    }
+  }, 1000);
 /* Costanti del quiz */
 const TOTAL_QUESTIONS = QUESTIONS.length;
 const PASS_THRESHOLD = 60;     // percentuale minima per "Promosso"
@@ -203,6 +404,61 @@ function stopTimer() {
   clearInterval(timerId);
 }
 
+
+function showResult() {
+  app.innerHTML = "";
+
+  const percentage = Math.round(
+    (correctAnswers / QUESTIONS.length) * 100
+  );
+
+  const results = document.createElement("div");
+  results.classList.add("results");
+
+  const resultTitle = document.createElement("h1");
+  resultTitle.textContent = "Risultato";
+
+  const verdict = document.createElement("h2");
+
+  if (percentage >= PASS_THRESHOLD) {
+    verdict.textContent = "PROMOSSO";
+    verdict.classList.add("passed");
+  } else {
+    verdict.textContent = "BOCCIATO";
+    verdict.classList.add("failed");
+  }
+
+  const correctText = document.createElement("p");
+  correctText.textContent = `Risposte corrette: ${correctAnswers}`;
+
+  const wrongText = document.createElement("p");
+  wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
+
+  const scoreText = document.createElement("p");
+  scoreText.textContent = `Punteggio finale: ${percentage}%`;
+
+  const restartButton = document.createElement("button");
+
+  restartButton.textContent = "RIPROVA";
+
+  restartButton.addEventListener("click", () => {
+    showWelcome();
+  });
+
+  results.appendChild(resultTitle);
+  results.appendChild(verdict);
+  results.appendChild(correctText);
+  results.appendChild(wrongText);
+  results.appendChild(scoreText);
+  results.appendChild(restartButton);
+
+  app.appendChild(results);
+}
+
+/* =========================
+   START
+
+showWelcome();
 /* ********Bozza Results Page */
 function renderResults() {
   const percentage = Math.round((score / QUESTIONS.length) * 100);
