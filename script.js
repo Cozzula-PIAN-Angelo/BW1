@@ -506,6 +506,9 @@ function showResult() {
   const percentage = Math.round(
     (correctAnswers / SELECTED_QUESTIONS.length) * 100,
   );
+  console.log("Corrette:", correctAnswers);
+  console.log("Sbagliate:", wrongAnswers);
+  console.log("Totale:", correctAnswers + wrongAnswers);
 
   const results = document.createElement("div");
   results.classList.add("results");
