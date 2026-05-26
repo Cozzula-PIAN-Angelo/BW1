@@ -18,74 +18,283 @@ const app = document.querySelector("#app");
 
 const QUESTIONS = [
   {
-    question: "Cosa significa l'acronimo CPU?",
-    correct_answer: "Central Processing Unit",
+    question: "In quale anno è stato fondato Netflix?",
+    correct_answer: "1997",
+    incorrect_answers: ["2001", "1999", "2005"],
+  },
+  {
+    question: "Netflix è stato fondato da Reed Hastings e Marc Randolph.",
+    correct_answer: "Vero",
+    incorrect_answers: ["Falso"],
+  },
+  {
+    question: "Qual è la serie originale Netflix più vista di sempre?",
+    correct_answer: "Squid Game",
+    incorrect_answers: ["Stranger Things", "Money Heist", "Bridgerton"],
+  },
+  {
+    question: "In quale paese è ambientata Squid Game?",
+    correct_answer: "Corea del Sud",
+    incorrect_answers: ["Giappone", "Cina", "Tailandia"],
+  },
+  {
+    question:
+      "Stranger Things è ambientata nella città di Hawkins, in quale stato americano?",
+    correct_answer: "Indiana",
+    incorrect_answers: ["Ohio", "Illinois", "Kentucky"],
+  },
+  {
+    question: "Come si chiama il personaggio principale di Stranger Things?",
+    correct_answer: "Eleven",
+    incorrect_answers: ["Max", "Nancy", "Joyce"],
+  },
+  {
+    question: "In quale anno è uscita la prima stagione di Stranger Things?",
+    correct_answer: "2016",
+    incorrect_answers: ["2014", "2018", "2017"],
+  },
+  {
+    question: "La serie Money Heist è originariamente prodotta in quale paese?",
+    correct_answer: "Spagna",
+    incorrect_answers: ["Italia", "Messico", "Argentina"],
+  },
+  {
+    question: "Come si chiama il professore in Money Heist?",
+    correct_answer: "Sergio Marquina",
     incorrect_answers: [
-      "Central Process Unit",
-      "Computer Personal Unit",
-      "Central Processor Unit",
+      "Andrés de Fonollosa",
+      "Agustín Ramos",
+      "Miguel Fernández",
     ],
   },
   {
+    question: "In quale città è ambientata la prima rapina di Money Heist?",
+    correct_answer: "Madrid",
+    incorrect_answers: ["Barcellona", "Siviglia", "Valencia"],
+  },
+  {
+    question: "Bridgerton è basato sui romanzi di quale autrice?",
+    correct_answer: "Julia Quinn",
+    incorrect_answers: ["Jane Austen", "Nora Roberts", "Jojo Moyes"],
+  },
+  {
+    question: "In quale periodo storico è ambientata Bridgerton?",
+    correct_answer: "Età Regency",
+    incorrect_answers: ["Era Vittoriana", "Belle Époque", "Rinascimento"],
+  },
+  {
+    question: "Come si chiama il narratore misterioso in Bridgerton?",
+    correct_answer: "Lady Whistledown",
+    incorrect_answers: ["Lady Danbury", "Lady Featherington", "Lady Crown"],
+  },
+  {
     question:
-      "In Java, quale keyword si usa per impedire che una variabile venga modificata?",
-    correct_answer: "final",
-    incorrect_answers: ["static", "private", "public"],
+      "The Crown racconta la storia della famiglia reale di quale paese?",
+    correct_answer: "Regno Unito",
+    incorrect_answers: ["Svezia", "Spagna", "Olanda"],
   },
   {
-    question: "Il logo di Snapchat è una campana.",
-    correct_answer: "Falso",
-    incorrect_answers: ["Vero"],
+    question: "Qual è il nome del protagonista di Narcos?",
+    correct_answer: "Pablo Escobar",
+    incorrect_answers: ["El Chapo", "Carlos Lehder", "Griselda Blanco"],
   },
   {
-    question:
-      "I puntatori sono stati introdotti in C++ e non c'erano nel linguaggio C originale.",
-    correct_answer: "Falso",
-    incorrect_answers: ["Vero"],
+    question: "In quale paese è ambientata la serie Narcos?",
+    correct_answer: "Colombia",
+    incorrect_answers: ["Messico", "Brasile", "Perù"],
   },
   {
-    question:
-      "Qual è il formato immagine più usato per i loghi nel database di Wikimedia?",
-    correct_answer: ".svg",
-    incorrect_answers: [".png", ".jpeg", ".gif"],
+    question: "La serie Dark è prodotta in quale paese?",
+    correct_answer: "Germania",
+    incorrect_answers: ["Austria", "Svizzera", "Danimarca"],
   },
   {
-    question: "Cosa significa l'acronimo CSS?",
-    correct_answer: "Cascading Style Sheets",
+    question: "Quante stagioni ha la serie Dark?",
+    correct_answer: "3",
+    incorrect_answers: ["2", "4", "5"],
+  },
+  {
+    question: "Ozark è ambientata in quale stato americano?",
+    correct_answer: "Missouri",
+    incorrect_answers: ["Tennessee", "Arkansas", "Kentucky"],
+  },
+  {
+    question: "Come si chiama il protagonista di Ozark?",
+    correct_answer: "Marty Byrde",
+    incorrect_answers: ["Frank Byrde", "Jack Byrde", "Tom Byrde"],
+  },
+  {
+    question: "The Witcher è basato su una serie di romanzi di quale autore?",
+    correct_answer: "Andrzej Sapkowski",
     incorrect_answers: [
-      "Counter Strike: Source",
-      "Corrective Style Sheets",
-      "Computer Style Sheets",
+      "J.R.R. Tolkien",
+      "George R.R. Martin",
+      "Brandon Sanderson",
     ],
   },
   {
-    question: "Qual è il nome in codice del sistema operativo Android 7.0?",
-    correct_answer: "Nougat",
-    incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
+    question: "Chi interpreta Geralt di Rivia in The Witcher?",
+    correct_answer: "Henry Cavill",
+    incorrect_answers: ["Chris Hemsworth", "Tom Hardy", "Kit Harington"],
   },
   {
-    question: "Qual era il limite originale di caratteri di un Tweet?",
-    correct_answer: "140",
-    incorrect_answers: ["120", "160", "100"],
+    question: "Emily in Paris è ambientata principalmente in quale città?",
+    correct_answer: "Parigi",
+    incorrect_answers: ["Lione", "Marsiglia", "Nizza"],
   },
   {
-    question: "Linux è stato creato come alternativa a Windows XP.",
+    question: "Lupin è una serie originale Netflix francese.",
+    correct_answer: "Vero",
+    incorrect_answers: ["Falso"],
+  },
+  {
+    question: "Come si chiama il protagonista di Lupin?",
+    correct_answer: "Assane Diop",
+    incorrect_answers: ["Arsène Lupin", "Gabriel Diop", "Omar Diop"],
+  },
+  {
+    question:
+      "Squid Game ha vinto il Golden Globe come miglior serie drammatica.",
+    correct_answer: "Vero",
+    incorrect_answers: ["Falso"],
+  },
+  {
+    question: "Quanti giochi ci sono in Squid Game?",
+    correct_answer: "6",
+    incorrect_answers: ["5", "7", "8"],
+  },
+  {
+    question: "Come si chiama il protagonista di Squid Game?",
+    correct_answer: "Seong Gi-hun",
+    incorrect_answers: ["Cho Sang-woo", "Jang Deok-su", "Oh Il-nam"],
+  },
+  {
+    question: "Wednesday è uno spin-off di quale serie?",
+    correct_answer: "La famiglia Addams",
+    incorrect_answers: ["Riverdale", "Sabrina", "Chilling Adventures"],
+  },
+  {
+    question: "Chi interpreta Wednesday Addams nella serie Netflix?",
+    correct_answer: "Jenna Ortega",
+    incorrect_answers: ["Millie Bobby Brown", "Sadie Sink", "Sophia Lillis"],
+  },
+  {
+    question: "Cobra Kai è il sequel di quale famoso film?",
+    correct_answer: "Karate Kid",
+    incorrect_answers: ["Bloodsport", "Best of the Best", "Kickboxer"],
+  },
+  {
+    question: "In quale anno è uscita la serie Squid Game?",
+    correct_answer: "2021",
+    incorrect_answers: ["2020", "2022", "2019"],
+  },
+  {
+    question:
+      "La serie You è incentrata su un protagonista che lavora in una libreria.",
+    correct_answer: "Vero",
+    incorrect_answers: ["Falso"],
+  },
+  {
+    question: "Come si chiama il protagonista della serie You?",
+    correct_answer: "Joe Goldberg",
+    incorrect_answers: ["Dan Humphrey", "Mark Sloan", "Jack Pearson"],
+  },
+  {
+    question: "Black Mirror è una serie originale Netflix.",
+    correct_answer: "Falso",
+    incorrect_answers: ["Vero"],
+  },
+  {
+    question: "Qual è il paese di origine della serie Elite?",
+    correct_answer: "Spagna",
+    incorrect_answers: ["Francia", "Italia", "Portogallo"],
+  },
+  {
+    question:
+      "La serie Mindhunter parla di agenti dell'FBI che studiano i serial killer.",
+    correct_answer: "Vero",
+    incorrect_answers: ["Falso"],
+  },
+  {
+    question: "Tiger King è una serie di genere true crime.",
+    correct_answer: "Vero",
+    incorrect_answers: ["Falso"],
+  },
+  {
+    question: "Come si chiama il protagonista di Tiger King?",
+    correct_answer: "Joe Exotic",
+    incorrect_answers: ["Carole Baskin", "Doc Antle", "Jeff Lowe"],
+  },
+  {
+    question: "La serie Peaky Blinders è ambientata in quale città?",
+    correct_answer: "Birmingham",
+    incorrect_answers: ["Londra", "Manchester", "Liverpool"],
+  },
+  {
+    question: "Peaky Blinders è una serie originale Netflix.",
     correct_answer: "Falso",
     incorrect_answers: ["Vero"],
   },
   {
     question:
-      "Quale linguaggio di programmazione condivide il nome con un'isola dell'Indonesia?",
-    correct_answer: "Java",
-    incorrect_answers: ["Python", "C", "Jakarta"],
+      "Qual è il nome della scuola frequentata dai protagonisti di Wednesday?",
+    correct_answer: "Nevermore Academy",
+    incorrect_answers: [
+      "Blackwood School",
+      "Ravencroft Institute",
+      "Shadow Hills",
+    ],
+  },
+  {
+    question: "In quale anno è uscita la prima stagione di The Crown?",
+    correct_answer: "2016",
+    incorrect_answers: ["2018", "2015", "2017"],
+  },
+  {
+    question: "La serie Anatomy of a Scandal è basata su un romanzo.",
+    correct_answer: "Vero",
+    incorrect_answers: ["Falso"],
+  },
+  {
+    question:
+      "Qual è il numero del partecipante di Seong Gi-hun in Squid Game?",
+    correct_answer: "456",
+    incorrect_answers: ["001", "067", "218"],
+  },
+  {
+    question: "La serie Suburra è una produzione originale Netflix italiana.",
+    correct_answer: "Vero",
+    incorrect_answers: ["Falso"],
+  },
+  {
+    question: "In quale città è ambientata la serie Suburra?",
+    correct_answer: "Roma",
+    incorrect_answers: ["Milano", "Napoli", "Palermo"],
+  },
+  {
+    question: "Quante stagioni ha Stranger Things?",
+    correct_answer: "4",
+    incorrect_answers: ["3", "5", "2"],
+  },
+  {
+    question: "La serie Ginny & Georgia è ambientata in quale paese?",
+    correct_answer: "USA",
+    incorrect_answers: ["Canada", "UK", "Australia"],
+  },
+  {
+    question:
+      "Come si chiama la piattaforma rivale di Netflix lanciata da Disney?",
+    correct_answer: "Disney+",
+    incorrect_answers: ["Disney Now", "Disney Play", "Disney Stream"],
   },
 ];
+
+let SELECTED_QUESTIONS = [];
 
 /* =========================
    COSTANTI
 ========================= */
 
-const TOTAL_QUESTIONS = QUESTIONS.length;
 const TIMER_DURATION = 20;
 const PASS_THRESHOLD = 60;
 
@@ -142,6 +351,8 @@ function showWelcome() {
     currentQuestion = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
+    QUESTIONS.sort(() => Math.random() - 0.5);
+    SELECTED_QUESTIONS = QUESTIONS.slice(0, 10);
 
     showQuestion();
   });
@@ -160,12 +371,12 @@ function showQuestion() {
   app.innerHTML = "";
 
   // quiz finito
-  if (currentQuestion >= QUESTIONS.length) {
+  if (currentQuestion >= SELECTED_QUESTIONS.length) {
     showResult();
     return;
   }
 
-  const question = QUESTIONS[currentQuestion];
+  const question = SELECTED_QUESTIONS[currentQuestion];
 
   const cardQuiz = document.createElement("div");
   cardQuiz.classList.add("cardQuiz");
@@ -177,7 +388,7 @@ function showQuestion() {
   const numeroDomanda = document.createElement("p");
   numeroDomanda.textContent = `Domanda ${
     currentQuestion + 1
-  } di ${TOTAL_QUESTIONS}`;
+  } di ${SELECTED_QUESTIONS.length}`;
 
   const timer = document.createElement("span");
   timer.id = "timer";
