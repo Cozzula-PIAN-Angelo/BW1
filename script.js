@@ -656,6 +656,9 @@ function showResult() {
   percentageText.setAttribute("x", "80");
   percentageText.setAttribute("y", "115");
 
+  divDelCerchio.appendChild(percentageContainer);
+  divDelCerchio.appendChild(notifica);
+
   percentageContainer.appendChild(EmptyBarCircle);
   percentageContainer.appendChild(percentageCircle);
   percentageContainer.appendChild(percentageText);
@@ -700,20 +703,20 @@ function showResult() {
   });
   //aggiunta simone
   recapButton.addEventListener("click", () => {
-  const oldRecap = document.querySelector(".recap-container");
-  if (oldRecap) {
-    oldRecap.remove();
-    recapButton.textContent = "MOSTRA RISPOSTE";
-  } else {
-    showRecap();
-    recapButton.textContent = "NASCONDI RISPOSTE";
-  }
-});
+    const oldRecap = document.querySelector(".recap-container");
+    if (oldRecap) {
+      oldRecap.remove();
+      recapButton.textContent = "MOSTRA RISPOSTE";
+    } else {
+      showRecap();
+      recapButton.textContent = "NASCONDI RISPOSTE";
+    }
+  });
 
   results.appendChild(resultTitle);
   results.appendChild(verdict);
   results.appendChild(resultList);
-  results.appendChild(percentageContainer);
+  results.appendChild(divDelCerchio);
   results.appendChild(restartButton);
   results.appendChild(recapButton);// aggiunta simone
 
@@ -759,4 +762,4 @@ function showRecap() {
     START
 ========================= */
 
-    showWelcome();
+showResult();
