@@ -91,7 +91,7 @@ body {
     margin-bottom: 10px;
     width: 100%;
     height: 50px;
-    border-radius: 4px;
+    border-radius: 8px;
     align-items: center;
     padding-left: 10px;
     background-color: rgba(54, 53, 53, 0.92);
@@ -137,6 +137,27 @@ h1 {
     margin-bottom: 10px;
 }
 
+/* ******** Stile unificato per input e tendina (select) */
+input[type="number"], select {
+    background-color: rgba(54, 53, 53, 0.92);
+    color: white;
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ******** Stile per la label del numero domande */
+label {
+    color: white;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 1.2rem;
+}
+
 #app .start-button {
     display: inline-block;
     color: red;
@@ -144,7 +165,7 @@ h1 {
     width: 17%;
     background-color: rgba(54, 53, 53, 0.92);
     height: 50px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 /* risultati */
@@ -153,6 +174,7 @@ h1 {
     color: white;
 }
 
+/* risultati */ 
 
 .results {
     display: flex;
@@ -180,36 +202,20 @@ h1 {
     display: inline-block;
     color: red;
     text-align: center;
-    width: 100%;
+    width: 17%;
     background-color: rgba(54, 53, 53, 0.92);
     height: 50px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 /* circle bar */
 
-.result-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-}
-
-.result-left {
-    display: flex;
-    flex-direction: column;
-}
-
-.result-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .percentage-container {
     width: 200px;
     height: 200px;
-    flex-shrink: 0;
+    position: absolute;
+    right: 80px;
+    top: 30%;
 }
 
 .empty-bar-circle {
