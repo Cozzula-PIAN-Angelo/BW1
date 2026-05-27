@@ -553,7 +553,7 @@ function stopTimer() {
 }
 
     /* =========================
-       RESULTS PAGE
+        RESULTS PAGE
     ========================= */
 
 function showResult() {
@@ -693,9 +693,7 @@ function showResult() {
 }
 
     /* =========================
-       START
+        START
     ========================= */
 
     showWelcome();
-
-// 8======D
