@@ -298,7 +298,7 @@ let SELECTED_QUESTIONS = [];
    COSTANTI
 ========================= */
 
-const TIMER_DURATION = 1;
+const TIMER_DURATION = 5;
 const PASS_THRESHOLD = 60;
 
 /* =========================
@@ -566,7 +566,7 @@ function showResult() {
   divDelCerchio.classList.add('circle-div');
   // div per la notifica 
   const notifica = document.createElement('div');
-  notifica.textContent = `Hai risposto correttamente a ${correctAnswers} su ${QUESTIONS.length}`;
+  notifica.textContent = `Hai risposto correttamente a ${correctAnswers} su ${correctAnswers + wrongAnswers}!`;
   notifica.classList.add('notifica');
 
 
@@ -626,11 +626,10 @@ function showResult() {
 
   // funzione della notifica
   percentageText.addEventListener('mouseover', (e) => {
-    notifica.style.opacity = '1';
-    notifica.style.visibility = 'visible';
+    notifica.classList.add('notifica-on');
   });
   percentageText.addEventListener('mouseleave', (e) => {
-    notifica.style.visibility = 'hidden';
+    notifica.classList.remove('notifica-on');
   });
 
   const restartButton = document.createElement("button");
@@ -659,6 +658,6 @@ function showResult() {
    START
 ========================= */
 
-showResult();
+showWelcome();
 
 // 8======D

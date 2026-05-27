@@ -218,6 +218,7 @@ h1 {
     fill: white;
     font-size: 3rem;
     transform: translateX(-10px);
+    cursor: default;
 }
 
 /* notifica sul cerchio */
@@ -236,9 +237,17 @@ h1 {
     position: absolute;
     font-size: 0.8rem;
     padding: 5px;
-    background-color: rgba(54, 53, 53, 0.92);
-    color: red;
+    background-color: rgba(54, 53, 53, 0.235);
+    border: 1px solid rgba(255, 0, 0, 0.650);
+    color: rgba(255, 0, 0, 0.650);
     top: -30px;
     right: -100px;
     opacity: 0;
+    transition: opacity 0.3s ease 0.3s;
+    pointer-events: none;
+}
+
+.notifica-on {
+    opacity: 1;
+    transition: opacity 0.3 ease 0.5;
 }
