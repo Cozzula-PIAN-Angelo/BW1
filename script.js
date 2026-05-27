@@ -312,6 +312,7 @@ const PASS_THRESHOLD = 60;
 let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
+let selectedAnswers = []; // aggiunta simone
 let timerId = null;
 let timeLeft = TIMER_DURATION;
 
@@ -461,6 +462,13 @@ function showQuestion() {
     button.textContent = answer;
 
     button.addEventListener("click", () => {
+      //aggiunta simone
+      selectedAnswers[currentQuestion] = {
+        question: question.question,
+        selected: answer,
+        correct: question.correct_answer,
+      };
+
       stopTimer();
 
       // disabilita tutti i bottoni
@@ -527,6 +535,12 @@ function startTimer() {
 
     if (timeLeft <= 0) {
       stopTimer();
+      //aggiunta simone
+      selectedAnswers[currentQuestion] = {
+        question: question.question,
+        selected: "Non risposta",
+        correct: question.correct_answer,
+      };
 
       wrongAnswers++;
 
@@ -604,6 +618,14 @@ function showResult() {
   // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
   const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
 
+  // creazione del div contenitore di tutto per attaccare la notifica
+  const divDelCerchio = document.createElement("div");
+  divDelCerchio.classList.add("circle-div");
+  // div per la notifica
+  const notifica = document.createElement("div");
+  notifica.textContent = `Hai risposto correttamente a ${correctAnswers} su ${correctAnswers + wrongAnswers}!`;
+  notifica.classList.add("notifica");
+
   // contenitore del cerchio
   const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
   percentageContainer.classList.add("percentage-container");
@@ -635,9 +657,12 @@ function showResult() {
   percentageText.setAttribute("x", "80");
   percentageText.setAttribute("y", "115");
 
-  percentageContainer.appendChild(percentageText);
+  divDelCerchio.appendChild(percentageContainer);
+  divDelCerchio.appendChild(notifica);
+
   percentageContainer.appendChild(EmptyBarCircle);
   percentageContainer.appendChild(percentageCircle);
+  percentageContainer.appendChild(percentageText);
 
   // riempimento della barra percentuale
   if (percentage >= 80) {
@@ -658,26 +683,82 @@ function showResult() {
   const offsetValue = circonferenza - (percentage / 100) * circonferenza;
   percentageCircle.style.strokeDashoffset = offsetValue;
 
+  // funzione della notifica
+  percentageText.addEventListener("mouseover", (e) => {
+    notifica.classList.add("notifica-on");
+  });
+  percentageText.addEventListener("mouseleave", (e) => {
+    notifica.classList.remove("notifica-on");
+  });
+
   const restartButton = document.createElement("button");
   restartButton.classList.add("result-button");
-  restartButton.textContent = "VALUTACI";
+  restartButton.textContent = "RIPROVA";
+  //aggiunta simone
+  const recapButton = document.createElement("button");
+  recapButton.classList.add("recap-button");
+  recapButton.textContent = "MOSTRA RISPOSTE";
 
   restartButton.addEventListener("click", () => {
-    showRating();
+    showWelcome();
+  });
+  //aggiunta simone
+  recapButton.addEventListener("click", () => {
+    const oldRecap = document.querySelector(".recap-container");
+    if (oldRecap) {
+      oldRecap.remove();
+      recapButton.textContent = "MOSTRA RISPOSTE";
+    } else {
+      showRecap();
+      recapButton.textContent = "NASCONDI RISPOSTE";
+    }
   });
 
   results.appendChild(resultTitle);
   results.appendChild(verdict);
   results.appendChild(resultList);
-  results.appendChild(percentageContainer);
+  results.appendChild(divDelCerchio);
   results.appendChild(restartButton);
+  results.appendChild(recapButton); // aggiunta simone
 
   app.appendChild(results);
 }
+//aggiunta simone
+function showRecap() {
+  const recapContainer = document.createElement("div");
+  recapContainer.classList.add("recap-container");
+  const recapMenu = document.createElement("div");
+  recapMenu.classList.add("recap-menu");
+  selectedAnswers.forEach((answerData, index) => {
+    const recapCard = document.createElement("div");
+    recapCard.classList.add("recap-card");
+    const questionTitle = document.createElement("h3");
+    questionTitle.textContent = `${index + 1}. ${answerData.question}`;
+    const userAnswer = document.createElement("p");
+    userAnswer.textContent = `La tua risposta: ${answerData.selected}`;
+    const correctAnswer = document.createElement("p");
+    correctAnswer.textContent = `Risposta corretta: ${answerData.correct}`;
+    if (answerData.selected === answerData.correct) {
+      recapCard.classList.add("good-card");
+      userAnswer.classList.add("good-answer");
+    } else {
+      recapCard.classList.add("bad-card");
+      userAnswer.classList.add("bad-answer");
+    }
+
+    recapCard.appendChild(questionTitle);
+    recapCard.appendChild(userAnswer);
+    recapCard.appendChild(correctAnswer);
+    recapMenu.appendChild(recapCard);
+  });
+  recapContainer.appendChild(recapMenu);
+  const results = document.querySelector(".results");
+  results.appendChild(recapContainer);
+}
 
 /* =========================
-        START
-    ========================= */
+    START
+========================= */
 
 function showRating() {
   app.innerHTML = "";
