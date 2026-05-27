@@ -91,7 +91,7 @@ body {
     margin-bottom: 10px;
     width: 100%;
     height: 50px;
-    border-radius: 8px;
+    border-radius: 4px;
     align-items: center;
     padding-left: 10px;
     background-color: rgba(54, 53, 53, 0.92);
@@ -144,10 +144,19 @@ input[type="number"], select {
     border: 1px solid red;
     padding: 10px;
     border-radius: 8px;
-    font-size: 1rem;
-    width: 100px;
+    font-size: 0.8rem;
+    width: 17%;
+    height: 50px;
     margin-bottom: 20px;
     text-align: center;
+    margin-right: 30px;
+}
+
+select:focus {
+    background-color: rgba(54, 53, 53, 0.92);
+    color: white;
+    border: 1px solid red;
+    outline: none;
 }
 
 /* ******** Stile per la label del numero domande */
@@ -165,7 +174,7 @@ label {
     width: 17%;
     background-color: rgba(54, 53, 53, 0.92);
     height: 50px;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 /* risultati */
@@ -205,7 +214,7 @@ label {
     width: 17%;
     background-color: rgba(54, 53, 53, 0.92);
     height: 50px;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 /* circle bar */
@@ -213,9 +222,9 @@ label {
 .percentage-container {
     width: 200px;
     height: 200px;
-    position: absolute;
+    position: fixed;
     right: 80px;
-    top: 30%;
+    top: 130px;
 }
 
 .empty-bar-circle {
@@ -235,7 +244,7 @@ label {
     stroke-width: 2px;
     fill: white;
     font-size: 3rem;
-    transform: translateX(-10px);
+    text-anchor: middle;
 }
 
 /* recap menu */

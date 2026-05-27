@@ -355,9 +355,6 @@ function showWelcome() {
 
   const selectCount = document.createElement("select");
   selectCount.id = "questionCount";
-  selectCount.style.marginBottom = "20px";
-  selectCount.style.padding = "5px";
-  selectCount.style.width = "100px";
 
   /* ******** Ciclo per creare le opzioni da 1 al totale delle domande */
   for (let i = 1; i <= QUESTIONS.length; i++) {
@@ -631,7 +628,7 @@ function showResult() {
   percentageText.textContent = `${percentage}%`;
 
   // coordinate geometriche del text
-  percentageText.setAttribute("x", "80");
+  percentageText.setAttribute("x", "100");
   percentageText.setAttribute("y", "115");
 
   percentageContainer.appendChild(percentageText);
