@@ -334,8 +334,8 @@ label {
     background-color: rgba(54, 53, 53, 0.235);
     border: 1px solid rgba(255, 0, 0, 0.650);
     color: rgba(255, 0, 0, 0.650);
-    top: -30px;
-    right: -100px;
+    top: -60px;
+    right: -60px;
     opacity: 0;
     transition: opacity 0.3s ease 0.3s;
     pointer-events: none;
@@ -344,4 +344,12 @@ label {
 .notifica-on {
     opacity: 1;
     transition: opacity 0.3 ease 0.5;
+}
+
+.circle-div {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    right: 80px;
+    top: 130px;
 }
