@@ -345,17 +345,52 @@ function showWelcome() {
   instructionList.appendChild(instructionLi2);
   instructionList.appendChild(instructionLi3);
 
+  /* ******** Creazione menu a tendina per scegliere il numero di domande */
+  const labelCount = document.createElement("label");
+  labelCount.textContent = "Quante domande vuoi affrontare? ";
+  labelCount.style.color = "white";
+  labelCount.style.display = "block";
+  labelCount.style.marginBottom = "10px";
+
+  const selectCount = document.createElement("select");
+  selectCount.id = "questionCount";
+  selectCount.style.marginBottom = "20px";
+  selectCount.style.padding = "5px";
+  selectCount.style.width = "150px";
+
+  /* ******** Ciclo per creare le opzioni a scaglioni di 10 */
+  for (let i = 10; i <= QUESTIONS.length; i += 10) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = i; 
+    if (i === 10) option.selected = true; // Default a 10
+    selectCount.appendChild(option);
+  }
+
+  /* ******** Opzione "All" se il totale non è multiplo di 10 */
+  if (QUESTIONS.length % 10 !== 0) {
+    const optionAll = document.createElement("option");
+    optionAll.value = QUESTIONS.length;
+    optionAll.textContent = "Hardcore (All)";
+    selectCount.appendChild(optionAll);
+  }
+
   const startButton = document.createElement("button");
   startButton.classList.add("start-button");
 
   startButton.textContent = "INIZIA";
 
   startButton.addEventListener("click", () => {
+    /* ******** Lettura del valore dal menu a tendina */
+    const chosenCount = parseInt(selectCount.value) || 10;
+    
     currentQuestion = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
     QUESTIONS.sort(() => Math.random() - 0.5);
-    SELECTED_QUESTIONS = QUESTIONS.slice(0, 10);
+    
+    /* ******** Selezione del numero di domande dinamico */
+    SELECTED_QUESTIONS = QUESTIONS.slice(0, chosenCount);
 
     showQuestion();
   });
@@ -363,6 +398,9 @@ function showWelcome() {
   app.appendChild(welcomeTitle);
   app.appendChild(quizDescription);
   app.appendChild(instructionList);
+  /* ******** Aggiunta del menu a tendina al DOM */
+  app.appendChild(labelCount);
+  app.appendChild(selectCount);
   app.appendChild(startButton);
 }
 
@@ -494,7 +532,7 @@ function startTimer() {
       });
 
       // evidenzia corretta
-      const question = QUESTIONS[currentQuestion];
+      const question = SELECTED_QUESTIONS[currentQuestion];
 
       allButtons.forEach((btn) => {
         if (btn.textContent === question.correct_answer) {
@@ -514,9 +552,9 @@ function stopTimer() {
   clearInterval(timerId);
 }
 
-/* =========================
-   RESULTS PAGE
-========================= */
+    /* =========================
+       RESULTS PAGE
+    ========================= */
 
 function showResult() {
   app.innerHTML = "";
@@ -654,10 +692,10 @@ function showResult() {
   app.appendChild(results);
 }
 
-/* =========================
-   START
-========================= */
+    /* =========================
+       START
+    ========================= */
 
-showWelcome();
+    showWelcome();
 
 // 8======D
