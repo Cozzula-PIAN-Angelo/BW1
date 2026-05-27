@@ -299,7 +299,7 @@ let answersRecap = [];
    COSTANTI
 ========================= */
 
-const TIMER_DURATION = 2;
+const TIMER_DURATION = 20;
 const PASS_THRESHOLD = 60;
 
 /* =========================
@@ -501,7 +501,7 @@ function startTimer() {
         selected: "Nessuna risposta",
         correct: SELECTED_QUESTIONS[currentQuestion].correct_answer,
       });
-      
+
       const allButtons = document.querySelectorAll(".risposte button");
 
       allButtons.forEach((btn) => {
