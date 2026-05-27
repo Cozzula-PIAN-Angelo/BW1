@@ -264,7 +264,7 @@ const QUESTIONS = [
   {
     question: "Qual'è la serie netflix preferita da Claudio?",
     correct_answer: "Rick and Morty",
-    incorrect_answers: ["One Piece", "The Office", "Cabinet of Curiosities"],
+    incorrect_answers: ["One Piece", 'The Office', 'Cabinet of Curiosities'],
   },
   {
     question: "Qual'è la serie netflix preferita da Simona?",
@@ -274,11 +274,7 @@ const QUESTIONS = [
   {
     question: "Qual'è la serie netflix preferita da Simone?",
     correct_answer: "Bojack Horsman",
-    incorrect_answers: [
-      "Strappare lungo i bordi",
-      "House of cards",
-      "La regina degli scacchi",
-    ],
+    incorrect_answers: ["Strappare lungo i bordi", "House of cards", "La regina degli scacchi"],
   },
   {
     question: "Qual'è la serie netflix preferita da Valentina?",
@@ -432,9 +428,8 @@ function showQuestion() {
   numeroTimer.classList.add("numeroTimer");
 
   const numeroDomanda = document.createElement("p");
-  numeroDomanda.textContent = `Domanda ${
-    currentQuestion + 1
-  } di ${SELECTED_QUESTIONS.length}`;
+  numeroDomanda.textContent = `Domanda ${currentQuestion + 1
+    } di ${SELECTED_QUESTIONS.length}`;
 
   const timer = document.createElement("span");
   timer.id = "timer";
@@ -570,10 +565,13 @@ function startTimer() {
 function stopTimer() {
   clearInterval(timerId);
 }
+function stopTimer() {
+  clearInterval(timerId);
+}
 
 /* =========================
-        RESULTS PAGE
-    ========================= */
+    RESULTS PAGE
+========================= */
 
 function showResult() {
   app.innerHTML = "";
@@ -619,12 +617,13 @@ function showResult() {
   const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
 
   // creazione del div contenitore di tutto per attaccare la notifica
-  const divDelCerchio = document.createElement("div");
-  divDelCerchio.classList.add("circle-div");
-  // div per la notifica
-  const notifica = document.createElement("div");
+  const divDelCerchio = document.createElement('div');
+  divDelCerchio.classList.add('circle-div');
+  // div per la notifica 
+  const notifica = document.createElement('div');
   notifica.textContent = `Hai risposto correttamente a ${correctAnswers} su ${correctAnswers + wrongAnswers}!`;
-  notifica.classList.add("notifica");
+  notifica.classList.add('notifica');
+
 
   // contenitore del cerchio
   const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
@@ -684,11 +683,11 @@ function showResult() {
   percentageCircle.style.strokeDashoffset = offsetValue;
 
   // funzione della notifica
-  percentageText.addEventListener("mouseover", (e) => {
-    notifica.classList.add("notifica-on");
+  percentageText.addEventListener('mouseover', (e) => {
+    notifica.classList.add('notifica-on');
   });
-  percentageText.addEventListener("mouseleave", (e) => {
-    notifica.classList.remove("notifica-on");
+  percentageText.addEventListener('mouseleave', (e) => {
+    notifica.classList.remove('notifica-on');
   });
 
   const restartButton = document.createElement("button");
@@ -719,7 +718,7 @@ function showResult() {
   results.appendChild(resultList);
   results.appendChild(divDelCerchio);
   results.appendChild(restartButton);
-  results.appendChild(recapButton); // aggiunta simone
+  results.appendChild(recapButton);// aggiunta simone
 
   app.appendChild(results);
 }
@@ -733,11 +732,14 @@ function showRecap() {
     const recapCard = document.createElement("div");
     recapCard.classList.add("recap-card");
     const questionTitle = document.createElement("h3");
-    questionTitle.textContent = `${index + 1}. ${answerData.question}`;
+    questionTitle.textContent =
+      `${index + 1}. ${answerData.question}`;
     const userAnswer = document.createElement("p");
-    userAnswer.textContent = `La tua risposta: ${answerData.selected}`;
+    userAnswer.textContent =
+      `La tua risposta: ${answerData.selected}`;
     const correctAnswer = document.createElement("p");
-    correctAnswer.textContent = `Risposta corretta: ${answerData.correct}`;
+    correctAnswer.textContent =
+      `Risposta corretta: ${answerData.correct}`;
     if (answerData.selected === answerData.correct) {
       recapCard.classList.add("good-card");
       userAnswer.classList.add("good-answer");
@@ -759,96 +761,5 @@ function showRecap() {
 /* =========================
     START
 ========================= */
-
-function showRating() {
-  app.innerHTML = "";
-
-  let selectedRating = 0;
-
-  const ratingDiv = document.createElement("div");
-  ratingDiv.classList.add("rating");
-
-  const ratingTitle = document.createElement("h1");
-  ratingTitle.textContent = "Valuta il nostro quiz";
-
-  const ratingSubtitle = document.createElement("p");
-  ratingSubtitle.textContent = "Quanto valuteresti il nostro quiz?";
-
-  const starsContainer = document.createElement("div");
-  starsContainer.classList.add("stars-container");
-
-  for (let i = 1; i <= 10; i++) {
-    const star = document.createElement("span");
-    star.classList.add("star");
-    star.textContent = "★";
-    star.dataset.value = i;
-
-    star.addEventListener("mouseover", () => {
-      highlightStars(i);
-    });
-    star.addEventListener("mouseout", () => {
-      highlightStars(selectedRating);
-    });
-    star.addEventListener("click", () => {
-      selectedRating = i;
-      highlightStars(selectedRating);
-    });
-
-    starsContainer.appendChild(star);
-  }
-
-  function highlightStars(count) {
-    const allStars = starsContainer.querySelectorAll(".star");
-    allStars.forEach((s) => {
-      s.classList.toggle("active", Number(s.dataset.value) <= count);
-    });
-  }
-
-  const confirmBtn = document.createElement("button");
-  confirmBtn.classList.add("confirm-button");
-  confirmBtn.textContent = "Invia";
-
-  confirmBtn.addEventListener("click", () => {
-    if (selectedRating === 0) {
-      alert("Seleziona almeno una stella!");
-      return;
-    }
-    showThankYou(selectedRating);
-  });
-
-  ratingDiv.appendChild(ratingTitle);
-  ratingDiv.appendChild(ratingSubtitle);
-  ratingDiv.appendChild(starsContainer);
-  ratingDiv.appendChild(confirmBtn);
-  app.appendChild(ratingDiv);
-}
-
-function showThankYou(rating) {
-  app.innerHTML = "";
-
-  const thanksDiv = document.createElement("div");
-  thanksDiv.classList.add("thanksDiv");
-
-  const thanksTitle = document.createElement("h2");
-  thanksTitle.textContent = "Grazie!";
-
-  const thanksMsg = document.createElement("p");
-  thanksMsg.classList.add("thanks-message");
-  thanksMsg.textContent = `Hai valutato ${rating} su 10 stelle`;
-
-  const backBtn = document.createElement("button");
-  backBtn.classList.add("backBtn");
-  backBtn.textContent = "Rigioca";
-
-  backBtn.addEventListener("click", () => {
-    showWelcome();
-  });
-
-  thanksDiv.appendChild(thanksTitle);
-  thanksDiv.appendChild(thanksMsg);
-  thanksDiv.appendChild(backBtn);
-
-  app.appendChild(thanksDiv);
-}
 
 showWelcome();
