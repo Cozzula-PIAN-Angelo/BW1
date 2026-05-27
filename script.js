@@ -696,7 +696,7 @@ function showResult() {
 
   const restartButton = document.createElement("button");
   restartButton.classList.add("result-button");
-  restartButton.textContent = "RIPROVA";
+  restartButton.textContent = "VALUTACI";
   //aggiunta simone
   const recapButton = document.createElement("button");
   recapButton.classList.add("recap-button");
