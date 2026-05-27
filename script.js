@@ -293,12 +293,13 @@ const QUESTIONS = [
 ];
 
 let SELECTED_QUESTIONS = [];
+let answersRecap = [];
 
 /* =========================
    COSTANTI
 ========================= */
 
-const TIMER_DURATION = 20;
+const TIMER_DURATION = 2;
 const PASS_THRESHOLD = 60;
 
 /* =========================
@@ -354,6 +355,8 @@ function showWelcome() {
     currentQuestion = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
+    let answersRecap = [];
+
     QUESTIONS.sort(() => Math.random() - 0.5);
     SELECTED_QUESTIONS = QUESTIONS.slice(0, 10);
 
@@ -389,9 +392,8 @@ function showQuestion() {
   numeroTimer.classList.add("numeroTimer");
 
   const numeroDomanda = document.createElement("p");
-  numeroDomanda.textContent = `Domanda ${
-    currentQuestion + 1
-  } di ${SELECTED_QUESTIONS.length}`;
+  numeroDomanda.textContent = `Domanda ${currentQuestion + 1
+    } di ${SELECTED_QUESTIONS.length}`;
 
   const timer = document.createElement("span");
   timer.id = "timer";
@@ -428,7 +430,13 @@ function showQuestion() {
         btn.disabled = true;
       });
 
-      // risposta corretta
+      // risposta corretta e salvataggio risposte date
+      answersRecap.push({
+        question: question.question,
+        selected: answer,
+        correct: question.correct_answer,
+      });
+
       if (answer === question.correct_answer) {
         correctAnswers++;
         button.classList.add("correct");
@@ -488,9 +496,27 @@ function startTimer() {
 
       wrongAnswers++;
 
-      currentQuestion++;
+      answersRecap.push({
+        question: SELECTED_QUESTIONS[currentQuestion].question,
+        selected: "Nessuna risposta",
+        correct: SELECTED_QUESTIONS[currentQuestion].correct_answer,
+      });
+      
+      const allButtons = document.querySelectorAll(".risposte button");
 
-      showQuestion();
+      allButtons.forEach((btn) => {
+        btn.disabled = true;
+        if (
+          btn.textContent ===
+          SELECTED_QUESTIONS[currentQuestion].correct_answer
+        ) {
+          btn.classList.add("correct");
+        }
+      });
+      setTimeout(() => {
+        currentQuestion++;
+        showQuestion();
+      }, 1000);
     }
   }, 1000);
 }
@@ -526,6 +552,7 @@ function showResult() {
     verdict.textContent = "BOCCIATO";
     verdict.classList.add("failed");
   }
+
 
   const resultList = document.createElement("ul");
   resultList.classList.add("result-list");
@@ -607,13 +634,68 @@ function showResult() {
   restartButton.addEventListener("click", () => {
     showWelcome();
   });
+  //menu risposte
+  const recapContainer = document.createElement("div");
+  recapContainer.classList.add("recap-container");
+  const recapButton = document.createElement("button");
+  recapButton.classList.add("recap-button");
+  recapButton.textContent = "MOSTRA RISPOSTE";
+  const recapMenu = document.createElement("div");
+  recapMenu.classList.add("recap-menu");
+  recapMenu.style.display = "none";
+  answersRecap.forEach((item) => {
+    const recapCard = document.createElement("div");
+    recapCard.classList.add("recap-card");
+    const questionText = document.createElement("h3");
+    questionText.textContent = item.question;
+    const selectedText = document.createElement("p");
+    const correctText = document.createElement("p");
+    selectedText.textContent = `La tua risposta: ${item.selected}`;
+    correctText.textContent = `Risposta corretta: ${item.correct}`;
+    //colore bordo delle risposte
+    if (item.selected === item.correct) {
+      selectedText.classList.add("good-answer");
+      recapCard.classList.add("good-card");
+    } else {
+      selectedText.classList.add("bad-answer");
+      recapCard.classList.add("bad-card");
+    };
 
-  results.appendChild(resultTitle);
-  results.appendChild(verdict);
-  results.appendChild(resultList);
-  results.appendChild(percentageContainer);
-  results.appendChild(restartButton);
+    recapCard.appendChild(questionText);
+    recapCard.appendChild(selectedText);
+    recapCard.appendChild(correctText);
+    recapMenu.appendChild(recapCard);
+  });
 
+  recapButton.addEventListener("click", () => {
+    if (recapMenu.style.display === "none") {
+      recapMenu.style.display = "flex";
+      recapButton.textContent = "NASCONDI RISPOSTE";
+    } else {
+      recapMenu.style.display = "none";
+      recapButton.textContent = "MOSTRA RISPOSTE";
+    }
+  });
+
+  recapContainer.appendChild(recapButton);
+  recapContainer.appendChild(recapMenu);
+
+  const resultTop = document.createElement("div");
+  resultTop.classList.add("result-top");
+  const resultLeft = document.createElement("div");
+  resultLeft.classList.add("result-left");
+  const resultRight = document.createElement("div");
+  resultRight.classList.add("result-right");
+
+  resultLeft.appendChild(resultTitle);
+  resultLeft.appendChild(verdict);
+  resultLeft.appendChild(resultList);
+  resultLeft.appendChild(restartButton);
+  resultRight.appendChild(percentageContainer);
+  resultTop.appendChild(resultLeft);
+  resultTop.appendChild(resultRight);
+  results.appendChild(resultTop);
+  results.appendChild(recapContainer);
   app.appendChild(results);
 }
 
