@@ -356,15 +356,23 @@ function showWelcome() {
   selectCount.id = "questionCount";
   selectCount.style.marginBottom = "20px";
   selectCount.style.padding = "5px";
-  selectCount.style.width = "100px";
+  selectCount.style.width = "150px";
 
-  /* ******** Ciclo per creare le opzioni da 1 al totale delle domande */
-  for (let i = 1; i <= QUESTIONS.length; i++) {
+  /* ******** Ciclo per creare le opzioni a scaglioni di 10 */
+  for (let i = 10; i <= QUESTIONS.length; i += 10) {
     const option = document.createElement("option");
     option.value = i;
-    option.textContent = i;
+    option.textContent = i; 
     if (i === 10) option.selected = true; // Default a 10
     selectCount.appendChild(option);
+  }
+
+  /* ******** Opzione "All" se il totale non è multiplo di 10 */
+  if (QUESTIONS.length % 10 !== 0) {
+    const optionAll = document.createElement("option");
+    optionAll.value = QUESTIONS.length;
+    optionAll.textContent = "Hardcore (All)";
+    selectCount.appendChild(optionAll);
   }
 
   const startButton = document.createElement("button");
@@ -667,5 +675,3 @@ function startTimer() {
     ========================= */
 
     showWelcome();
-
-// 8======D
