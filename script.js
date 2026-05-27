@@ -371,7 +371,7 @@ function showWelcome() {
   if (QUESTIONS.length % 10 !== 0) {
     const optionAll = document.createElement("option");
     optionAll.value = QUESTIONS.length;
-    optionAll.textContent = "All";
+    optionAll.textContent = "Hardcore (All)";
     selectCount.appendChild(optionAll);
   }
 
