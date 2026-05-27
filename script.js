@@ -705,4 +705,4 @@ function showResult() {
 
 showWelcome();
 
-// 8======D
+// 8========D
