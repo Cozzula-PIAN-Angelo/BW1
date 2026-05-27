@@ -223,9 +223,12 @@ label {
 .percentage-container {
     width: 200px;
     height: 200px;
-    position: fixed;
-    right: 80px;
-    top: 130px;
+}
+
+.empty-bar-circle {
+    fill: transparent;
+    stroke: rgb(36, 35, 35);
+    stroke-width: 20px;
 }
 
 .empty-bar-circle {
@@ -308,4 +311,37 @@ label {
 
 .bad-card {
     border: 1px solid red;
+    cursor: default;
+}
+
+/* notifica sul cerchio */
+.circle-div {
+    /* ancora di posizione per la notifica */
+    position: relative;
+    display: inline-block;
+    position: absolute;
+    right: 80px;
+    top: 30%;
+    cursor: default;
+}
+
+.notifica {
+    width: 60%;
+    border-radius: 3px;
+    position: absolute;
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(54, 53, 53, 0.235);
+    border: 1px solid rgba(255, 0, 0, 0.650);
+    color: rgba(255, 0, 0, 0.650);
+    top: -30px;
+    right: -100px;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.3s;
+    pointer-events: none;
+}
+
+.notifica-on {
+    opacity: 1;
+    transition: opacity 0.3 ease 0.5;
 }

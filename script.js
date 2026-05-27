@@ -565,6 +565,9 @@ function startTimer() {
 function stopTimer() {
   clearInterval(timerId);
 }
+function stopTimer() {
+  clearInterval(timerId);
+}
 
 /* =========================
     RESULTS PAGE
@@ -613,6 +616,15 @@ function showResult() {
   // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
   const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
 
+  // creazione del div contenitore di tutto per attaccare la notifica
+  const divDelCerchio = document.createElement('div');
+  divDelCerchio.classList.add('circle-div');
+  // div per la notifica 
+  const notifica = document.createElement('div');
+  notifica.textContent = `Hai risposto correttamente a ${correctAnswers} su ${correctAnswers + wrongAnswers}!`;
+  notifica.classList.add('notifica');
+
+
   // contenitore del cerchio
   const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
   percentageContainer.classList.add("percentage-container");
@@ -644,9 +656,12 @@ function showResult() {
   percentageText.setAttribute("x", "80");
   percentageText.setAttribute("y", "115");
 
-  percentageContainer.appendChild(percentageText);
+  divDelCerchio.appendChild(percentageContainer);
+  divDelCerchio.appendChild(notifica);
+
   percentageContainer.appendChild(EmptyBarCircle);
   percentageContainer.appendChild(percentageCircle);
+  percentageContainer.appendChild(percentageText);
 
   // riempimento della barra percentuale
   if (percentage >= 80) {
@@ -667,6 +682,14 @@ function showResult() {
   const offsetValue = circonferenza - (percentage / 100) * circonferenza;
   percentageCircle.style.strokeDashoffset = offsetValue;
 
+  // funzione della notifica
+  percentageText.addEventListener('mouseover', (e) => {
+    notifica.classList.add('notifica-on');
+  });
+  percentageText.addEventListener('mouseleave', (e) => {
+    notifica.classList.remove('notifica-on');
+  });
+
   const restartButton = document.createElement("button");
   restartButton.classList.add("result-button");
   restartButton.textContent = "RIPROVA";
@@ -680,20 +703,20 @@ function showResult() {
   });
   //aggiunta simone
   recapButton.addEventListener("click", () => {
-  const oldRecap = document.querySelector(".recap-container");
-  if (oldRecap) {
-    oldRecap.remove();
-    recapButton.textContent = "MOSTRA RISPOSTE";
-  } else {
-    showRecap();
-    recapButton.textContent = "NASCONDI RISPOSTE";
-  }
-});
+    const oldRecap = document.querySelector(".recap-container");
+    if (oldRecap) {
+      oldRecap.remove();
+      recapButton.textContent = "MOSTRA RISPOSTE";
+    } else {
+      showRecap();
+      recapButton.textContent = "NASCONDI RISPOSTE";
+    }
+  });
 
   results.appendChild(resultTitle);
   results.appendChild(verdict);
   results.appendChild(resultList);
-  results.appendChild(percentageContainer);
+  results.appendChild(divDelCerchio);
   results.appendChild(restartButton);
   results.appendChild(recapButton);// aggiunta simone
 
