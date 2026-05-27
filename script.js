@@ -660,10 +660,10 @@ function showResult() {
 
   const restartButton = document.createElement("button");
   restartButton.classList.add("result-button");
-  restartButton.textContent = "RIPROVA";
+  restartButton.textContent = "VALUTACI";
 
   restartButton.addEventListener("click", () => {
-    showWelcome();
+    showRating();
   });
 
   results.appendChild(resultTitle);
@@ -688,9 +688,9 @@ function showRating() {
   ratingDiv.classList.add("rating");
 
   const ratingTitle = document.createElement("h1");
-  ratingDiv.textContent = "Valuta il nostro quiz";
+  ratingTitle.textContent = "Valuta il nostro quiz";
 
-  const ratingSubtitle = document.createElement("P");
+  const ratingSubtitle = document.createElement("p");
   ratingSubtitle.textContent = "Quanto valuteresti il nostro quiz?";
 
   const starsContainer = document.createElement("div");
@@ -701,6 +701,7 @@ function showRating() {
     star.classList.add("star");
     star.textContent = "★";
     star.dataset.value = i;
+
     star.addEventListener("mouseover", () => {
       highlightStars(i);
     });
@@ -708,15 +709,65 @@ function showRating() {
       highlightStars(selectedRating);
     });
     star.addEventListener("click", () => {
+      selectedRating = i;
       highlightStars(selectedRating);
     });
 
     starsContainer.appendChild(star);
   }
 
+  function highlightStars(count) {
+    const allStars = starsContainer.querySelectorAll(".star");
+    allStars.forEach((s) => {
+      s.classList.toggle("active", Number(s.dataset.value) <= count);
+    });
+  }
+
+  const confirmBtn = document.createElement("button");
+  confirmBtn.classList.add("confirm-button");
+  confirmBtn.textContent = "Invia";
+
+  confirmBtn.addEventListener("click", () => {
+    if (selectedRating === 0) {
+      alert("Seleziona almeno una stella!");
+      return;
+    }
+    showThankYou(selectedRating);
+  });
+
   ratingDiv.appendChild(ratingTitle);
   ratingDiv.appendChild(ratingSubtitle);
   ratingDiv.appendChild(starsContainer);
+  ratingDiv.appendChild(confirmBtn);
+  app.appendChild(ratingDiv);
+}
+
+function showThankYou(rating) {
+  app.innerHTML = "";
+
+  const thanksDiv = document.createElement("div");
+  thanksDiv.classList.add("thanksDiv");
+
+  const thanksTitle = document.createElement("h2");
+  thanksTitle.textContent = "Grazie!";
+
+  const thanksMsg = document.createElement("p");
+  thanksMsg.classList.add("thanks-message");
+  thanksMsg.textContent = `Hai valutato ${rating} su 10 stelle`;
+
+  const backBtn = document.createElement("button");
+  backBtn.classList.add("backBtn");
+  backBtn.textContent = "Rigioca";
+
+  backBtn.addEventListener("click", () => {
+    showWelcome();
+  });
+
+  thanksDiv.appendChild(thanksTitle);
+  thanksDiv.appendChild(thanksMsg);
+  thanksDiv.appendChild(backBtn);
+
+  app.appendChild(thanksDiv);
 }
 
 showWelcome();
