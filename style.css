@@ -153,7 +153,7 @@ h1 {
     color: white;
 }
 
-/* risultati */ 
+/* risultati */
 
 .results {
     display: flex;
@@ -192,9 +192,6 @@ h1 {
 .percentage-container {
     width: 200px;
     height: 200px;
-    position: absolute;
-    right: 80px;
-    top: 30%;
 }
 
 .empty-bar-circle {
@@ -204,9 +201,9 @@ h1 {
 }
 
 .empty-bar-circle {
-fill: transparent;
-stroke: rgb(36, 35, 35);
-stroke-width: 20px;
+    fill: transparent;
+    stroke: rgb(36, 35, 35);
+    stroke-width: 20px;
 }
 
 .percentage-circle {
@@ -221,4 +218,27 @@ stroke-width: 20px;
     fill: white;
     font-size: 3rem;
     transform: translateX(-10px);
+}
+
+/* notifica sul cerchio */
+.circle-div {
+    /* ancora di posizione per la notifica */
+    position: relative;
+    display: inline-block;
+    position: absolute;
+    right: 80px;
+    top: 30%;
+}
+
+.notifica {
+    width: 60%;
+    border-radius: 3px;
+    position: absolute;
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(54, 53, 53, 0.92);
+    color: red;
+    top: -30px;
+    right: -100px;
+    opacity: 0;
 }
