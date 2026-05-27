@@ -262,30 +262,33 @@ const QUESTIONS = [
     incorrect_answers: ["001", "067", "218"],
   },
   {
-    question: "La serie Suburra è una produzione originale Netflix italiana.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
+    question: "Qual'è la serie netflix preferita da Claudio?",
+    correct_answer: "Rick and Morty",
+    incorrect_answers: ["One Piece", 'The Office', 'Cabinet of Curiosities'],
   },
   {
-    question: "In quale città è ambientata la serie Suburra?",
-    correct_answer: "Roma",
-    incorrect_answers: ["Milano", "Napoli", "Palermo"],
+    question: "Qual'è la serie netflix preferita da Simona?",
+    correct_answer: "Mouse",
+    incorrect_answers: ["Vincenzo", "Kingdom", "Alice in Borderland"],
   },
   {
-    question: "Quante stagioni ha Stranger Things?",
-    correct_answer: "4",
-    incorrect_answers: ["3", "5", "2"],
+    question: "Qual'è la serie netflix preferita da Simone?",
+    correct_answer: "Bojack Horsman",
+    incorrect_answers: ["Strappare lungo i bordi", "House of cards", "La regina degli scacchi"],
   },
   {
-    question: "La serie Ginny & Georgia è ambientata in quale paese?",
-    correct_answer: "USA",
-    incorrect_answers: ["Canada", "UK", "Australia"],
+    question: "Qual'è la serie netflix preferita da Valentina?",
+    correct_answer: "Formula 1 - Drive to survive",
+    incorrect_answers: ["Squid Game", "Black Mirror", "La casa di carta"],
   },
   {
-    question:
-      "Come si chiama la piattaforma rivale di Netflix lanciata da Disney?",
-    correct_answer: "Disney+",
-    incorrect_answers: ["Disney Now", "Disney Play", "Disney Stream"],
+    question: "Qual'è la serie Netflix preferita da Angelo?",
+    correct_answer: "Arcane",
+    incorrect_answers: [
+      "bojack horseman",
+      "Castlevania",
+      "Love,Death & robots",
+    ],
   },
 ];
 
@@ -295,7 +298,7 @@ let SELECTED_QUESTIONS = [];
    COSTANTI
 ========================= */
 
-const TIMER_DURATION = 20;
+const TIMER_DURATION = 5;
 const PASS_THRESHOLD = 60;
 
 /* =========================
@@ -507,63 +510,70 @@ function startTimer() {
   }, 1000);
 }
 
-function stopTimer() {
-  clearInterval(timerId);
-}
+    function stopTimer() {
+      clearInterval(timerId);
+    }
 
-/* =========================
-   RESULTS PAGE
-========================= */
+    /* =========================
+       RESULTS PAGE
+    ========================= */
 
-function showResult() {
-  app.innerHTML = "";
+    function showResult() {
+      app.innerHTML = "";
 
+<<<<<<< HEAD
   const percentage = Math.round((correctAnswers / SELECTED_QUESTIONS.length) * 100);
+=======
+      const percentage = Math.round(
+        (correctAnswers / SELECTED_QUESTIONS.length) * 100,
+      );
+>>>>>>> main
 
-  const results = document.createElement("div");
-  results.classList.add("results");
+      const results = document.createElement("div");
+      results.classList.add("results");
 
-  const resultTitle = document.createElement("h1");
-  resultTitle.classList.add('result-title');
-  resultTitle.textContent = "Risultato";
+      const resultTitle = document.createElement("h1");
+      resultTitle.classList.add("result-title");
+      resultTitle.textContent = "Risultato";
 
-  const verdict = document.createElement("h2");
+      const verdict = document.createElement("h2");
 
-  if (percentage >= PASS_THRESHOLD) {
-    verdict.textContent = "PROMOSSO";
-    verdict.classList.add("passed");
-  } else {
-    verdict.textContent = "BOCCIATO";
-    verdict.classList.add("failed");
-  }
+      if (percentage >= PASS_THRESHOLD) {
+        verdict.textContent = "PROMOSSO";
+        verdict.classList.add("passed");
+      } else {
+        verdict.textContent = "BOCCIATO";
+        verdict.classList.add("failed");
+      }
 
-  const resultList = document.createElement('ul');
-  resultList.classList.add('result-list');
+      const resultList = document.createElement("ul");
+      resultList.classList.add("result-list");
 
-  const correctText = document.createElement("li");
-  correctText.textContent = `Risposte corrette: ${correctAnswers}`;
+      const correctText = document.createElement("li");
+      correctText.textContent = `Risposte corrette: ${correctAnswers}`;
 
-  const wrongText = document.createElement("li");
-  wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
+      const wrongText = document.createElement("li");
+      wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
 
-  const scoreText = document.createElement("li");
-  scoreText.textContent = `Punteggio finale: ${percentage}%`;
+      const scoreText = document.createElement("li");
+      scoreText.textContent = `Punteggio finale: ${percentage}%`;
 
-  resultList.appendChild(correctText);
-  resultList.appendChild(wrongText);
-  resultList.appendChild(scoreText);
+      resultList.appendChild(correctText);
+      resultList.appendChild(wrongText);
+      resultList.appendChild(scoreText);
 
-  // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
-  const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
+      // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
+      const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
 
-  // contenitore del cerchio
-  const percentageContainer = document.createElementNS(svgDictionary, 'svg'); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
-  percentageContainer.classList.add('percentage-container');
+      // contenitore del cerchio
+      const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
+      percentageContainer.classList.add("percentage-container");
 
-  // cerchio 
-  const percentageCircle = document.createElementNS(svgDictionary, 'circle');
-  percentageCircle.classList.add('percentage-circle');
+      // cerchio
+      const percentageCircle = document.createElementNS(svgDictionary, "circle");
+      percentageCircle.classList.add("percentage-circle");
 
+<<<<<<< HEAD
   // cerchio vuoto
   const EmptyBarCircle = document.createElementNS(svgDictionary, 'circle');
   EmptyBarCircle.classList.add('empty-bar-circle');
@@ -577,46 +587,92 @@ function showResult() {
   percentageCircle.setAttribute('cy', '100') // asse verticale
   percentageCircle.setAttribute('r', '90') // perimetro
   // remind: area del cerchio: C = 2 * pi * r. - 2 * 3.141259 * 90 = 565.4
+=======
+      // cerchio vuoto
+      const EmptyBarCircle = document.createElementNS(svgDictionary, "circle");
+      EmptyBarCircle.classList.add("empty-bar-circle");
+>>>>>>> main
 
-  // scritta nel cerchio
-  const percentageText = document.createElementNS(svgDictionary, 'text');
-  percentageText.classList.add('percentage-text');
-  percentageText.textContent = `${percentage}%`;
+      EmptyBarCircle.setAttribute("cx", "100"); // asse orizzontale
+      EmptyBarCircle.setAttribute("cy", "100"); // asse verticale
+      EmptyBarCircle.setAttribute("r", "90"); // perimetro
 
-  // coordinate geometriche del text
-  percentageText.setAttribute('x', '80');
-  percentageText.setAttribute('y', '115');
+      // bisogna dichiarare le misure geometriche
+      percentageCircle.setAttribute("cx", "100"); // asse orizzontale
+      percentageCircle.setAttribute("cy", "100"); // asse verticale
+      percentageCircle.setAttribute("r", "90"); // perimetro
+      // remind: area del cerchio: C = 2 * pi * r. - 2 * 3.141259 * 90 = 565.4
 
+<<<<<<< HEAD
   percentageContainer.appendChild(percentageText);
   percentageContainer.appendChild(EmptyBarCircle);
   percentageContainer.appendChild(percentageCircle);
+=======
+      // scritta nel cerchio
+      const percentageText = document.createElementNS(svgDictionary, "text");
+      percentageText.classList.add("percentage-text");
+      percentageText.textContent = `${percentage}%`;
+>>>>>>> main
 
-  // riempimento della barra percentuale
-  if (percentage >= 80) { // definisco ciclo if/ else if per cambiare il colore a seconda della percnetuale
-    percentageCircle.style.stroke = 'lightgreen';
-    percentageText.style.stroke = 'lightgreen';
-  } else if (percentage >= 60 && percentage <= 79) {
-    percentageCircle.style.stroke = 'yellow';
-    percentageText.style.stroke = 'yellow';
-  } else {
-    percentageCircle.style.stroke = 'red';
-    percentageText.style.stroke = 'red';
-  };
+      // coordinate geometriche del text
+      percentageText.setAttribute("x", "80");
+      percentageText.setAttribute("y", "115");
 
+<<<<<<< HEAD
   const circonferenza = 565.4;
   percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
   // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
   const offsetValue = circonferenza - (percentage / 100) * circonferenza;
   percentageCircle.style.strokeDashoffset = offsetValue;
+=======
+      percentageContainer.appendChild(percentageText);
+      percentageContainer.appendChild(EmptyBarCircle);
+      percentageContainer.appendChild(percentageCircle);
+>>>>>>> main
 
-  const restartButton = document.createElement("button");
-  restartButton.classList.add('result-button');
-  restartButton.textContent = "RIPROVA";
+      // riempimento della barra percentuale
+      if (percentage >= 80) {
+        // definisco ciclo if/ else if per cambiare il colore a seconda della percnetuale
+        percentageCircle.style.stroke = "lightgreen";
+        percentageText.style.stroke = "lightgreen";
+      } else if (percentage >= 60 && percentage <= 79) {
+        percentageCircle.style.stroke = "yellow";
+        percentageText.style.stroke = "yellow";
+      } else {
+        percentageCircle.style.stroke = "red";
+        percentageText.style.stroke = "red";
+      }
 
-  restartButton.addEventListener("click", () => {
+      const circonferenza = 565.4;
+      percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
+      // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
+      const offsetValue = circonferenza - (percentage / 100) * circonferenza;
+      percentageCircle.style.strokeDashoffset = offsetValue;
+
+      const restartButton = document.createElement("button");
+      restartButton.classList.add("result-button");
+      restartButton.textContent = "RIPROVA";
+
+      restartButton.addEventListener("click", () => {
+        showWelcome();
+      });
+
+      results.appendChild(resultTitle);
+      results.appendChild(verdict);
+      results.appendChild(resultList);
+      results.appendChild(percentageContainer);
+      results.appendChild(restartButton);
+
+      app.appendChild(results);
+    }
+
+    /* =========================
+       START
+    ========================= */
+
     showWelcome();
-  });
 
+<<<<<<< HEAD
   results.appendChild(resultTitle);
   results.appendChild(verdict);
   results.appendChild(resultList);
@@ -631,3 +687,6 @@ function showResult() {
 ========================= */
 
 showWelcome();
+=======
+// 8======D
+>>>>>>> main
