@@ -293,10 +293,11 @@ const QUESTIONS = [
 ];
 
 let SELECTED_QUESTIONS = [];
-let answersRecap = [];
 
 /* =========================
    COSTANTI
+========================= */
+
 const TIMER_DURATION = 5;
 const PASS_THRESHOLD = 60;
 
@@ -353,12 +354,15 @@ function showWelcome() {
 
   const selectCount = document.createElement("select");
   selectCount.id = "questionCount";
+  selectCount.style.marginBottom = "20px";
+  selectCount.style.padding = "5px";
+  selectCount.style.width = "150px";
 
-  /* ******** Ciclo per creare le opzioni da 1 al totale delle domande */
-  for (let i = 1; i <= QUESTIONS.length; i++) {
+  /* ******** Ciclo per creare le opzioni a scaglioni di 10 */
+  for (let i = 10; i <= QUESTIONS.length; i += 10) {
     const option = document.createElement("option");
     option.value = i;
-    option.textContent = i;
+    option.textContent = i; 
     if (i === 10) option.selected = true; // Default a 10
     selectCount.appendChild(option);
   }
@@ -379,13 +383,12 @@ function showWelcome() {
   startButton.addEventListener("click", () => {
     /* ******** Lettura del valore dal menu a tendina */
     const chosenCount = parseInt(selectCount.value) || 10;
-
+    
     currentQuestion = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
-    answersRecap = [];
     QUESTIONS.sort(() => Math.random() - 0.5);
-
+    
     /* ******** Selezione del numero di domande dinamico */
     SELECTED_QUESTIONS = QUESTIONS.slice(0, chosenCount);
 
@@ -463,11 +466,6 @@ function showQuestion() {
       });
 
       // risposta corretta
-      answersRecap.push({
-        question: question.question,
-        selected: answer,
-        correct: question.correct_answer,
-      });
       if (answer === question.correct_answer) {
         correctAnswers++;
         button.classList.add("correct");
@@ -526,11 +524,6 @@ function startTimer() {
       stopTimer();
 
       wrongAnswers++;
-      answersRecap.push({
-        question: SELECTED_QUESTIONS[currentQuestion].question,
-        selected: "Nessuna risposta",
-        correct: SELECTED_QUESTIONS[currentQuestion].correct_answer,
-      });
 
       const allButtons = document.querySelectorAll(".risposte button");
 
@@ -606,9 +599,6 @@ function startTimer() {
       // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
       const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
 
-  const percentage = Math.round(
-    (correctAnswers / SELECTED_QUESTIONS.length) * 100,
-  );
       // contenitore del cerchio
       const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
       percentageContainer.classList.add("percentage-container");
@@ -617,9 +607,6 @@ function startTimer() {
       const percentageCircle = document.createElementNS(svgDictionary, "circle");
       percentageCircle.classList.add("percentage-circle");
 
-  const resultTitle = document.createElement("h1");
-  resultTitle.classList.add("result-title");
-  resultTitle.textContent = "Risultato";
       // cerchio vuoto
       const EmptyBarCircle = document.createElementNS(svgDictionary, "circle");
       EmptyBarCircle.classList.add("empty-bar-circle");
@@ -634,17 +621,13 @@ function startTimer() {
       percentageCircle.setAttribute("r", "90"); // perimetro
       // remind: area del cerchio: C = 2 * pi * r. - 2 * 3.141259 * 90 = 565.4
 
-
-showWelcome();
-
-// 8======D
       // scritta nel cerchio
       const percentageText = document.createElementNS(svgDictionary, "text");
       percentageText.classList.add("percentage-text");
       percentageText.textContent = `${percentage}%`;
 
       // coordinate geometriche del text
-      percentageText.setAttribute("x", "100");
+      percentageText.setAttribute("x", "80");
       percentageText.setAttribute("y", "115");
 
       percentageContainer.appendChild(percentageText);
