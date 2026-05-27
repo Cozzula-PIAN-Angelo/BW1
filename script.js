@@ -308,6 +308,7 @@ const PASS_THRESHOLD = 60;
 let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
+let selectedAnswers = []; // aggiunta simone
 let timerId = null;
 let timeLeft = TIMER_DURATION;
 
@@ -362,7 +363,7 @@ function showWelcome() {
   for (let i = 10; i <= QUESTIONS.length; i += 10) {
     const option = document.createElement("option");
     option.value = i;
-    option.textContent = i; 
+    option.textContent = i;
     if (i === 10) option.selected = true; // Default a 10
     selectCount.appendChild(option);
   }
@@ -383,12 +384,12 @@ function showWelcome() {
   startButton.addEventListener("click", () => {
     /* ******** Lettura del valore dal menu a tendina */
     const chosenCount = parseInt(selectCount.value) || 10;
-    
+
     currentQuestion = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
     QUESTIONS.sort(() => Math.random() - 0.5);
-    
+
     /* ******** Selezione del numero di domande dinamico */
     SELECTED_QUESTIONS = QUESTIONS.slice(0, chosenCount);
 
@@ -456,6 +457,13 @@ function showQuestion() {
     button.textContent = answer;
 
     button.addEventListener("click", () => {
+      //aggiunta simone
+      selectedAnswers[currentQuestion] = {
+        question: question.question,
+        selected: answer,
+        correct: question.correct_answer,
+      };
+
       stopTimer();
 
       // disabilita tutti i bottoni
@@ -522,6 +530,12 @@ function startTimer() {
 
     if (timeLeft <= 0) {
       stopTimer();
+      //aggiunta simone
+      selectedAnswers[currentQuestion] = {
+        question: question.question,
+        selected: "Non risposta",
+        correct: question.correct_answer,
+      };
 
       wrongAnswers++;
 
@@ -551,10 +565,13 @@ function startTimer() {
 function stopTimer() {
   clearInterval(timerId);
 }
+function stopTimer() {
+  clearInterval(timerId);
+}
 
-    /* =========================
-        RESULTS PAGE
-    ========================= */
+/* =========================
+    RESULTS PAGE
+========================= */
 
 function showResult() {
   app.innerHTML = "";
@@ -673,27 +690,73 @@ function showResult() {
   const restartButton = document.createElement("button");
   restartButton.classList.add("result-button");
   restartButton.textContent = "RIPROVA";
+  //aggiunta simone
+  const recapButton = document.createElement("button");
+  recapButton.classList.add("recap-button");
+  recapButton.textContent = "MOSTRA RISPOSTE";
 
   restartButton.addEventListener("click", () => {
     showWelcome();
   });
-
-  // append child per hover del cerchio
-  divDelCerchio.appendChild(percentageContainer);
-  divDelCerchio.appendChild(notifica);
-
+  //aggiunta simone
+  recapButton.addEventListener("click", () => {
+  const oldRecap = document.querySelector(".recap-container");
+  if (oldRecap) {
+    oldRecap.remove();
+    recapButton.textContent = "MOSTRA RISPOSTE";
+  } else {
+    showRecap();
+    recapButton.textContent = "NASCONDI RISPOSTE";
+  }
+});
 
   results.appendChild(resultTitle);
   results.appendChild(verdict);
   results.appendChild(resultList);
-  results.appendChild(divDelCerchio);
+  results.appendChild(percentageContainer);
   results.appendChild(restartButton);
+  results.appendChild(recapButton);// aggiunta simone
 
   app.appendChild(results);
 }
+//aggiunta simone
+function showRecap() {
+  const recapContainer = document.createElement("div");
+  recapContainer.classList.add("recap-container");
+  const recapMenu = document.createElement("div");
+  recapMenu.classList.add("recap-menu");
+  selectedAnswers.forEach((answerData, index) => {
+    const recapCard = document.createElement("div");
+    recapCard.classList.add("recap-card");
+    const questionTitle = document.createElement("h3");
+    questionTitle.textContent =
+      `${index + 1}. ${answerData.question}`;
+    const userAnswer = document.createElement("p");
+    userAnswer.textContent =
+      `La tua risposta: ${answerData.selected}`;
+    const correctAnswer = document.createElement("p");
+    correctAnswer.textContent =
+      `Risposta corretta: ${answerData.correct}`;
+    if (answerData.selected === answerData.correct) {
+      recapCard.classList.add("good-card");
+      userAnswer.classList.add("good-answer");
+    } else {
+      recapCard.classList.add("bad-card");
+      userAnswer.classList.add("bad-answer");
+    }
 
-    /* =========================
-        START
-    ========================= */
+    recapCard.appendChild(questionTitle);
+    recapCard.appendChild(userAnswer);
+    recapCard.appendChild(correctAnswer);
+    recapMenu.appendChild(recapCard);
+  });
+  recapContainer.appendChild(recapMenu);
+  const results = document.querySelector(".results");
+  results.appendChild(recapContainer);
+}
+
+/* =========================
+    START
+========================= */
 
     showWelcome();
