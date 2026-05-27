@@ -6,19 +6,16 @@
   - Pattern: stato → render → eventi.
 */
 
+/* =========================
+   DOM
+========================= */
 
 const app = document.querySelector("#app");
 
 /* =========================
    DATI QUIZ
+========================= */
 
-/*
-  Array di domande.
-  Ogni question è un object con:
-   - question: testo della domanda
-   - correct_answer: la risposta corretta (string)
-   - incorrect_answers: array di risposte sbagliate (string[])
-*/
 const QUESTIONS = [
   {
     question: "In quale anno è stato fondato Netflix?",
@@ -267,7 +264,7 @@ const QUESTIONS = [
   {
     question: "Qual'è la serie netflix preferita da Claudio?",
     correct_answer: "Rick and Morty",
-    incorrect_answers: ["One Piece", "The Office", "Cabinet of Curiosities"],
+    incorrect_answers: ["One Piece", 'The Office', 'Cabinet of Curiosities'],
   },
   {
     question: "Qual'è la serie netflix preferita da Simona?",
@@ -277,11 +274,7 @@ const QUESTIONS = [
   {
     question: "Qual'è la serie netflix preferita da Simone?",
     correct_answer: "Bojack Horsman",
-    incorrect_answers: [
-      "Strappare lungo i bordi",
-      "House of cards",
-      "La regina degli scacchi",
-    ],
+    incorrect_answers: ["Strappare lungo i bordi", "House of cards", "La regina degli scacchi"],
   },
   {
     question: "Qual'è la serie netflix preferita da Valentina?",
@@ -301,12 +294,16 @@ const QUESTIONS = [
 
 let SELECTED_QUESTIONS = [];
 
+/* =========================
+   COSTANTI
+========================= */
 
 const TIMER_DURATION = 20;
 const PASS_THRESHOLD = 60;
 
 /* =========================
    STATO GLOBALE
+========================= */
 
 let currentQuestion = 0;
 let correctAnswers = 0;
@@ -316,6 +313,7 @@ let timeLeft = TIMER_DURATION;
 
 /* =========================
    WELCOME PAGE
+========================= */
 
 function showWelcome() {
   app.innerHTML = "";
@@ -356,9 +354,7 @@ function showWelcome() {
     currentQuestion = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
-
     QUESTIONS.sort(() => Math.random() - 0.5);
-
     SELECTED_QUESTIONS = QUESTIONS.slice(0, 10);
 
     showQuestion();
@@ -372,10 +368,12 @@ function showWelcome() {
 
 /* =========================
    QUIZ PAGE
+========================= */
 
 function showQuestion() {
   app.innerHTML = "";
 
+  // quiz finito
   if (currentQuestion >= SELECTED_QUESTIONS.length) {
     showResult();
     return;
@@ -386,11 +384,11 @@ function showQuestion() {
   const cardQuiz = document.createElement("div");
   cardQuiz.classList.add("cardQuiz");
 
+  // header domanda
   const numeroTimer = document.createElement("div");
   numeroTimer.classList.add("numeroTimer");
 
   const numeroDomanda = document.createElement("p");
-
   numeroDomanda.textContent = `Domanda ${
     currentQuestion + 1
   } di ${SELECTED_QUESTIONS.length}`;
@@ -401,19 +399,20 @@ function showQuestion() {
   numeroTimer.appendChild(numeroDomanda);
   numeroTimer.appendChild(timer);
 
+  // domanda
   const domanda = document.createElement("h2");
   domanda.textContent = question.question;
 
+  // contenitore risposte
   const risposte = document.createElement("div");
   risposte.classList.add("risposte");
 
-  const answers = [
-    question.correct_answer,
-    ...question.incorrect_answers,
-  ];
+  // array risposte mischiate
+  const answers = [question.correct_answer, ...question.incorrect_answers];
 
   answers.sort(() => Math.random() - 0.5);
 
+  // creazione bottoni
   answers.forEach((answer) => {
     const button = document.createElement("button");
 
@@ -422,21 +421,22 @@ function showQuestion() {
     button.addEventListener("click", () => {
       stopTimer();
 
+      // disabilita tutti i bottoni
       const allButtons = document.querySelectorAll(".risposte button");
 
       allButtons.forEach((btn) => {
         btn.disabled = true;
       });
 
+      // risposta corretta
       if (answer === question.correct_answer) {
         correctAnswers++;
-
         button.classList.add("correct");
       } else {
         wrongAnswers++;
-
         button.classList.add("wrong");
 
+        // evidenzia corretta
         allButtons.forEach((btn) => {
           if (btn.textContent === question.correct_answer) {
             btn.classList.add("correct");
@@ -446,7 +446,6 @@ function showQuestion() {
 
       setTimeout(() => {
         currentQuestion++;
-
         showQuestion();
       }, 1000);
     });
@@ -454,6 +453,7 @@ function showQuestion() {
     risposte.appendChild(button);
   });
 
+  // assemblaggio
   cardQuiz.appendChild(numeroTimer);
   cardQuiz.appendChild(domanda);
   cardQuiz.appendChild(risposte);
@@ -465,6 +465,7 @@ function showQuestion() {
 
 /* =========================
    TIMER
+========================= */
 
 function startTimer() {
   timeLeft = TIMER_DURATION;
@@ -487,155 +488,20 @@ function startTimer() {
 
       wrongAnswers++;
 
-      const allButtons = document.querySelectorAll(".risposte button");
+      currentQuestion++;
 
-      allButtons.forEach((btn) => {
-
-        btn.disabled = true;
-
-        if (
-          btn.textContent ===
-          SELECTED_QUESTIONS[currentQuestion].correct_answer
-        ) {
-          btn.classList.add("correct");
-        }
-
-      });
-
-      setTimeout(() => {
-
-        currentQuestion++;
-
-        showQuestion();
-
-      }, 1000);
+      showQuestion();
     }
   }, 1000);
-/* Costanti del quiz */
-const TOTAL_QUESTIONS = QUESTIONS.length;
-const PASS_THRESHOLD = 60;     // percentuale minima per "Promosso"
-const FEEDBACK_DELAY = 1500;   // ms di attesa dopo risposta prima di avanzare
-const TIMER_DURATION = 20;     // secondi per ogni domanda
-
-/* Stato globale */
-let currentScreen = "welcome"; // "welcome" | "quiz" | "results"
-let currentQuestion = 0;
-let score = 0;
-let timerId = null;
-
-const app = document.querySelector("#app");
-
-function render() {
-  /* ********Si svuota il contenitore #app per assicurarsi che non ci siano vecchi elementi prima di disegnare la nuova schermata */
-  app.innerHTML = "";
-
-  /* ********Si gestisce la navigazione tra le schermate basandosi sulla variabile globale currentScreen */
-  if (currentScreen === "welcome") {
-    renderWelcome();
-  } else if (currentScreen === "quiz") {
-    renderQuiz();
-  } else if (currentScreen === "results") {
-    renderResults();
-  }
-}
-
-/* ********Bozza Welcome Page */
-function renderWelcome() {
-  const welcomeDiv = document.createElement("div");
-  welcomeDiv.className = "welcome";
-  welcomeDiv.innerHTML = `
-    <h1>Benvenuto al tuo esame!</h1>
-    <p>Rispondi correttamente alle domande per passare.</p>
-    <button id="start-btn">Inizia</button>
-  `;
-  app.appendChild(welcomeDiv);
-
-  document.getElementById("start-btn").addEventListener("click", () => {
-    currentScreen = "quiz";
-    currentQuestion = 0;
-    score = 0;
-    render();
-  });
-}
-
-function renderQuiz() {
-  const q = QUESTIONS[currentQuestion];
-  const card = document.createElement("div");
-  card.className = "cardQuiz";
-
-  /* ********Si crea l'header del quiz con le classi CSS che si sono definite, inserendo timer e contatore domande */
-  const timerAndCounter = document.createElement("div"); /* ********Viene creato un nuovo elemento HTML di tipo div all'interno della memoria */
-  timerAndCounter.className = "numeroTimer";
-  /* ********Viene inizializzato lo svuotamento del div e viene creato dinamicamente il nuovo blocco di struttura HTML tramite stringa di testo */
-  timerAndCounter.innerHTML = `
-    <span>Domanda ${currentQuestion + 1} di ${TOTAL_QUESTIONS}</span> 
-    <span id="timer"></span>
-  `; /* ********Viene creato uno span per mostrare il numero della domanda corrente sul totale delle domande */
-     /* ********Viene creato uno span vuoto con identificativo 'timer' per mostrare il countdown dei secondi */
-  card.appendChild(timerAndCounter);
-
-  const questionTitle = document.createElement("h2");
-  questionTitle.textContent = q.question;
-  card.appendChild(questionTitle);
-
-  const answers = [...q.incorrect_answers, q.correct_answer];
-
-  answers.forEach((ans) => {
-    const btn = document.createElement("button");
-    btn.textContent = ans;
-    btn.addEventListener("click", () => handleAnswer(ans));
-    card.appendChild(btn);
-  });
-
-  app.appendChild(card);
-  startTimer();
-}
-
-function handleAnswer(answer) {
-  stopTimer();
-  if (answer === QUESTIONS[currentQuestion].correct_answer) {
-    score++;
-  }
-  advance();
-}
-
-function advance() {
-  currentQuestion++;
-  if (currentQuestion < TOTAL_QUESTIONS) {
-    render();
-  } else {
-    currentScreen = "results";
-    render();
-  }
-}
-
-/* ********Viene dichiarata la funzione startTimer per avviare la gestione del conto alla rovescia */
-function startTimer() {
-  let timeLeft = TIMER_DURATION;  /* ********Viene creata una variabile locale inizializzata con il valore della durata totale del timer */
-  const timerEl = document.getElementById("timer"); /* ********Viene recuperato dal documento l'elemento HTML con identificativo 'timer' */
-  timerEl.textContent = timeLeft; /* ********Viene inserito il valore numerico del tempo iniziale come testo dentro l'elemento appena recuperato */
-  timerEl.style.color = "black"; /* ********Viene impostato il colore di base nero per il testo del timer prima dell'avvio del countdown */
-
-  /* ********Viene creato e attivato un ciclo ripetitivo configurato per eseguire il codice interno a intervalli regolari */
-  timerId = setInterval(() => {
-    timeLeft--; /* ********Viene diminuito di una unità il valore numerico del tempo rimanente */
-    timerEl.textContent = timeLeft; /* ********Viene aggiornato il testo visibile dell'elemento HTML con il nuovo valore dei secondi rimasti */
-
-    /* ********Viene eseguito un controllo per verificare se mancano 5 o meno secondi alla fine del tempo */
-    if (timeLeft <= 5) {
-      timerEl.style.color = "red"; /* ********Viene modificato lo stile del testo del timer impostando il colore rosso come avviso visivo */
-    }
-    /* ********Viene eseguito un controllo per verificare se il tempo rimanente è del tutto esaurito arrivando a zero */
-    if (timeLeft <= 0) {
-      handleAnswer(null); /* ********Viene invocata la funzione handleAnswer passando il valore null per registrare la mancata risposta */
-    }
-  }, 1000); /* ********Viene stabilito il tempo di attesa del ciclo fissandolo a 1000 millisecondi, equivalenti a un secondo */
 }
 
 function stopTimer() {
   clearInterval(timerId);
 }
 
+/* =========================
+   RESULTS PAGE
+========================= */
 
 function showResult() {
   app.innerHTML = "";
@@ -677,29 +543,37 @@ function showResult() {
   resultList.appendChild(wrongText);
   resultList.appendChild(scoreText);
 
-  const svgDictionary = "http://www.w3.org/2000/svg";
+  // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
+  const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
 
-  const percentageContainer = document.createElementNS(svgDictionary, "svg");
+  // contenitore del cerchio
+  const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
   percentageContainer.classList.add("percentage-container");
 
+  // cerchio
   const percentageCircle = document.createElementNS(svgDictionary, "circle");
   percentageCircle.classList.add("percentage-circle");
 
+  // cerchio vuoto
   const EmptyBarCircle = document.createElementNS(svgDictionary, "circle");
   EmptyBarCircle.classList.add("empty-bar-circle");
 
-  EmptyBarCircle.setAttribute("cx", "100");
-  EmptyBarCircle.setAttribute("cy", "100");
-  EmptyBarCircle.setAttribute("r", "90");
+  EmptyBarCircle.setAttribute("cx", "100"); // asse orizzontale
+  EmptyBarCircle.setAttribute("cy", "100"); // asse verticale
+  EmptyBarCircle.setAttribute("r", "90"); // perimetro
 
-  percentageCircle.setAttribute("cx", "100");
-  percentageCircle.setAttribute("cy", "100");
-  percentageCircle.setAttribute("r", "90");
+  // bisogna dichiarare le misure geometriche
+  percentageCircle.setAttribute("cx", "100"); // asse orizzontale
+  percentageCircle.setAttribute("cy", "100"); // asse verticale
+  percentageCircle.setAttribute("r", "90"); // perimetro
+  // remind: area del cerchio: C = 2 * pi * r. - 2 * 3.141259 * 90 = 565.4
 
+  // scritta nel cerchio
   const percentageText = document.createElementNS(svgDictionary, "text");
   percentageText.classList.add("percentage-text");
   percentageText.textContent = `${percentage}%`;
 
+  // coordinate geometriche del text
   percentageText.setAttribute("x", "80");
   percentageText.setAttribute("y", "115");
 
@@ -707,7 +581,9 @@ function showResult() {
   percentageContainer.appendChild(EmptyBarCircle);
   percentageContainer.appendChild(percentageCircle);
 
+  // riempimento della barra percentuale
   if (percentage >= 80) {
+    // definisco ciclo if/ else if per cambiare il colore a seconda della percnetuale
     percentageCircle.style.stroke = "lightgreen";
     percentageText.style.stroke = "lightgreen";
   } else if (percentage >= 60 && percentage <= 79) {
@@ -719,12 +595,9 @@ function showResult() {
   }
 
   const circonferenza = 565.4;
-
-  percentageCircle.style.strokeDasharray = 564.4;
-
-  const offsetValue =
-    circonferenza - (percentage / 100) * circonferenza;
-
+  percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
+  // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
+  const offsetValue = circonferenza - (percentage / 100) * circonferenza;
   percentageCircle.style.strokeDashoffset = offsetValue;
 
   const restartButton = document.createElement("button");
@@ -735,105 +608,19 @@ function showResult() {
     showWelcome();
   });
 
-  const valutazioneButton = document.createElement("button");
-
-  valutazioneButton.classList.add("valutazione-button");
-
-  valutazioneButton.textContent = "VALUTAZIONE";
-
-  valutazioneButton.addEventListener("click", () => {
-    showValutazione();
-  });
-
-const buttonContainer = document.createElement("div");
-buttonContainer.classList.add("button-container");
-buttonContainer.appendChild(restartButton);
-buttonContainer.appendChild(valutazioneButton);
-
-results.appendChild(resultTitle);
-results.appendChild(verdict);
-results.appendChild(resultList);
-results.appendChild(percentageContainer);
-results.appendChild(buttonContainer);
+  results.appendChild(resultTitle);
+  results.appendChild(verdict);
+  results.appendChild(resultList);
+  results.appendChild(percentageContainer);
+  results.appendChild(restartButton);
 
   app.appendChild(results);
 }
 
 /* =========================
-   VALUTAZIONE PAGE
+   START
 ========================= */
 
-function showValutazione() {
-
-  app.innerHTML = "";
-
-  const valutazioneCard = document.createElement("div");
-  valutazioneCard.classList.add("valutazione-card");
-  const valutazioneTitle = document.createElement("h2");
-  valutazioneTitle.textContent = "Valuta il nostro quiz !";
-  const valutazioneText = document.createElement("p");
-  valutazioneText.textContent = "Lascia una valutazione al catalogo Netflix";
-  const valutazioneDueText = document.createElement("p");
-  valutazioneDueText.textContent = "Valuta il nostro quiz !";
-  const restartButton = document.createElement("button");
-  restartButton.classList.add("restart-valutazione");
-  restartButton.textContent = "RICOMINCIA";
-  restartButton.addEventListener("click", () => {
-    currentQuestion = 0;
-    correctAnswers = 0;
-    wrongAnswers = 0;
-    showWelcome();
-  });
-  valutazioneCard.appendChild(valutazioneTitle);
-  valutazioneCard.appendChild(valutazioneText);
-  valutazioneCard.appendChild(valutazioneDueText);
-  valutazioneCard.appendChild(restartButton);
-  app.appendChild(valutazioneCard);
-
-}
-
-/* =========================
-   START
-
 showWelcome();
-/* ********Bozza Results Page */
-function renderResults() {
-  const percentage = Math.round((score / QUESTIONS.length) * 100);
-  let verdict;
-  let barColor;
-  let verdictClass;
 
-  if (percentage >= 60) {
-    verdict = "PROMOSSO";
-    barColor = "#4CAF50"; 
-    verdictClass = "passed"; 
-  } else {
-    verdict = "BOCCIATO";
-    barColor = "#f44336"; 
-    verdictClass = "failed"; 
-  }
-
-  /* ********Interfaccia Results */
-  app.innerHTML = `
-    <div class="results">
-      <h1>Risultato</h1>
-      <h2 class="${verdictClass}">${verdict}</h2>
-      <p>Hai risposto correttamente a ${score} su ${QUESTIONS.length} domande.</p>
-      
-      <div class="progress-container">
-        <div class="progress-fill" style="width: ${percentage}%; background-color: ${barColor};"></div>
-      </div>
-      
-      <p>${percentage}%</p>
-      <button id="restart-btn">Riprova</button>
-    </div>
-  `;
-
-  document.getElementById("restart-btn").addEventListener("click", () => {
-    currentScreen = "welcome";
-    render();
-  });
-}
-
-// Inizializzazione
-render();
+// 8======D
