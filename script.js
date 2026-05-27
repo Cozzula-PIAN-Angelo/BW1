@@ -264,7 +264,7 @@ const QUESTIONS = [
   {
     question: "Qual'è la serie netflix preferita da Claudio?",
     correct_answer: "Rick and Morty",
-    incorrect_answers: ["One Piece", 'The Office', 'Cabinet of Curiosities'],
+    incorrect_answers: ["One Piece", "The Office", "Cabinet of Curiosities"],
   },
   {
     question: "Qual'è la serie netflix preferita da Simona?",
@@ -274,7 +274,11 @@ const QUESTIONS = [
   {
     question: "Qual'è la serie netflix preferita da Simone?",
     correct_answer: "Bojack Horsman",
-    incorrect_answers: ["Strappare lungo i bordi", "House of cards", "La regina degli scacchi"],
+    incorrect_answers: [
+      "Strappare lungo i bordi",
+      "House of cards",
+      "La regina degli scacchi",
+    ],
   },
   {
     question: "Qual'è la serie netflix preferita da Valentina?",
@@ -362,7 +366,7 @@ function showWelcome() {
   for (let i = 10; i <= QUESTIONS.length; i += 10) {
     const option = document.createElement("option");
     option.value = i;
-    option.textContent = i; 
+    option.textContent = i;
     if (i === 10) option.selected = true; // Default a 10
     selectCount.appendChild(option);
   }
@@ -383,12 +387,12 @@ function showWelcome() {
   startButton.addEventListener("click", () => {
     /* ******** Lettura del valore dal menu a tendina */
     const chosenCount = parseInt(selectCount.value) || 10;
-    
+
     currentQuestion = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
     QUESTIONS.sort(() => Math.random() - 0.5);
-    
+
     /* ******** Selezione del numero di domande dinamico */
     SELECTED_QUESTIONS = QUESTIONS.slice(0, chosenCount);
 
@@ -427,8 +431,9 @@ function showQuestion() {
   numeroTimer.classList.add("numeroTimer");
 
   const numeroDomanda = document.createElement("p");
-  numeroDomanda.textContent = `Domanda ${currentQuestion + 1
-    } di ${SELECTED_QUESTIONS.length}`;
+  numeroDomanda.textContent = `Domanda ${
+    currentQuestion + 1
+  } di ${SELECTED_QUESTIONS.length}`;
 
   const timer = document.createElement("span");
   timer.id = "timer";
@@ -548,130 +553,170 @@ function startTimer() {
   }, 1000);
 }
 
-    function stopTimer() {
-      clearInterval(timerId);
-    }
+function stopTimer() {
+  clearInterval(timerId);
+}
 
-    /* =========================
+/* =========================
         RESULTS PAGE
     ========================= */
 
-    function showResult() {
-      app.innerHTML = "";
+function showResult() {
+  app.innerHTML = "";
 
-      const percentage = Math.round(
-        (correctAnswers / SELECTED_QUESTIONS.length) * 100,
-      );
+  const percentage = Math.round(
+    (correctAnswers / SELECTED_QUESTIONS.length) * 100,
+  );
 
-      const results = document.createElement("div");
-      results.classList.add("results");
+  const results = document.createElement("div");
+  results.classList.add("results");
 
-      const resultTitle = document.createElement("h1");
-      resultTitle.classList.add("result-title");
-      resultTitle.textContent = "Risultato";
+  const resultTitle = document.createElement("h1");
+  resultTitle.classList.add("result-title");
+  resultTitle.textContent = "Risultato";
 
-      const verdict = document.createElement("h2");
+  const verdict = document.createElement("h2");
 
-      if (percentage >= PASS_THRESHOLD) {
-        verdict.textContent = "PROMOSSO";
-        verdict.classList.add("passed");
-      } else {
-        verdict.textContent = "BOCCIATO";
-        verdict.classList.add("failed");
-      }
+  if (percentage >= PASS_THRESHOLD) {
+    verdict.textContent = "PROMOSSO";
+    verdict.classList.add("passed");
+  } else {
+    verdict.textContent = "BOCCIATO";
+    verdict.classList.add("failed");
+  }
 
-      const resultList = document.createElement("ul");
-      resultList.classList.add("result-list");
+  const resultList = document.createElement("ul");
+  resultList.classList.add("result-list");
 
-      const correctText = document.createElement("li");
-      correctText.textContent = `Risposte corrette: ${correctAnswers}`;
+  const correctText = document.createElement("li");
+  correctText.textContent = `Risposte corrette: ${correctAnswers}`;
 
-      const wrongText = document.createElement("li");
-      wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
+  const wrongText = document.createElement("li");
+  wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
 
-      const scoreText = document.createElement("li");
-      scoreText.textContent = `Punteggio finale: ${percentage}%`;
+  const scoreText = document.createElement("li");
+  scoreText.textContent = `Punteggio finale: ${percentage}%`;
 
-      resultList.appendChild(correctText);
-      resultList.appendChild(wrongText);
-      resultList.appendChild(scoreText);
+  resultList.appendChild(correctText);
+  resultList.appendChild(wrongText);
+  resultList.appendChild(scoreText);
 
-      // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
-      const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
+  // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
+  const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
 
-      // contenitore del cerchio
-      const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
-      percentageContainer.classList.add("percentage-container");
+  // contenitore del cerchio
+  const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
+  percentageContainer.classList.add("percentage-container");
 
-      // cerchio
-      const percentageCircle = document.createElementNS(svgDictionary, "circle");
-      percentageCircle.classList.add("percentage-circle");
+  // cerchio
+  const percentageCircle = document.createElementNS(svgDictionary, "circle");
+  percentageCircle.classList.add("percentage-circle");
 
-      // cerchio vuoto
-      const EmptyBarCircle = document.createElementNS(svgDictionary, "circle");
-      EmptyBarCircle.classList.add("empty-bar-circle");
+  // cerchio vuoto
+  const EmptyBarCircle = document.createElementNS(svgDictionary, "circle");
+  EmptyBarCircle.classList.add("empty-bar-circle");
 
-      EmptyBarCircle.setAttribute("cx", "100"); // asse orizzontale
-      EmptyBarCircle.setAttribute("cy", "100"); // asse verticale
-      EmptyBarCircle.setAttribute("r", "90"); // perimetro
+  EmptyBarCircle.setAttribute("cx", "100"); // asse orizzontale
+  EmptyBarCircle.setAttribute("cy", "100"); // asse verticale
+  EmptyBarCircle.setAttribute("r", "90"); // perimetro
 
-      // bisogna dichiarare le misure geometriche
-      percentageCircle.setAttribute("cx", "100"); // asse orizzontale
-      percentageCircle.setAttribute("cy", "100"); // asse verticale
-      percentageCircle.setAttribute("r", "90"); // perimetro
-      // remind: area del cerchio: C = 2 * pi * r. - 2 * 3.141259 * 90 = 565.4
+  // bisogna dichiarare le misure geometriche
+  percentageCircle.setAttribute("cx", "100"); // asse orizzontale
+  percentageCircle.setAttribute("cy", "100"); // asse verticale
+  percentageCircle.setAttribute("r", "90"); // perimetro
+  // remind: area del cerchio: C = 2 * pi * r. - 2 * 3.141259 * 90 = 565.4
 
-      // scritta nel cerchio
-      const percentageText = document.createElementNS(svgDictionary, "text");
-      percentageText.classList.add("percentage-text");
-      percentageText.textContent = `${percentage}%`;
+  // scritta nel cerchio
+  const percentageText = document.createElementNS(svgDictionary, "text");
+  percentageText.classList.add("percentage-text");
+  percentageText.textContent = `${percentage}%`;
 
-      // coordinate geometriche del text
-      percentageText.setAttribute("x", "80");
-      percentageText.setAttribute("y", "115");
+  // coordinate geometriche del text
+  percentageText.setAttribute("x", "80");
+  percentageText.setAttribute("y", "115");
 
-      percentageContainer.appendChild(percentageText);
-      percentageContainer.appendChild(EmptyBarCircle);
-      percentageContainer.appendChild(percentageCircle);
+  percentageContainer.appendChild(percentageText);
+  percentageContainer.appendChild(EmptyBarCircle);
+  percentageContainer.appendChild(percentageCircle);
 
-      // riempimento della barra percentuale
-      if (percentage >= 80) {
-        // definisco ciclo if/ else if per cambiare il colore a seconda della percnetuale
-        percentageCircle.style.stroke = "lightgreen";
-        percentageText.style.stroke = "lightgreen";
-      } else if (percentage >= 60 && percentage <= 79) {
-        percentageCircle.style.stroke = "yellow";
-        percentageText.style.stroke = "yellow";
-      } else {
-        percentageCircle.style.stroke = "red";
-        percentageText.style.stroke = "red";
-      }
+  // riempimento della barra percentuale
+  if (percentage >= 80) {
+    // definisco ciclo if/ else if per cambiare il colore a seconda della percnetuale
+    percentageCircle.style.stroke = "lightgreen";
+    percentageText.style.stroke = "lightgreen";
+  } else if (percentage >= 60 && percentage <= 79) {
+    percentageCircle.style.stroke = "yellow";
+    percentageText.style.stroke = "yellow";
+  } else {
+    percentageCircle.style.stroke = "red";
+    percentageText.style.stroke = "red";
+  }
 
-      const circonferenza = 565.4;
-      percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
-      // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
-      const offsetValue = circonferenza - (percentage / 100) * circonferenza;
-      percentageCircle.style.strokeDashoffset = offsetValue;
+  const circonferenza = 565.4;
+  percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
+  // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
+  const offsetValue = circonferenza - (percentage / 100) * circonferenza;
+  percentageCircle.style.strokeDashoffset = offsetValue;
 
-      const restartButton = document.createElement("button");
-      restartButton.classList.add("result-button");
-      restartButton.textContent = "RIPROVA";
+  const restartButton = document.createElement("button");
+  restartButton.classList.add("result-button");
+  restartButton.textContent = "RIPROVA";
 
-      restartButton.addEventListener("click", () => {
-        showWelcome();
-      });
+  restartButton.addEventListener("click", () => {
+    showWelcome();
+  });
 
-      results.appendChild(resultTitle);
-      results.appendChild(verdict);
-      results.appendChild(resultList);
-      results.appendChild(percentageContainer);
-      results.appendChild(restartButton);
+  results.appendChild(resultTitle);
+  results.appendChild(verdict);
+  results.appendChild(resultList);
+  results.appendChild(percentageContainer);
+  results.appendChild(restartButton);
 
-      app.appendChild(results);
-    }
+  app.appendChild(results);
+}
 
-    /* =========================
+/* =========================
         START
     ========================= */
 
-    showWelcome();
+function showRating() {
+  app.innerHTML = "";
+
+  let selectedRating = 0;
+
+  const ratingDiv = document.createElement("div");
+  ratingDiv.classList.add("rating");
+
+  const ratingTitle = document.createElement("h1");
+  ratingDiv.textContent = "Valuta il nostro quiz";
+
+  const ratingSubtitle = document.createElement("P");
+  ratingSubtitle.textContent = "Quanto valuteresti il nostro quiz?";
+
+  const starsContainer = document.createElement("div");
+  starsContainer.classList.add("stars-container");
+
+  for (let i = 1; i <= 10; i++) {
+    const star = document.createElement("span");
+    star.classList.add("star");
+    star.textContent = "★";
+    star.dataset.value = i;
+    star.addEventListener("mouseover", () => {
+      highlightStars(i);
+    });
+    star.addEventListener("mouseout", () => {
+      highlightStars(selectedRating);
+    });
+    star.addEventListener("click", () => {
+      highlightStars(selectedRating);
+    });
+
+    starsContainer.appendChild(star);
+  }
+
+  ratingDiv.appendChild(ratingTitle);
+  ratingDiv.appendChild(ratingSubtitle);
+  ratingDiv.appendChild(starsContainer);
+}
+
+showWelcome();
