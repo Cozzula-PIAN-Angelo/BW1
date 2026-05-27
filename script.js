@@ -762,4 +762,4 @@ function showRecap() {
     START
 ========================= */
 
-showResult();
+showWelcome();
