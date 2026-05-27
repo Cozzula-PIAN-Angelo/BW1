@@ -299,7 +299,7 @@ let answersRecap = [];
    COSTANTI
 ========================= */
 
-const TIMER_DURATION = 20;
+const TIMER_DURATION = 5;
 const PASS_THRESHOLD = 60;
 
 /* =========================
@@ -346,19 +346,45 @@ function showWelcome() {
   instructionList.appendChild(instructionLi2);
   instructionList.appendChild(instructionLi3);
 
+  /* ******** Creazione menu a tendina per scegliere il numero di domande */
+  const labelCount = document.createElement("label");
+  labelCount.textContent = "Quante domande vuoi affrontare? ";
+  labelCount.style.color = "white";
+  labelCount.style.display = "block";
+  labelCount.style.marginBottom = "10px";
+
+  const selectCount = document.createElement("select");
+  selectCount.id = "questionCount";
+  selectCount.style.marginBottom = "20px";
+  selectCount.style.padding = "5px";
+  selectCount.style.width = "100px";
+
+  /* ******** Ciclo per creare le opzioni da 1 al totale delle domande */
+  for (let i = 1; i <= QUESTIONS.length; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = i;
+    if (i === 10) option.selected = true; // Default a 10
+    selectCount.appendChild(option);
+  }
+
   const startButton = document.createElement("button");
   startButton.classList.add("start-button");
 
   startButton.textContent = "INIZIA";
 
   startButton.addEventListener("click", () => {
+    /* ******** Lettura del valore dal menu a tendina */
+    const chosenCount = parseInt(selectCount.value) || 10;
+
     currentQuestion = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
-    let answersRecap = [];
-
+    answersRecap = [];
     QUESTIONS.sort(() => Math.random() - 0.5);
-    SELECTED_QUESTIONS = QUESTIONS.slice(0, 10);
+
+    /* ******** Selezione del numero di domande dinamico */
+    SELECTED_QUESTIONS = QUESTIONS.slice(0, chosenCount);
 
     showQuestion();
   });
@@ -366,6 +392,9 @@ function showWelcome() {
   app.appendChild(welcomeTitle);
   app.appendChild(quizDescription);
   app.appendChild(instructionList);
+  /* ******** Aggiunta del menu a tendina al DOM */
+  app.appendChild(labelCount);
+  app.appendChild(selectCount);
   app.appendChild(startButton);
 }
 
@@ -430,13 +459,12 @@ function showQuestion() {
         btn.disabled = true;
       });
 
-      // risposta corretta e salvataggio risposte date
+      // risposta corretta
       answersRecap.push({
         question: question.question,
         selected: answer,
         correct: question.correct_answer,
       });
-
       if (answer === question.correct_answer) {
         correctAnswers++;
         button.classList.add("correct");
@@ -495,7 +523,6 @@ function startTimer() {
       stopTimer();
 
       wrongAnswers++;
-
       answersRecap.push({
         question: SELECTED_QUESTIONS[currentQuestion].question,
         selected: "Nessuna risposta",
@@ -506,13 +533,17 @@ function startTimer() {
 
       allButtons.forEach((btn) => {
         btn.disabled = true;
-        if (
-          btn.textContent ===
-          SELECTED_QUESTIONS[currentQuestion].correct_answer
-        ) {
+      });
+
+      // evidenzia corretta
+      const question = SELECTED_QUESTIONS[currentQuestion];
+
+      allButtons.forEach((btn) => {
+        if (btn.textContent === question.correct_answer) {
           btn.classList.add("correct");
         }
       });
+
       setTimeout(() => {
         currentQuestion++;
         showQuestion();
@@ -526,7 +557,7 @@ function stopTimer() {
 }
 
 /* =========================
-   RESULTS PAGE
+    RESULTS PAGE
 ========================= */
 
 function showResult() {
@@ -552,7 +583,6 @@ function showResult() {
     verdict.textContent = "BOCCIATO";
     verdict.classList.add("failed");
   }
-
 
   const resultList = document.createElement("ul");
   resultList.classList.add("result-list");
@@ -637,12 +667,15 @@ function showResult() {
   //menu risposte
   const recapContainer = document.createElement("div");
   recapContainer.classList.add("recap-container");
+
   const recapButton = document.createElement("button");
   recapButton.classList.add("recap-button");
   recapButton.textContent = "MOSTRA RISPOSTE";
+
   const recapMenu = document.createElement("div");
   recapMenu.classList.add("recap-menu");
   recapMenu.style.display = "none";
+
   answersRecap.forEach((item) => {
     const recapCard = document.createElement("div");
     recapCard.classList.add("recap-card");
@@ -652,14 +685,14 @@ function showResult() {
     const correctText = document.createElement("p");
     selectedText.textContent = `La tua risposta: ${item.selected}`;
     correctText.textContent = `Risposta corretta: ${item.correct}`;
-    //colore bordo delle risposte
+
     if (item.selected === item.correct) {
       selectedText.classList.add("good-answer");
       recapCard.classList.add("good-card");
     } else {
       selectedText.classList.add("bad-answer");
       recapCard.classList.add("bad-card");
-    };
+    }
 
     recapCard.appendChild(questionText);
     recapCard.appendChild(selectedText);
@@ -679,30 +712,19 @@ function showResult() {
 
   recapContainer.appendChild(recapButton);
   recapContainer.appendChild(recapMenu);
-
-  const resultTop = document.createElement("div");
-  resultTop.classList.add("result-top");
-  const resultLeft = document.createElement("div");
-  resultLeft.classList.add("result-left");
-  const resultRight = document.createElement("div");
-  resultRight.classList.add("result-right");
-
-  resultLeft.appendChild(resultTitle);
-  resultLeft.appendChild(verdict);
-  resultLeft.appendChild(resultList);
-  resultLeft.appendChild(restartButton);
-  resultRight.appendChild(percentageContainer);
-  resultTop.appendChild(resultLeft);
-  resultTop.appendChild(resultRight);
-  results.appendChild(resultTop);
+  results.appendChild(resultTitle);
+  results.appendChild(verdict);
+  results.appendChild(resultList);
+  results.appendChild(percentageContainer);
+  results.appendChild(restartButton);
   results.appendChild(recapContainer);
   app.appendChild(results);
 }
 
 /* =========================
-   START
+    START
 ========================= */
 
 showWelcome();
 
-// 8========D
+// 8======D
