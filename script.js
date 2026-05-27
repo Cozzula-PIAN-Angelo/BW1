@@ -308,6 +308,7 @@ const PASS_THRESHOLD = 60;
 let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
+let selectedAnswers = []; // aggiunta simone
 let timerId = null;
 let timeLeft = TIMER_DURATION;
 
@@ -362,7 +363,7 @@ function showWelcome() {
   for (let i = 10; i <= QUESTIONS.length; i += 10) {
     const option = document.createElement("option");
     option.value = i;
-    option.textContent = i; 
+    option.textContent = i;
     if (i === 10) option.selected = true; // Default a 10
     selectCount.appendChild(option);
   }
@@ -383,12 +384,12 @@ function showWelcome() {
   startButton.addEventListener("click", () => {
     /* ******** Lettura del valore dal menu a tendina */
     const chosenCount = parseInt(selectCount.value) || 10;
-    
+
     currentQuestion = 0;
     correctAnswers = 0;
     wrongAnswers = 0;
     QUESTIONS.sort(() => Math.random() - 0.5);
-    
+
     /* ******** Selezione del numero di domande dinamico */
     SELECTED_QUESTIONS = QUESTIONS.slice(0, chosenCount);
 
@@ -456,6 +457,13 @@ function showQuestion() {
     button.textContent = answer;
 
     button.addEventListener("click", () => {
+      //aggiunta simone
+      selectedAnswers[currentQuestion] = {
+        question: question.question,
+        selected: answer,
+        correct: question.correct_answer,
+      };
+
       stopTimer();
 
       // disabilita tutti i bottoni
@@ -522,6 +530,12 @@ function startTimer() {
 
     if (timeLeft <= 0) {
       stopTimer();
+      //aggiunta simone
+      selectedAnswers[currentQuestion] = {
+        question: question.question,
+        selected: "Non risposta",
+        correct: question.correct_answer,
+      };
 
       wrongAnswers++;
 
@@ -548,130 +562,181 @@ function startTimer() {
   }, 1000);
 }
 
-    function stopTimer() {
-      clearInterval(timerId);
-    }
+function stopTimer() {
+  clearInterval(timerId);
+}
 
-    /* =========================
-        RESULTS PAGE
-    ========================= */
+/* =========================
+    RESULTS PAGE
+========================= */
 
-    function showResult() {
-      app.innerHTML = "";
+function showResult() {
+  app.innerHTML = "";
 
-      const percentage = Math.round(
-        (correctAnswers / SELECTED_QUESTIONS.length) * 100,
-      );
+  const percentage = Math.round(
+    (correctAnswers / SELECTED_QUESTIONS.length) * 100,
+  );
 
-      const results = document.createElement("div");
-      results.classList.add("results");
+  const results = document.createElement("div");
+  results.classList.add("results");
 
-      const resultTitle = document.createElement("h1");
-      resultTitle.classList.add("result-title");
-      resultTitle.textContent = "Risultato";
+  const resultTitle = document.createElement("h1");
+  resultTitle.classList.add("result-title");
+  resultTitle.textContent = "Risultato";
 
-      const verdict = document.createElement("h2");
+  const verdict = document.createElement("h2");
 
-      if (percentage >= PASS_THRESHOLD) {
-        verdict.textContent = "PROMOSSO";
-        verdict.classList.add("passed");
-      } else {
-        verdict.textContent = "BOCCIATO";
-        verdict.classList.add("failed");
-      }
+  if (percentage >= PASS_THRESHOLD) {
+    verdict.textContent = "PROMOSSO";
+    verdict.classList.add("passed");
+  } else {
+    verdict.textContent = "BOCCIATO";
+    verdict.classList.add("failed");
+  }
 
-      const resultList = document.createElement("ul");
-      resultList.classList.add("result-list");
+  const resultList = document.createElement("ul");
+  resultList.classList.add("result-list");
 
-      const correctText = document.createElement("li");
-      correctText.textContent = `Risposte corrette: ${correctAnswers}`;
+  const correctText = document.createElement("li");
+  correctText.textContent = `Risposte corrette: ${correctAnswers}`;
 
-      const wrongText = document.createElement("li");
-      wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
+  const wrongText = document.createElement("li");
+  wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
 
-      const scoreText = document.createElement("li");
-      scoreText.textContent = `Punteggio finale: ${percentage}%`;
+  const scoreText = document.createElement("li");
+  scoreText.textContent = `Punteggio finale: ${percentage}%`;
 
-      resultList.appendChild(correctText);
-      resultList.appendChild(wrongText);
-      resultList.appendChild(scoreText);
+  resultList.appendChild(correctText);
+  resultList.appendChild(wrongText);
+  resultList.appendChild(scoreText);
 
-      // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
-      const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
+  // Creazione di percentuale circolare - prova con svg (disegno tecnico vettoriale)
+  const svgDictionary = "http://www.w3.org/2000/svg"; // dichiarazione del dizionario vettoriale
 
-      // contenitore del cerchio
-      const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
-      percentageContainer.classList.add("percentage-container");
+  // contenitore del cerchio
+  const percentageContainer = document.createElementNS(svgDictionary, "svg"); // dico a JS di creare tramite svg e non html, (dizionario, oggetto da costruire)
+  percentageContainer.classList.add("percentage-container");
 
-      // cerchio
-      const percentageCircle = document.createElementNS(svgDictionary, "circle");
-      percentageCircle.classList.add("percentage-circle");
+  // cerchio
+  const percentageCircle = document.createElementNS(svgDictionary, "circle");
+  percentageCircle.classList.add("percentage-circle");
 
-      // cerchio vuoto
-      const EmptyBarCircle = document.createElementNS(svgDictionary, "circle");
-      EmptyBarCircle.classList.add("empty-bar-circle");
+  // cerchio vuoto
+  const EmptyBarCircle = document.createElementNS(svgDictionary, "circle");
+  EmptyBarCircle.classList.add("empty-bar-circle");
 
-      EmptyBarCircle.setAttribute("cx", "100"); // asse orizzontale
-      EmptyBarCircle.setAttribute("cy", "100"); // asse verticale
-      EmptyBarCircle.setAttribute("r", "90"); // perimetro
+  EmptyBarCircle.setAttribute("cx", "100"); // asse orizzontale
+  EmptyBarCircle.setAttribute("cy", "100"); // asse verticale
+  EmptyBarCircle.setAttribute("r", "90"); // perimetro
 
-      // bisogna dichiarare le misure geometriche
-      percentageCircle.setAttribute("cx", "100"); // asse orizzontale
-      percentageCircle.setAttribute("cy", "100"); // asse verticale
-      percentageCircle.setAttribute("r", "90"); // perimetro
-      // remind: area del cerchio: C = 2 * pi * r. - 2 * 3.141259 * 90 = 565.4
+  // bisogna dichiarare le misure geometriche
+  percentageCircle.setAttribute("cx", "100"); // asse orizzontale
+  percentageCircle.setAttribute("cy", "100"); // asse verticale
+  percentageCircle.setAttribute("r", "90"); // perimetro
+  // remind: area del cerchio: C = 2 * pi * r. - 2 * 3.141259 * 90 = 565.4
 
-      // scritta nel cerchio
-      const percentageText = document.createElementNS(svgDictionary, "text");
-      percentageText.classList.add("percentage-text");
-      percentageText.textContent = `${percentage}%`;
+  // scritta nel cerchio
+  const percentageText = document.createElementNS(svgDictionary, "text");
+  percentageText.classList.add("percentage-text");
+  percentageText.textContent = `${percentage}%`;
 
-      // coordinate geometriche del text
-      percentageText.setAttribute("x", "80");
-      percentageText.setAttribute("y", "115");
+  // coordinate geometriche del text
+  percentageText.setAttribute("x", "80");
+  percentageText.setAttribute("y", "115");
 
-      percentageContainer.appendChild(percentageText);
-      percentageContainer.appendChild(EmptyBarCircle);
-      percentageContainer.appendChild(percentageCircle);
+  percentageContainer.appendChild(percentageText);
+  percentageContainer.appendChild(EmptyBarCircle);
+  percentageContainer.appendChild(percentageCircle);
 
-      // riempimento della barra percentuale
-      if (percentage >= 80) {
-        // definisco ciclo if/ else if per cambiare il colore a seconda della percnetuale
-        percentageCircle.style.stroke = "lightgreen";
-        percentageText.style.stroke = "lightgreen";
-      } else if (percentage >= 60 && percentage <= 79) {
-        percentageCircle.style.stroke = "yellow";
-        percentageText.style.stroke = "yellow";
-      } else {
-        percentageCircle.style.stroke = "red";
-        percentageText.style.stroke = "red";
-      }
+  // riempimento della barra percentuale
+  if (percentage >= 80) {
+    // definisco ciclo if/ else if per cambiare il colore a seconda della percnetuale
+    percentageCircle.style.stroke = "lightgreen";
+    percentageText.style.stroke = "lightgreen";
+  } else if (percentage >= 60 && percentage <= 79) {
+    percentageCircle.style.stroke = "yellow";
+    percentageText.style.stroke = "yellow";
+  } else {
+    percentageCircle.style.stroke = "red";
+    percentageText.style.stroke = "red";
+  }
 
-      const circonferenza = 565.4;
-      percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
-      // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
-      const offsetValue = circonferenza - (percentage / 100) * circonferenza;
-      percentageCircle.style.strokeDashoffset = offsetValue;
+  const circonferenza = 565.4;
+  percentageCircle.style.strokeDasharray = 564.4; // Lunghezza piena del riempimento
+  // valore che fa tornare indietro la colorazione (deve essere la circonferenza - (la circonferenza * (la percentuale/ 100))
+  const offsetValue = circonferenza - (percentage / 100) * circonferenza;
+  percentageCircle.style.strokeDashoffset = offsetValue;
 
-      const restartButton = document.createElement("button");
-      restartButton.classList.add("result-button");
-      restartButton.textContent = "RIPROVA";
+  const restartButton = document.createElement("button");
+  restartButton.classList.add("result-button");
+  restartButton.textContent = "RIPROVA";
+  //aggiunta simone
+  const recapButton = document.createElement("button");
+  recapButton.classList.add("recap-button");
+  recapButton.textContent = "MOSTRA RISPOSTE";
 
-      restartButton.addEventListener("click", () => {
-        showWelcome();
-      });
-
-      results.appendChild(resultTitle);
-      results.appendChild(verdict);
-      results.appendChild(resultList);
-      results.appendChild(percentageContainer);
-      results.appendChild(restartButton);
-
-      app.appendChild(results);
-    }
-
-    /* =========================
-        START
-    ========================= */
-
+  restartButton.addEventListener("click", () => {
     showWelcome();
+  });
+  //aggiunta simone
+  recapButton.addEventListener("click", () => {
+  const oldRecap = document.querySelector(".recap-container");
+  if (oldRecap) {
+    oldRecap.remove();
+    recapButton.textContent = "MOSTRA RISPOSTE";
+  } else {
+    showRecap();
+    recapButton.textContent = "NASCONDI RISPOSTE";
+  }
+});
+
+  results.appendChild(resultTitle);
+  results.appendChild(verdict);
+  results.appendChild(resultList);
+  results.appendChild(percentageContainer);
+  results.appendChild(restartButton);
+  results.appendChild(recapButton);// aggiunta simone
+
+  app.appendChild(results);
+}
+//aggiunta simone
+function showRecap() {
+  const recapContainer = document.createElement("div");
+  recapContainer.classList.add("recap-container");
+  const recapMenu = document.createElement("div");
+  recapMenu.classList.add("recap-menu");
+  selectedAnswers.forEach((answerData, index) => {
+    const recapCard = document.createElement("div");
+    recapCard.classList.add("recap-card");
+    const questionTitle = document.createElement("h3");
+    questionTitle.textContent =
+      `${index + 1}. ${answerData.question}`;
+    const userAnswer = document.createElement("p");
+    userAnswer.textContent =
+      `La tua risposta: ${answerData.selected}`;
+    const correctAnswer = document.createElement("p");
+    correctAnswer.textContent =
+      `Risposta corretta: ${answerData.correct}`;
+    if (answerData.selected === answerData.correct) {
+      recapCard.classList.add("good-card");
+      userAnswer.classList.add("good-answer");
+    } else {
+      recapCard.classList.add("bad-card");
+      userAnswer.classList.add("bad-answer");
+    }
+
+    recapCard.appendChild(questionTitle);
+    recapCard.appendChild(userAnswer);
+    recapCard.appendChild(correctAnswer);
+    recapMenu.appendChild(recapCard);
+  });
+  recapContainer.appendChild(recapMenu);
+  const results = document.querySelector(".results");
+  results.appendChild(recapContainer);
+}
+
+/* =========================
+    START
+========================= */
+
+showWelcome();
