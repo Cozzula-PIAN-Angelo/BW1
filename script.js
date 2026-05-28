@@ -322,8 +322,8 @@ let timeLeft = TIMER_DURATION;
 
 function showWelcome() {
   app.innerHTML = "";
-  const welcolmeDiv = document.createElement('div');
-  welcolmeDiv.classList.add('welcomeDiv');
+  const welcolmeDiv = document.createElement("div");
+  welcolmeDiv.classList.add("welcomeDiv");
 
   const welcomeTitle = document.createElement("h1");
   welcomeTitle.textContent = "Benvenuto al tuo esame";
@@ -364,6 +364,29 @@ function showWelcome() {
   selectCount.style.marginBottom = "20px";
   selectCount.style.padding = "5px";
   selectCount.style.width = "150px";
+
+  /* ******** Creazione menu a tendina per scegliere il livello di difficoltà */
+  const labelDiff = document.createElement("label"); // creazione etichetta
+  labelDiff.textContent = "Scegli la difficoltà: ";
+  labelDiff.style.color = "white";
+  labelDiff.style.display = "block";
+  labelDiff.style.marginBottom = "10px";
+
+  const selectDiff = document.createElement("select");
+  selectDiff.id = "difficulty";
+  selectDiff.style.marginBottom = "20px";
+  selectDiff.style.padding = "5px";
+  selectDiff.style.width = "150px";
+
+  /* ******** Creazione opzioni - livello di difficoltà */
+  const difficulties = ["Facile", "Medio", "Difficile", "Tutte"];
+  difficulties.forEach((diff) => {
+    // cicla ad ogni voce dell'array una alla volta
+    const option = document.createElement("option"); // crea ogni singola voce dal menù a tendina (genererà le card facile, medio, difficile, tutte)
+    option.value = diff.toLowerCase(); // valore interno al codice in minuscolo, confronto diretto tra costante creata e la chiave dell'array
+    option.textContent = diff; // testo visibile dall'utente (Es: facile)
+    selectDiff.appendChild(option); // funzione appesa, aggiunge option dentro select
+  });
 
   /* ******** Ciclo per creare le opzioni a scaglioni di 10 */
   for (let i = 10; i <= QUESTIONS.length; i += 10) {
@@ -410,6 +433,8 @@ function showWelcome() {
   welcolmeDiv.appendChild(labelCount);
   welcolmeDiv.appendChild(selectCount);
   welcolmeDiv.appendChild(startButton);
+  welcolmeDiv.appendChild(labelDiff);
+  welcolmeDiv.appendChild(selectDiff);
 }
 
 /* =========================
@@ -776,7 +801,7 @@ function showThankYou(rating) {
 
   const thanksMsg = document.createElement("p");
   thanksMsg.classList.add("thanks-message");
-  thanksMsg.innerHTML = `Hai valutato <span class='ratingFinale'>${rating}</span> stelle su 10 !`; 
+  thanksMsg.innerHTML = `Hai valutato <span class='ratingFinale'>${rating}</span> stelle su 10 !`;
 
   const backBtn = document.createElement("button");
   backBtn.classList.add("replay-button");
