@@ -1,4 +1,8 @@
+/*font*/
+
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+/*reset iniziale*/
 
 * {
     box-sizing: border-box;
@@ -46,13 +50,6 @@ body {
     backdrop-filter: blur(6px);
 }
 
-/* Aggiungi qui le tue regole CSS per:
-   - .welcome (titolo, intro, button Inizia)
-   - .quiz (counter, timer, domanda, button risposta, classi correct/wrong)
-   - .results (percentuale, barre orizzontali, verdetto promosso/bocciato, restart)
-*/
-
-/*layout*/
 
 /*quiz*/
 
@@ -72,7 +69,6 @@ body {
     align-items: center;
     margin-bottom: 30px;
 }
-
 
 .numeroTimer p {
     font-size: 14px;
@@ -112,6 +108,65 @@ body {
     border: 0.8px solid red;
 }
 
+/*intro aiutato da internet */
+
+body.intro-active {
+
+    background: black !important;
+    overflow: hidden;
+}
+
+body.intro-active #app,
+body.intro-active .brand {
+    opacity: 0;
+}
+
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+.intro-logo {
+    color: #E50914;
+    font-size: 220px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow:
+        0 0 20px rgba(229, 9, 20, 0.7),
+        0 0 40px rgba(229, 9, 20, 0.5);
+    animation: netflixIntro 2.9s ease forwards;
+
+}
+
+/* creazione animazione con percentuale */
+
+@keyframes netflixIntro {
+
+    0% {
+        transform: scale(0.05);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    45% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(18);
+        opacity: 0;
+    }
+}
+
 /*benvenuto*/
 
 h1 {
@@ -135,7 +190,70 @@ h1 {
     margin-bottom: 10px;
 }
 
+.welcomeDiv {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.queDifDiv {
+    display: flex;
+    padding-left: 40px;
+    justify-content: space-around;
+}
+
+.questionDiv {
+    margin-right: 10px;
+}
+
+.questionDiv label {
+    font-size: 14px;
+}
+
+.difficultyDiv label {
+    font-size: 14px;
+}
+
+.queDifDiv button:first-child {
+    margin-top: 200px;
+}
+
+.sBtnDiv {
+    display: flex;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 45px;
+    padding-bottom: 40px;
+}
+
+.labelCount {
+    color: white;
+    margin-left: -45px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.labelDiff {
+    color: white;
+    margin-left: -45px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+#difficulty {
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 150px;
+}
+
+#questionCount {
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 150px;
+}
+
 /* ******** Stile unificato per input e tendina (select) */
+
 input[type="number"],
 select {
     background-color: rgba(54, 53, 53, 0.92);
@@ -158,26 +276,16 @@ select:focus {
     outline: none;
 }
 
-/* ******** Stile per la label del numero domande */
-label {
-    color: white;
-    margin-bottom: 10px;
-    display: block;
-    font-size: 1.2rem;
-}
-
 #app .start-button {
     display: inline-block;
     color: white;
     text-align: center;
-    width: 17%;
+    width: 77.5%;
     background-color: rgba(54, 53, 53, 0.92);
     height: 50px;
     border-radius: 4px;
-    margin-top: 20px;
+    margin-top: 7.5px;
 }
-
-/* risultati */
 
 .results p {
     color: white;
@@ -185,12 +293,12 @@ label {
 
 .results h2 {
     #app h2 {
-    margin-bottom: 30px;
-    font-size: 24px;
-    color: white;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
-}
+        margin-bottom: 30px;
+        font-size: 24px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+    }
 }
 
 .results h3 {
@@ -268,6 +376,35 @@ label {
     transform: translate(18px);
 }
 
+.notifica {
+    width: 60%;
+    border-radius: 3px;
+    position: absolute;
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(54, 53, 53, 0.235);
+    border: 1px solid rgba(255, 0, 0, 0.650);
+    color: rgba(255, 0, 0, 0.650);
+    top: -75px;
+    right: -55px;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.3s;
+    pointer-events: none;
+}
+
+.notifica-on {
+    opacity: 1;
+    transition: opacity 0.3 ease 0.5;
+}
+
+.circle-div {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    right: 80px;
+    top: 130px;
+}
+
 /* recap menu */
 
 .recap-container {
@@ -330,45 +467,7 @@ label {
     cursor: default;
 }
 
-/* notifica sul cerchio */
-.circle-div {
-    /* ancora di posizione per la notifica */
-    position: relative;
-    display: inline-block;
-    position: absolute;
-    right: 80px;
-    top: 30%;
-    cursor: default;
-}
-
-.notifica {
-    width: 60%;
-    border-radius: 3px;
-    position: absolute;
-    font-size: 0.8rem;
-    padding: 5px;
-    background-color: rgba(54, 53, 53, 0.235);
-    border: 1px solid rgba(255, 0, 0, 0.650);
-    color: rgba(255, 0, 0, 0.650);
-    top: -60px;
-    right: -60px;
-    opacity: 0;
-    transition: opacity 0.3s ease 0.3s;
-    pointer-events: none;
-}
-
-.notifica-on {
-    opacity: 1;
-    transition: opacity 0.3 ease 0.5;
-}
-
-.circle-div {
-    width: 200px;
-    height: 200px;
-    position: fixed;
-    right: 80px;
-    top: 130px;
-}
+/*rating*/
 
 .rating h2 {
     margin-bottom: 30px;
@@ -390,6 +489,20 @@ label {
     color: rgba(54, 53, 53, 0.92);
     -webkit-text-stroke: 0.25px rgb(199, 198, 198);
 }
+
+.rating {
+    color: gold;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ratingFinale {
+    color: gold;
+}
+
+/*ringraziamenti*/
 
 .thanks-message {
     color: white;
@@ -422,18 +535,6 @@ label {
     margin: 1px;
 }
 
-.rating {
-    color: gold;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.ratingFinale {
-    color: gold;
-}
-
 .replay-button {
     display: inline-block;
     color: white;
@@ -444,8 +545,4 @@ label {
     border-radius: 4px;
     margin-top: 20px;
     font-size: 24px;
-}
-
-.welcomeDiv {
-    padding: 40px;
 }

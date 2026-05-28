@@ -7,7 +7,7 @@
       "1999",
       "2005"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Netflix è stato fondato da Reed Hastings e Marc Randolph.",
@@ -15,7 +15,7 @@
     "incorrect_answers": [
       "Falso"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è la serie originale Netflix più vista di sempre?",
@@ -25,7 +25,7 @@
       "Money Heist",
       "Bridgerton"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "In quale paese è ambientata Squid Game?",
@@ -35,7 +35,7 @@
       "Cina",
       "Tailandia"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Stranger Things è ambientata nella città di Hawkins, in quale stato americano?",
@@ -45,7 +45,7 @@
       "Illinois",
       "Kentucky"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiama il personaggio principale di Stranger Things?",
@@ -55,7 +55,7 @@
       "Nancy",
       "Joyce"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "In quale anno è uscita la prima stagione di Stranger Things?",
@@ -65,7 +65,7 @@
       "2018",
       "2017"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "La serie Money Heist è originariamente prodotta in quale paese?",
@@ -75,7 +75,7 @@
       "Messico",
       "Argentina"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si chiama il professore in Money Heist?",
@@ -85,7 +85,7 @@
       "Agustín Ramos",
       "Miguel Fernández"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "In quale città è ambientata la prima rapina di Money Heist?",
@@ -95,7 +95,7 @@
       "Siviglia",
       "Valencia"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Bridgerton è basato sui romanzi di quale autrice?",
@@ -105,7 +105,7 @@
       "Nora Roberts",
       "Jojo Moyes"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "In quale periodo storico è ambientata Bridgerton?",
@@ -115,7 +115,7 @@
       "Belle Époque",
       "Rinascimento"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiama il narratore misterioso in Bridgerton?",
@@ -125,7 +125,7 @@
       "Lady Featherington",
       "Lady Crown"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "The Crown racconta la storia della famiglia reale di quale paese?",
@@ -135,7 +135,7 @@
       "Spagna",
       "Olanda"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Qual è il nome del protagonista di Narcos?",
@@ -145,7 +145,7 @@
       "Carlos Lehder",
       "Griselda Blanco"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "In quale paese è ambientata la serie Narcos?",
@@ -155,7 +155,7 @@
       "Brasile",
       "Perù"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "La serie Dark è prodotta in quale paese?",
@@ -165,7 +165,7 @@
       "Svizzera",
       "Danimarca"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Quante stagioni ha la serie Dark?",
@@ -175,7 +175,7 @@
       "4",
       "5"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Ozark è ambientata in quale stato americano?",
@@ -185,7 +185,7 @@
       "Arkansas",
       "Kentucky"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiama il protagonista di Ozark?",
@@ -195,7 +195,7 @@
       "Jack Byrde",
       "Tom Byrde"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "The Witcher è basato su una serie di romanzi di quale autore?",
@@ -205,7 +205,7 @@
       "George R.R. Martin",
       "Brandon Sanderson"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi interpreta Geralt di Rivia in The Witcher?",
@@ -215,7 +215,7 @@
       "Tom Hardy",
       "Kit Harington"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Emily in Paris è ambientata principalmente in quale città?",
@@ -225,7 +225,7 @@
       "Marsiglia",
       "Nizza"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Lupin è una serie originale Netflix francese.",
@@ -233,7 +233,7 @@
     "incorrect_answers": [
       "Falso"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si chiama il protagonista di Lupin?",
@@ -243,7 +243,7 @@
       "Gabriel Diop",
       "Omar Diop"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Squid Game ha vinto il Golden Globe come miglior serie drammatica.",
@@ -251,7 +251,7 @@
     "incorrect_answers": [
       "Falso"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Quanti giochi ci sono in Squid Game?",
@@ -261,7 +261,7 @@
       "7",
       "8"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Come si chiama il protagonista di Squid Game?",
@@ -271,7 +271,7 @@
       "Jang Deok-su",
       "Oh Il-nam"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Wednesday è uno spin-off di quale serie?",
@@ -281,7 +281,7 @@
       "Sabrina",
       "Chilling Adventures"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Chi interpreta Wednesday Addams nella serie Netflix?",
@@ -291,7 +291,7 @@
       "Sadie Sink",
       "Sophia Lillis"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Cobra Kai è il sequel di quale famoso film?",
@@ -301,7 +301,7 @@
       "Best of the Best",
       "Kickboxer"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "In quale anno è uscita la serie Squid Game?",
@@ -311,7 +311,7 @@
       "2022",
       "2019"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "La serie You è incentrata su un protagonista che lavora in una libreria.",
@@ -319,7 +319,7 @@
     "incorrect_answers": [
       "Falso"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si chiama il protagonista della serie You?",
@@ -329,7 +329,7 @@
       "Mark Sloan",
       "Jack Pearson"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Black Mirror è una serie originale Netflix.",
@@ -337,7 +337,7 @@
     "incorrect_answers": [
       "Vero"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è il paese di origine della serie Elite?",
@@ -347,7 +347,7 @@
       "Italia",
       "Portogallo"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "La serie Mindhunter parla di agenti dell'FBI che studiano i serial killer.",
@@ -355,7 +355,7 @@
     "incorrect_answers": [
       "Falso"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Tiger King è una serie di genere true crime.",
@@ -363,7 +363,7 @@
     "incorrect_answers": [
       "Falso"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si chiama il protagonista di Tiger King?",
@@ -373,7 +373,7 @@
       "Doc Antle",
       "Jeff Lowe"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "La serie Peaky Blinders è ambientata in quale città?",
@@ -383,7 +383,7 @@
       "Manchester",
       "Liverpool"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Peaky Blinders è una serie originale Netflix.",
@@ -391,7 +391,7 @@
     "incorrect_answers": [
       "Vero"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è il nome della scuola frequentata dai protagonisti di Wednesday?",
@@ -401,7 +401,7 @@
       "Ravencroft Institute",
       "Shadow Hills"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "In quale anno è uscita la prima stagione di The Crown?",
@@ -411,7 +411,7 @@
       "2015",
       "2017"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "La serie Anatomy of a Scandal è basata su un romanzo.",
@@ -419,7 +419,7 @@
     "incorrect_answers": [
       "Falso"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è il numero del partecipante di Seong Gi-hun in Squid Game?",
@@ -429,7 +429,7 @@
       "067",
       "218"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual'è la serie netflix preferita da Claudio?",
@@ -439,7 +439,7 @@
       "The Office",
       "Cabinet of Curiosities"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Qual'è la serie netflix preferita da Simona?",
@@ -449,7 +449,7 @@
       "Kingdom",
       "Alice in Borderland"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Qual'è la serie netflix preferita da Simone?",
@@ -459,7 +459,7 @@
       "House of cards",
       "La regina degli scacchi"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Qual'è la serie netflix preferita da Valentina?",
@@ -469,17 +469,17 @@
       "Black Mirror",
       "La casa di carta"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Qual'è la serie Netflix preferita da Angelo?",
     "correct_answer": "Arcane",
     "incorrect_answers": [
-      "bojack horseman",
+      "Bojack Horseman",
       "Castlevania",
-      "Love,Death & robots"
+      "Love, Death & Robots"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Come si chiama l'attore che interpreta Lucifer Morningstar?",
@@ -489,7 +489,7 @@
       "Jared Padalecki",
       "Paul Wesley"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Quanti fratelli adottivi compongono l'Umbrella Academy originale?",
@@ -499,7 +499,7 @@
       "6",
       "8"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "A quale gioco da tavolo gioca la protagonista de 'La regina degli scacchi'?",
@@ -509,7 +509,7 @@
       "Backgammon",
       "Poker"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Qual è il nome del protagonista adolescente in Sex Education?",
@@ -519,7 +519,7 @@
       "Jackson",
       "Adam"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Dove è principalmente ambientata la serie Orange Is the New Black?",
@@ -529,7 +529,7 @@
       "In una scuola",
       "In un tribunale"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Qual è il nome del cinico politico protagonista di House of Cards?",
@@ -539,7 +539,7 @@
       "Peter Russo",
       "Raymond Tusk"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Che animale è BoJack Horseman?",
@@ -549,7 +549,7 @@
       "Un gatto",
       "Un cervo"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Che volto raffigurano le maschere usate dai rapinatori ne 'La casa di carta'?",
@@ -559,7 +559,7 @@
       "Guy Fawkes",
       "Frida Kahlo"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come viene chiamata la dimensione parallela oscura in Stranger Things?",
@@ -569,7 +569,7 @@
       "Il Vuoto",
       "L'Abisso"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Geralt di Rivia, in The Witcher, è un cacciatore di mostri mutante.",
@@ -577,7 +577,7 @@
     "incorrect_answers": [
       "Falso"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "In quale città italiana è ambientata la serie Suburra?",
@@ -587,7 +587,7 @@
       "Milano",
       "Palermo"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Chi è l'autore della serie animata 'Strappare lungo i bordi'?",
@@ -597,7 +597,7 @@
       "Gipi",
       "Leo Ortolani"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Quale regina britannica è la protagonista di The Crown?",
@@ -607,7 +607,7 @@
       "Maria Stuarda",
       "Anna"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Quali forme geometriche compaiono sulle maschere delle guardie in Squid Game?",
@@ -617,7 +617,7 @@
       "Rombo, Trapezio, Esagono",
       "Croce, Punto, Linea"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Quale famosa serie spin-off di Breaking Bad è distribuita da Netflix?",
@@ -627,7 +627,7 @@
       "Los Pollos Hermanos",
       "Heisenberg"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si chiama la prestigiosa scuola superiore della serie Elite?",
@@ -637,7 +637,7 @@
       "Moordale",
       "Gossip High"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "La serie Vis a Vis è ambientata in quale luogo?",
@@ -647,7 +647,7 @@
       "In una banca",
       "In un'accademia di polizia"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si chiama il fratello angelico di Lucifer Morningstar?",
@@ -657,7 +657,7 @@
       "Uriel",
       "Gabriel"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Nella serie The Good Place, dove credono di essere arrivati i protagonisti dopo la morte?",
@@ -667,7 +667,7 @@
       "In Purgatorio",
       "In un sogno"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Qual è il numero del distretto di polizia protagonista in Brooklyn Nine-Nine?",
@@ -677,7 +677,7 @@
       "88",
       "12"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si intitola il famoso film interattivo di Black Mirror?",
@@ -687,7 +687,7 @@
       "Nosedive",
       "White Christmas"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Quale serie comico-drammatica creata e interpretata da Ricky Gervais si trova su Netflix?",
@@ -697,7 +697,7 @@
       "Extras",
       "Derek"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Nella serie animata Rick and Morty, chi dei due è lo scienziato pazzo?",
@@ -707,7 +707,7 @@
       "Nessuno dei due",
       "Entrambi"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si chiama il capofamiglia dei Peaky Blinders?",
@@ -717,7 +717,7 @@
       "John Shelby",
       "Finn Shelby"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Chi è il protagonista della serie The Sandman?",
@@ -727,7 +727,7 @@
       "Desiderio",
       "Lucifero"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "La serie animata Arcane è basata su quale celebre videogioco?",
@@ -737,7 +737,7 @@
       "World of Warcraft",
       "Overwatch"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si chiama il ragazzo dai capelli rossi protagonista di Riverdale?",
@@ -747,7 +747,7 @@
       "Kevin",
       "Reggie"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Completa il titolo della serie: Le terrificanti avventure di...",
@@ -757,7 +757,7 @@
       "Matilda",
       "Samantha"
     ],
-    "difficoltà": "facile"
+    "difficulty": "facile"
   },
   {
     "question": "Come si chiama il night club gestito da Lucifer Morningstar a Los Angeles?",
@@ -767,7 +767,7 @@
       "Hellfire",
       "Eden"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è il nome completo della protagonista de 'La regina degli scacchi'?",
@@ -777,7 +777,7 @@
       "Mary Harmon",
       "Jane Harmon"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è la professione della madre di Otis in Sex Education?",
@@ -787,7 +787,7 @@
       "Ginecologa",
       "Insegnante"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiama la protagonista principale di Orange Is the New Black?",
@@ -797,7 +797,7 @@
       "Galina Reznikov",
       "Suzanne Warren"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Quale potere speciale possiede 'Numero 5' nella Umbrella Academy?",
@@ -807,7 +807,7 @@
       "Evocare i morti",
       "Controllo della mente"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Chi è il grande rivale (e a volte amico) canino di BoJack Horseman?",
@@ -817,7 +817,7 @@
       "Secretariat",
       "Officer Meow Meow"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiamano i due protagonisti maschili principali della serie Suburra?",
@@ -827,7 +827,7 @@
       "Gabbiano e Dandi",
       "Cinaglia e Manfredi"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiama l'amico storico di Zerocalcare che compare spesso nelle sue serie?",
@@ -837,7 +837,7 @@
       "Armadillo",
       "Deprecabile"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Ne 'La casa di carta', quale nome di città sceglie il fratello del Professore?",
@@ -847,7 +847,7 @@
       "Mosca",
       "Rio"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiama lo scontroso fratellastro di Max in Stranger Things?",
@@ -857,7 +857,7 @@
       "Jonathan",
       "Tommy"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è il nome del bardo amico di Geralt in The Witcher?",
@@ -867,7 +867,7 @@
       "Eskel",
       "Lambert"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Chi interpreta il Principe Filippo nelle prime due stagioni di The Crown?",
@@ -877,7 +877,7 @@
       "Jonathan Pryce",
       "Dominic West"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "In Mindhunter, quale serial killer 'BTK' compare spesso all'inizio degli episodi?",
@@ -887,7 +887,7 @@
       "Charles Manson",
       "Richard Speck"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "La serie Shadow and Bone è basata sui libri di quale autrice?",
@@ -897,7 +897,7 @@
       "Cassandra Clare",
       "Victoria Aveyard"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiamano i due protagonisti della serie Heartstopper?",
@@ -907,7 +907,7 @@
       "Tara e Darcy",
       "Ben e Harry"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "In Outer Banks, come vengono chiamati i ragazzi ricchi e privilegiati?",
@@ -917,7 +917,7 @@
       "Tourists",
       "Locals"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Chi è l'attrice e autrice che ha creato la serie 'Non ho mai...' (Never Have I Ever)?",
@@ -927,7 +927,7 @@
       "Priyanka Chopra",
       "Amy Poehler"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Quali oggetti magici sono al centro della trama della serie Locke & Key?",
@@ -937,7 +937,7 @@
       "Dei libri",
       "Delle pietre"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "In Altered Carbon, come si chiama il dispositivo che immagazzina la coscienza umana?",
@@ -947,7 +947,7 @@
       "Disco mnemonico",
       "Drive spirituale"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Nella serie Sense8, da quante persone è composto un 'cluster' (cerchio) di sensates?",
@@ -957,7 +957,7 @@
       "10",
       "12"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "In Dark, l'intervallo di tempo fondamentale per i viaggi temporali è di quanti anni?",
@@ -967,7 +967,7 @@
       "50 anni",
       "100 anni"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Nella terza stagione di Narcos, quale cartello diventa il nemico principale?",
@@ -977,7 +977,7 @@
       "Il Cartello di Medellin",
       "Il Cartello del Golfo"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è il cognome di Ruth, la giovane complice di Marty Byrde in Ozark?",
@@ -987,7 +987,7 @@
       "Navarro",
       "Wilkes"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Chi è l'autore della graphic novel da cui è tratta la serie The Sandman?",
@@ -997,7 +997,7 @@
       "Frank Miller",
       "Garth Ennis"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "In Sweet Tooth, il protagonista Gus è un ibrido metà umano e metà...",
@@ -1007,7 +1007,7 @@
       "Volpe",
       "Orso"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "In Alice in Borderland, quale seme delle carte indica giochi basati sul tradimento psicologico?",
@@ -1017,7 +1017,7 @@
       "Quadri",
       "Fiori"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiamano i due protagonisti in fuga in 'The End of the F***ing World'?",
@@ -1027,7 +1027,7 @@
       "Otis e Maeve",
       "Wayne e Del"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiama il ragazzo nello spettro autistico protagonista di Atypical?",
@@ -1037,7 +1037,7 @@
       "Evan",
       "Doug"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Chi è la ragazza che lascia le audiocassette in 13 Reasons Why (Tredici)?",
@@ -1047,7 +1047,7 @@
       "Chloe Rice",
       "Courtney Crimsen"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiama l'ispettrice di polizia che indaga sulla rapina ne 'La casa di carta'?",
@@ -1057,7 +1057,7 @@
       "Mónica Gaztambide",
       "Nairobi"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è il numero assegnato all'uomo anziano (Oh Il-nam) in Squid Game?",
@@ -1067,7 +1067,7 @@
       "067",
       "218"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Come si chiama l'agenzia di marketing francese per cui lavora Emily in Paris?",
@@ -1077,7 +1077,7 @@
       "Glamour Paris",
       "La Vie en Rose"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "A quale celebre personaggio letterario si ispira Assane Diop nella serie Lupin?",
@@ -1087,7 +1087,7 @@
       "Fantômas",
       "James Bond"
     ],
-    "difficoltà": "intermedia"
+    "difficulty": "intermedia"
   },
   {
     "question": "Qual è stata la primissima serie originale prodotta in esclusiva per Netflix (nel 2012)?",
@@ -1097,7 +1097,7 @@
       "Orange is the New Black",
       "Hemlock Grove"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "In che anno Netflix ha celebrato l'invio del suo miliardesimo DVD via posta?",
@@ -1107,7 +1107,7 @@
       "2010",
       "2012"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "House of Cards di Netflix è il remake di una miniserie prodotta originariamente in quale paese?",
@@ -1117,7 +1117,7 @@
       "Canada",
       "Australia"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi è il creatore della serie animata BoJack Horseman?",
@@ -1127,7 +1127,7 @@
       "Seth MacFarlane",
       "Justin Roiland"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Come si chiama la vera autrice del libro autobiografico da cui è tratto Orange Is the New Black?",
@@ -1137,7 +1137,7 @@
       "Jenji Kohan",
       "Laura Prepon"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Su quale canale televisivo spagnolo è andata in onda La Casa di Carta prima di essere acquistata da Netflix?",
@@ -1147,7 +1147,7 @@
       "La 1",
       "Cuatro"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Qual era il titolo originale provvisorio di Stranger Things durante lo sviluppo?",
@@ -1157,7 +1157,7 @@
       "Hawkins",
       "Project MKUltra"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Come si chiama l'antica fortezza dove vengono addestrati gli strighi in The Witcher?",
@@ -1167,7 +1167,7 @@
       "Cintra",
       "Novigrad"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Nella serie Dark, come si fa chiamare la versione più anziana di Jonas Kahnwald?",
@@ -1177,7 +1177,7 @@
       "Sic Mundus",
       "Hanno"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Come si chiama il grande maestro russo che Beth Harmon affronta nel finale de 'La regina degli scacchi'?",
@@ -1187,7 +1187,7 @@
       "Harry Beltik",
       "Townes"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Come si chiama il liceo frequentato dai protagonisti in Sex Education?",
@@ -1197,7 +1197,7 @@
       "Shermer",
       "Sunnydale"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi è l'autore del fumetto da cui è tratta The Umbrella Academy?",
@@ -1207,7 +1207,7 @@
       "Stan Lee",
       "Alan Moore"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "In Arcane, come si chiamano le due sorelle protagoniste le cui strade si dividono?",
@@ -1217,7 +1217,7 @@
       "Sevika e Vander",
       "Ekko e Silco"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "In che decennio storico iniziano le vicende della gang Peaky Blinders?",
@@ -1227,7 +1227,7 @@
       "Anni '40",
       "Fine 1800"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi è lo showrunner e creatore della serie antologica Black Mirror?",
@@ -1237,7 +1237,7 @@
       "Ryan Murphy",
       "Noah Hawley"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi è il creatore e sceneggiatore principale della serie The Crown?",
@@ -1247,7 +1247,7 @@
       "Stephen Poliakoff",
       "David Hare"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "La serie Mindhunter è basata su un libro scritto da quale vero ex agente dell'FBI?",
@@ -1257,7 +1257,7 @@
       "Holden Ford",
       "Bill Tench"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Qual è il budget stimato per UN SINGOLO episodio della quarta stagione di Stranger Things?",
@@ -1267,7 +1267,7 @@
       "15 milioni di dollari",
       "50 milioni di dollari"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Quale famoso regista ha diretto il film originale Netflix 'The Irishman'?",
@@ -1277,7 +1277,7 @@
       "Francis Ford Coppola",
       "Steven Spielberg"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi ha diretto il film 'Roma', vincitore di tre premi Oscar e distribuito da Netflix?",
@@ -1287,7 +1287,7 @@
       "Alejandro G. Iñárritu",
       "Pedro Almodóvar"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Qual è il nome del creatore e regista di Squid Game?",
@@ -1297,7 +1297,7 @@
       "Park Chan-wook",
       "Lee Jung-jae"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Di quale nazionalità è Wagner Moura, l'attore che interpreta Pablo Escobar in Narcos?",
@@ -1307,7 +1307,7 @@
       "Messicana",
       "Spagnola"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi sono i due creatori tedeschi della complessa serie Dark?",
@@ -1317,7 +1317,7 @@
       "Florian Henckel von Donnersmarck",
       "Fatih Akin"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "In Ozark, qual è il nome del casinò galleggiante gestito dai Byrde?",
@@ -1327,7 +1327,7 @@
       "The Riverboat King",
       "The Silver Lady"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi ha scritto e disegnato le graphic novel originali di Heartstopper?",
@@ -1337,7 +1337,7 @@
       "Rainbow Rowell",
       "Mariko Tamaki"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Quali famosi registi hanno co-creato la serie Sense8?",
@@ -1347,7 +1347,7 @@
       "I fratelli Russo",
       "I fratelli Coen"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "In quale anno del futuro è ambientata la prima stagione di Altered Carbon?",
@@ -1357,7 +1357,7 @@
       "2150",
       "3000"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi è il mangaka autore originale di Alice in Borderland?",
@@ -1367,7 +1367,7 @@
       "Hajime Isayama",
       "Sui Ishida"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Qual è il titolo nobiliare di Simon Basset, protagonista della prima stagione di Bridgerton?",
@@ -1377,7 +1377,7 @@
       "Conte di Kilmartin",
       "Marchese di Samadani"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Prima di passare a Netflix, su quale piattaforma era distribuita originariamente Cobra Kai (nel 2018)?",
@@ -1387,7 +1387,7 @@
       "Amazon Prime Video",
       "Crackle"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Quale attrice interpreta Lucifer Morningstar nella serie The Sandman?",
@@ -1397,7 +1397,7 @@
       "Cate Blanchett",
       "Charlize Theron"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Quale noto fumettista ha scritto le prime stagioni della serie animata Castlevania?",
@@ -1407,7 +1407,7 @@
       "Grant Morrison",
       "Brian K. Vaughan"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Chi sono i due famosi produttori dietro la serie animata Love, Death & Robots?",
@@ -1417,7 +1417,7 @@
       "Christopher Nolan e Hans Zimmer",
       "James Cameron e Peter Jackson"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Quale studio di animazione giapponese ha realizzato Cyberpunk: Edgerunners?",
@@ -1427,7 +1427,7 @@
       "Kyoto Animation",
       "Madhouse"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Qual è il nome del vero serial killer interpretato da Eddie Redmayne nel film 'The Good Nurse'?",
@@ -1437,7 +1437,7 @@
       "Jeffrey Dahmer",
       "John Wayne Gacy"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "La serie Narcos: Mexico si concentra principalmente sull'ascesa di quale cartello?",
@@ -1447,7 +1447,7 @@
       "Cartello di Juarez",
       "Cartello di Tijuana"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "Come si intitola la canzone che fa da sigla iniziale a La Casa di Carta?",
@@ -1457,7 +1457,7 @@
       "Money Heist Theme",
       "Resistance"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "A quale gioco da tavolo si ispira il nome del 'Demogorgone' in Stranger Things?",
@@ -1467,7 +1467,7 @@
       "Magic: The Gathering",
       "Vampiri: La Masquerade"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   },
   {
     "question": "A quanto ammonta esattamente il montepremi finale di Squid Game (in Won sudcoreani)?",
@@ -1477,6 +1477,6 @@
       "100 miliardi",
       "456 milioni"
     ],
-    "difficoltà": "difficile"
+    "difficulty": "difficile"
   }
 ]
