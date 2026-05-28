@@ -1,0 +1,1482 @@
+[
+  {
+    "question": "In quale anno è stato fondato Netflix?",
+    "correct_answer": "1997",
+    "incorrect_answers": [
+      "2001",
+      "1999",
+      "2005"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Netflix è stato fondato da Reed Hastings e Marc Randolph.",
+    "correct_answer": "Vero",
+    "incorrect_answers": [
+      "Falso"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è la serie originale Netflix più vista di sempre?",
+    "correct_answer": "Squid Game",
+    "incorrect_answers": [
+      "Stranger Things",
+      "Money Heist",
+      "Bridgerton"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "In quale paese è ambientata Squid Game?",
+    "correct_answer": "Corea del Sud",
+    "incorrect_answers": [
+      "Giappone",
+      "Cina",
+      "Tailandia"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Stranger Things è ambientata nella città di Hawkins, in quale stato americano?",
+    "correct_answer": "Indiana",
+    "incorrect_answers": [
+      "Ohio",
+      "Illinois",
+      "Kentucky"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiama il personaggio principale di Stranger Things?",
+    "correct_answer": "Eleven",
+    "incorrect_answers": [
+      "Max",
+      "Nancy",
+      "Joyce"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "In quale anno è uscita la prima stagione di Stranger Things?",
+    "correct_answer": "2016",
+    "incorrect_answers": [
+      "2014",
+      "2018",
+      "2017"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "La serie Money Heist è originariamente prodotta in quale paese?",
+    "correct_answer": "Spagna",
+    "incorrect_answers": [
+      "Italia",
+      "Messico",
+      "Argentina"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si chiama il professore in Money Heist?",
+    "correct_answer": "Sergio Marquina",
+    "incorrect_answers": [
+      "Andrés de Fonollosa",
+      "Agustín Ramos",
+      "Miguel Fernández"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "In quale città è ambientata la prima rapina di Money Heist?",
+    "correct_answer": "Madrid",
+    "incorrect_answers": [
+      "Barcellona",
+      "Siviglia",
+      "Valencia"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Bridgerton è basato sui romanzi di quale autrice?",
+    "correct_answer": "Julia Quinn",
+    "incorrect_answers": [
+      "Jane Austen",
+      "Nora Roberts",
+      "Jojo Moyes"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "In quale periodo storico è ambientata Bridgerton?",
+    "correct_answer": "Età Regency",
+    "incorrect_answers": [
+      "Era Vittoriana",
+      "Belle Époque",
+      "Rinascimento"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiama il narratore misterioso in Bridgerton?",
+    "correct_answer": "Lady Whistledown",
+    "incorrect_answers": [
+      "Lady Danbury",
+      "Lady Featherington",
+      "Lady Crown"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "The Crown racconta la storia della famiglia reale di quale paese?",
+    "correct_answer": "Regno Unito",
+    "incorrect_answers": [
+      "Svezia",
+      "Spagna",
+      "Olanda"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Qual è il nome del protagonista di Narcos?",
+    "correct_answer": "Pablo Escobar",
+    "incorrect_answers": [
+      "El Chapo",
+      "Carlos Lehder",
+      "Griselda Blanco"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "In quale paese è ambientata la serie Narcos?",
+    "correct_answer": "Colombia",
+    "incorrect_answers": [
+      "Messico",
+      "Brasile",
+      "Perù"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "La serie Dark è prodotta in quale paese?",
+    "correct_answer": "Germania",
+    "incorrect_answers": [
+      "Austria",
+      "Svizzera",
+      "Danimarca"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Quante stagioni ha la serie Dark?",
+    "correct_answer": "3",
+    "incorrect_answers": [
+      "2",
+      "4",
+      "5"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Ozark è ambientata in quale stato americano?",
+    "correct_answer": "Missouri",
+    "incorrect_answers": [
+      "Tennessee",
+      "Arkansas",
+      "Kentucky"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiama il protagonista di Ozark?",
+    "correct_answer": "Marty Byrde",
+    "incorrect_answers": [
+      "Frank Byrde",
+      "Jack Byrde",
+      "Tom Byrde"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "The Witcher è basato su una serie di romanzi di quale autore?",
+    "correct_answer": "Andrzej Sapkowski",
+    "incorrect_answers": [
+      "J.R.R. Tolkien",
+      "George R.R. Martin",
+      "Brandon Sanderson"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi interpreta Geralt di Rivia in The Witcher?",
+    "correct_answer": "Henry Cavill",
+    "incorrect_answers": [
+      "Chris Hemsworth",
+      "Tom Hardy",
+      "Kit Harington"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Emily in Paris è ambientata principalmente in quale città?",
+    "correct_answer": "Parigi",
+    "incorrect_answers": [
+      "Lione",
+      "Marsiglia",
+      "Nizza"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Lupin è una serie originale Netflix francese.",
+    "correct_answer": "Vero",
+    "incorrect_answers": [
+      "Falso"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si chiama il protagonista di Lupin?",
+    "correct_answer": "Assane Diop",
+    "incorrect_answers": [
+      "Arsène Lupin",
+      "Gabriel Diop",
+      "Omar Diop"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Squid Game ha vinto il Golden Globe come miglior serie drammatica.",
+    "correct_answer": "Vero",
+    "incorrect_answers": [
+      "Falso"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Quanti giochi ci sono in Squid Game?",
+    "correct_answer": "6",
+    "incorrect_answers": [
+      "5",
+      "7",
+      "8"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Come si chiama il protagonista di Squid Game?",
+    "correct_answer": "Seong Gi-hun",
+    "incorrect_answers": [
+      "Cho Sang-woo",
+      "Jang Deok-su",
+      "Oh Il-nam"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Wednesday è uno spin-off di quale serie?",
+    "correct_answer": "La famiglia Addams",
+    "incorrect_answers": [
+      "Riverdale",
+      "Sabrina",
+      "Chilling Adventures"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Chi interpreta Wednesday Addams nella serie Netflix?",
+    "correct_answer": "Jenna Ortega",
+    "incorrect_answers": [
+      "Millie Bobby Brown",
+      "Sadie Sink",
+      "Sophia Lillis"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Cobra Kai è il sequel di quale famoso film?",
+    "correct_answer": "Karate Kid",
+    "incorrect_answers": [
+      "Bloodsport",
+      "Best of the Best",
+      "Kickboxer"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "In quale anno è uscita la serie Squid Game?",
+    "correct_answer": "2021",
+    "incorrect_answers": [
+      "2020",
+      "2022",
+      "2019"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "La serie You è incentrata su un protagonista che lavora in una libreria.",
+    "correct_answer": "Vero",
+    "incorrect_answers": [
+      "Falso"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si chiama il protagonista della serie You?",
+    "correct_answer": "Joe Goldberg",
+    "incorrect_answers": [
+      "Dan Humphrey",
+      "Mark Sloan",
+      "Jack Pearson"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Black Mirror è una serie originale Netflix.",
+    "correct_answer": "Falso",
+    "incorrect_answers": [
+      "Vero"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è il paese di origine della serie Elite?",
+    "correct_answer": "Spagna",
+    "incorrect_answers": [
+      "Francia",
+      "Italia",
+      "Portogallo"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "La serie Mindhunter parla di agenti dell'FBI che studiano i serial killer.",
+    "correct_answer": "Vero",
+    "incorrect_answers": [
+      "Falso"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Tiger King è una serie di genere true crime.",
+    "correct_answer": "Vero",
+    "incorrect_answers": [
+      "Falso"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si chiama il protagonista di Tiger King?",
+    "correct_answer": "Joe Exotic",
+    "incorrect_answers": [
+      "Carole Baskin",
+      "Doc Antle",
+      "Jeff Lowe"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "La serie Peaky Blinders è ambientata in quale città?",
+    "correct_answer": "Birmingham",
+    "incorrect_answers": [
+      "Londra",
+      "Manchester",
+      "Liverpool"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Peaky Blinders è una serie originale Netflix.",
+    "correct_answer": "Falso",
+    "incorrect_answers": [
+      "Vero"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è il nome della scuola frequentata dai protagonisti di Wednesday?",
+    "correct_answer": "Nevermore Academy",
+    "incorrect_answers": [
+      "Blackwood School",
+      "Ravencroft Institute",
+      "Shadow Hills"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "In quale anno è uscita la prima stagione di The Crown?",
+    "correct_answer": "2016",
+    "incorrect_answers": [
+      "2018",
+      "2015",
+      "2017"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "La serie Anatomy of a Scandal è basata su un romanzo.",
+    "correct_answer": "Vero",
+    "incorrect_answers": [
+      "Falso"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è il numero del partecipante di Seong Gi-hun in Squid Game?",
+    "correct_answer": "456",
+    "incorrect_answers": [
+      "001",
+      "067",
+      "218"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual'è la serie netflix preferita da Claudio?",
+    "correct_answer": "Rick and Morty",
+    "incorrect_answers": [
+      "One Piece",
+      "The Office",
+      "Cabinet of Curiosities"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Qual'è la serie netflix preferita da Simona?",
+    "correct_answer": "Mouse",
+    "incorrect_answers": [
+      "Vincenzo",
+      "Kingdom",
+      "Alice in Borderland"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Qual'è la serie netflix preferita da Simone?",
+    "correct_answer": "Bojack Horsman",
+    "incorrect_answers": [
+      "Strappare lungo i bordi",
+      "House of cards",
+      "La regina degli scacchi"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Qual'è la serie netflix preferita da Valentina?",
+    "correct_answer": "Formula 1 - Drive to survive",
+    "incorrect_answers": [
+      "Squid Game",
+      "Black Mirror",
+      "La casa di carta"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Qual'è la serie Netflix preferita da Angelo?",
+    "correct_answer": "Arcane",
+    "incorrect_answers": [
+      "bojack horseman",
+      "Castlevania",
+      "Love,Death & robots"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Come si chiama l'attore che interpreta Lucifer Morningstar?",
+    "correct_answer": "Tom Ellis",
+    "incorrect_answers": [
+      "Ian Somerhalder",
+      "Jared Padalecki",
+      "Paul Wesley"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Quanti fratelli adottivi compongono l'Umbrella Academy originale?",
+    "correct_answer": "7",
+    "incorrect_answers": [
+      "5",
+      "6",
+      "8"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "A quale gioco da tavolo gioca la protagonista de 'La regina degli scacchi'?",
+    "correct_answer": "Scacchi",
+    "incorrect_answers": [
+      "Dama",
+      "Backgammon",
+      "Poker"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Qual è il nome del protagonista adolescente in Sex Education?",
+    "correct_answer": "Otis",
+    "incorrect_answers": [
+      "Eric",
+      "Jackson",
+      "Adam"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Dove è principalmente ambientata la serie Orange Is the New Black?",
+    "correct_answer": "In una prigione femminile",
+    "incorrect_answers": [
+      "In un ospedale",
+      "In una scuola",
+      "In un tribunale"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Qual è il nome del cinico politico protagonista di House of Cards?",
+    "correct_answer": "Frank Underwood",
+    "incorrect_answers": [
+      "Doug Stamper",
+      "Peter Russo",
+      "Raymond Tusk"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Che animale è BoJack Horseman?",
+    "correct_answer": "Un cavallo",
+    "incorrect_answers": [
+      "Un cane",
+      "Un gatto",
+      "Un cervo"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Che volto raffigurano le maschere usate dai rapinatori ne 'La casa di carta'?",
+    "correct_answer": "Salvador Dalí",
+    "incorrect_answers": [
+      "Pablo Picasso",
+      "Guy Fawkes",
+      "Frida Kahlo"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come viene chiamata la dimensione parallela oscura in Stranger Things?",
+    "correct_answer": "Sottosopra (Upside Down)",
+    "incorrect_answers": [
+      "L'Oltre",
+      "Il Vuoto",
+      "L'Abisso"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Geralt di Rivia, in The Witcher, è un cacciatore di mostri mutante.",
+    "correct_answer": "Vero",
+    "incorrect_answers": [
+      "Falso"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "In quale città italiana è ambientata la serie Suburra?",
+    "correct_answer": "Roma",
+    "incorrect_answers": [
+      "Napoli",
+      "Milano",
+      "Palermo"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Chi è l'autore della serie animata 'Strappare lungo i bordi'?",
+    "correct_answer": "Zerocalcare",
+    "incorrect_answers": [
+      "Sio",
+      "Gipi",
+      "Leo Ortolani"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Quale regina britannica è la protagonista di The Crown?",
+    "correct_answer": "Elisabetta II",
+    "incorrect_answers": [
+      "Vittoria",
+      "Maria Stuarda",
+      "Anna"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Quali forme geometriche compaiono sulle maschere delle guardie in Squid Game?",
+    "correct_answer": "Cerchio, Triangolo, Quadrato",
+    "incorrect_answers": [
+      "Stella, Cuore, Picche",
+      "Rombo, Trapezio, Esagono",
+      "Croce, Punto, Linea"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Quale famosa serie spin-off di Breaking Bad è distribuita da Netflix?",
+    "correct_answer": "Better Call Saul",
+    "incorrect_answers": [
+      "El Camino",
+      "Los Pollos Hermanos",
+      "Heisenberg"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si chiama la prestigiosa scuola superiore della serie Elite?",
+    "correct_answer": "Las Encinas",
+    "incorrect_answers": [
+      "Costance Billard",
+      "Moordale",
+      "Gossip High"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "La serie Vis a Vis è ambientata in quale luogo?",
+    "correct_answer": "In una prigione",
+    "incorrect_answers": [
+      "In un ospedale",
+      "In una banca",
+      "In un'accademia di polizia"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si chiama il fratello angelico di Lucifer Morningstar?",
+    "correct_answer": "Amenadiel",
+    "incorrect_answers": [
+      "Michael",
+      "Uriel",
+      "Gabriel"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Nella serie The Good Place, dove credono di essere arrivati i protagonisti dopo la morte?",
+    "correct_answer": "In Paradiso",
+    "incorrect_answers": [
+      "All'Inferno",
+      "In Purgatorio",
+      "In un sogno"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Qual è il numero del distretto di polizia protagonista in Brooklyn Nine-Nine?",
+    "correct_answer": "99",
+    "incorrect_answers": [
+      "101",
+      "88",
+      "12"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si intitola il famoso film interattivo di Black Mirror?",
+    "correct_answer": "Bandersnatch",
+    "incorrect_answers": [
+      "San Junipero",
+      "Nosedive",
+      "White Christmas"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Quale serie comico-drammatica creata e interpretata da Ricky Gervais si trova su Netflix?",
+    "correct_answer": "After Life",
+    "incorrect_answers": [
+      "The Office",
+      "Extras",
+      "Derek"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Nella serie animata Rick and Morty, chi dei due è lo scienziato pazzo?",
+    "correct_answer": "Rick",
+    "incorrect_answers": [
+      "Morty",
+      "Nessuno dei due",
+      "Entrambi"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si chiama il capofamiglia dei Peaky Blinders?",
+    "correct_answer": "Thomas Shelby",
+    "incorrect_answers": [
+      "Arthur Shelby",
+      "John Shelby",
+      "Finn Shelby"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Chi è il protagonista della serie The Sandman?",
+    "correct_answer": "Sogno (Morfeo)",
+    "incorrect_answers": [
+      "Morte",
+      "Desiderio",
+      "Lucifero"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "La serie animata Arcane è basata su quale celebre videogioco?",
+    "correct_answer": "League of Legends",
+    "incorrect_answers": [
+      "Dota 2",
+      "World of Warcraft",
+      "Overwatch"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si chiama il ragazzo dai capelli rossi protagonista di Riverdale?",
+    "correct_answer": "Archie",
+    "incorrect_answers": [
+      "Jughead",
+      "Kevin",
+      "Reggie"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Completa il titolo della serie: Le terrificanti avventure di...",
+    "correct_answer": "Sabrina",
+    "incorrect_answers": [
+      "Mercoledì",
+      "Matilda",
+      "Samantha"
+    ],
+    "difficoltà": "facile"
+  },
+  {
+    "question": "Come si chiama il night club gestito da Lucifer Morningstar a Los Angeles?",
+    "correct_answer": "Lux",
+    "incorrect_answers": [
+      "Sin",
+      "Hellfire",
+      "Eden"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è il nome completo della protagonista de 'La regina degli scacchi'?",
+    "correct_answer": "Beth Harmon",
+    "incorrect_answers": [
+      "Alice Harmon",
+      "Mary Harmon",
+      "Jane Harmon"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è la professione della madre di Otis in Sex Education?",
+    "correct_answer": "Sessuologa",
+    "incorrect_answers": [
+      "Psicologa scolastica",
+      "Ginecologa",
+      "Insegnante"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiama la protagonista principale di Orange Is the New Black?",
+    "correct_answer": "Piper Chapman",
+    "incorrect_answers": [
+      "Alex Vause",
+      "Galina Reznikov",
+      "Suzanne Warren"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Quale potere speciale possiede 'Numero 5' nella Umbrella Academy?",
+    "correct_answer": "Viaggio nel tempo e teletrasporto",
+    "incorrect_answers": [
+      "Superforza",
+      "Evocare i morti",
+      "Controllo della mente"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Chi è il grande rivale (e a volte amico) canino di BoJack Horseman?",
+    "correct_answer": "Mr. Peanutbutter",
+    "incorrect_answers": [
+      "Todd Chavez",
+      "Secretariat",
+      "Officer Meow Meow"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiamano i due protagonisti maschili principali della serie Suburra?",
+    "correct_answer": "Aureliano e Spadino",
+    "incorrect_answers": [
+      "Lele e Samurai",
+      "Gabbiano e Dandi",
+      "Cinaglia e Manfredi"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiama l'amico storico di Zerocalcare che compare spesso nelle sue serie?",
+    "correct_answer": "Secco",
+    "incorrect_answers": [
+      "Cinghiale",
+      "Armadillo",
+      "Deprecabile"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Ne 'La casa di carta', quale nome di città sceglie il fratello del Professore?",
+    "correct_answer": "Berlino",
+    "incorrect_answers": [
+      "Tokyo",
+      "Mosca",
+      "Rio"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiama lo scontroso fratellastro di Max in Stranger Things?",
+    "correct_answer": "Billy",
+    "incorrect_answers": [
+      "Steve",
+      "Jonathan",
+      "Tommy"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è il nome del bardo amico di Geralt in The Witcher?",
+    "correct_answer": "Ranuncolo (Jaskier)",
+    "incorrect_answers": [
+      "Vesemir",
+      "Eskel",
+      "Lambert"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Chi interpreta il Principe Filippo nelle prime due stagioni di The Crown?",
+    "correct_answer": "Matt Smith",
+    "incorrect_answers": [
+      "Tobias Menzies",
+      "Jonathan Pryce",
+      "Dominic West"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "In Mindhunter, quale serial killer 'BTK' compare spesso all'inizio degli episodi?",
+    "correct_answer": "Dennis Rader",
+    "incorrect_answers": [
+      "Ed Kemper",
+      "Charles Manson",
+      "Richard Speck"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "La serie Shadow and Bone è basata sui libri di quale autrice?",
+    "correct_answer": "Leigh Bardugo",
+    "incorrect_answers": [
+      "Sarah J. Maas",
+      "Cassandra Clare",
+      "Victoria Aveyard"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiamano i due protagonisti della serie Heartstopper?",
+    "correct_answer": "Nick e Charlie",
+    "incorrect_answers": [
+      "Tao e Isaac",
+      "Tara e Darcy",
+      "Ben e Harry"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "In Outer Banks, come vengono chiamati i ragazzi ricchi e privilegiati?",
+    "correct_answer": "Kooks",
+    "incorrect_answers": [
+      "Pogues",
+      "Tourists",
+      "Locals"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Chi è l'attrice e autrice che ha creato la serie 'Non ho mai...' (Never Have I Ever)?",
+    "correct_answer": "Mindy Kaling",
+    "incorrect_answers": [
+      "Tina Fey",
+      "Priyanka Chopra",
+      "Amy Poehler"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Quali oggetti magici sono al centro della trama della serie Locke & Key?",
+    "correct_answer": "Delle chiavi",
+    "incorrect_answers": [
+      "Degli anelli",
+      "Dei libri",
+      "Delle pietre"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "In Altered Carbon, come si chiama il dispositivo che immagazzina la coscienza umana?",
+    "correct_answer": "Pila corticale (Cortical Stack)",
+    "incorrect_answers": [
+      "Chip neurale",
+      "Disco mnemonico",
+      "Drive spirituale"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Nella serie Sense8, da quante persone è composto un 'cluster' (cerchio) di sensates?",
+    "correct_answer": "8",
+    "incorrect_answers": [
+      "6",
+      "10",
+      "12"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "In Dark, l'intervallo di tempo fondamentale per i viaggi temporali è di quanti anni?",
+    "correct_answer": "33 anni",
+    "incorrect_answers": [
+      "25 anni",
+      "50 anni",
+      "100 anni"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Nella terza stagione di Narcos, quale cartello diventa il nemico principale?",
+    "correct_answer": "Il Cartello di Cali",
+    "incorrect_answers": [
+      "Il Cartello di Sinaloa",
+      "Il Cartello di Medellin",
+      "Il Cartello del Golfo"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è il cognome di Ruth, la giovane complice di Marty Byrde in Ozark?",
+    "correct_answer": "Langmore",
+    "incorrect_answers": [
+      "Snell",
+      "Navarro",
+      "Wilkes"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Chi è l'autore della graphic novel da cui è tratta la serie The Sandman?",
+    "correct_answer": "Neil Gaiman",
+    "incorrect_answers": [
+      "Alan Moore",
+      "Frank Miller",
+      "Garth Ennis"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "In Sweet Tooth, il protagonista Gus è un ibrido metà umano e metà...",
+    "correct_answer": "Cervo",
+    "incorrect_answers": [
+      "Lupo",
+      "Volpe",
+      "Orso"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "In Alice in Borderland, quale seme delle carte indica giochi basati sul tradimento psicologico?",
+    "correct_answer": "Cuori",
+    "incorrect_answers": [
+      "Picche",
+      "Quadri",
+      "Fiori"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiamano i due protagonisti in fuga in 'The End of the F***ing World'?",
+    "correct_answer": "James e Alyssa",
+    "incorrect_answers": [
+      "Sid e Cassie",
+      "Otis e Maeve",
+      "Wayne e Del"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiama il ragazzo nello spettro autistico protagonista di Atypical?",
+    "correct_answer": "Sam",
+    "incorrect_answers": [
+      "Zahid",
+      "Evan",
+      "Doug"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Chi è la ragazza che lascia le audiocassette in 13 Reasons Why (Tredici)?",
+    "correct_answer": "Hannah Baker",
+    "incorrect_answers": [
+      "Jessica Davis",
+      "Chloe Rice",
+      "Courtney Crimsen"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiama l'ispettrice di polizia che indaga sulla rapina ne 'La casa di carta'?",
+    "correct_answer": "Raquel Murillo",
+    "incorrect_answers": [
+      "Alicia Sierra",
+      "Mónica Gaztambide",
+      "Nairobi"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è il numero assegnato all'uomo anziano (Oh Il-nam) in Squid Game?",
+    "correct_answer": "001",
+    "incorrect_answers": [
+      "456",
+      "067",
+      "218"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Come si chiama l'agenzia di marketing francese per cui lavora Emily in Paris?",
+    "correct_answer": "Savoir",
+    "incorrect_answers": [
+      "L'Étoile",
+      "Glamour Paris",
+      "La Vie en Rose"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "A quale celebre personaggio letterario si ispira Assane Diop nella serie Lupin?",
+    "correct_answer": "Arsène Lupin di Maurice Leblanc",
+    "incorrect_answers": [
+      "Sherlock Holmes",
+      "Fantômas",
+      "James Bond"
+    ],
+    "difficoltà": "intermedia"
+  },
+  {
+    "question": "Qual è stata la primissima serie originale prodotta in esclusiva per Netflix (nel 2012)?",
+    "correct_answer": "Lilyhammer",
+    "incorrect_answers": [
+      "House of Cards",
+      "Orange is the New Black",
+      "Hemlock Grove"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "In che anno Netflix ha celebrato l'invio del suo miliardesimo DVD via posta?",
+    "correct_answer": "2007",
+    "incorrect_answers": [
+      "2005",
+      "2010",
+      "2012"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "House of Cards di Netflix è il remake di una miniserie prodotta originariamente in quale paese?",
+    "correct_answer": "Regno Unito",
+    "incorrect_answers": [
+      "Francia",
+      "Canada",
+      "Australia"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi è il creatore della serie animata BoJack Horseman?",
+    "correct_answer": "Raphael Bob-Waksberg",
+    "incorrect_answers": [
+      "Matt Groening",
+      "Seth MacFarlane",
+      "Justin Roiland"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Come si chiama la vera autrice del libro autobiografico da cui è tratto Orange Is the New Black?",
+    "correct_answer": "Piper Kerman",
+    "incorrect_answers": [
+      "Piper Chapman",
+      "Jenji Kohan",
+      "Laura Prepon"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Su quale canale televisivo spagnolo è andata in onda La Casa di Carta prima di essere acquistata da Netflix?",
+    "correct_answer": "Antena 3",
+    "incorrect_answers": [
+      "Telecinco",
+      "La 1",
+      "Cuatro"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Qual era il titolo originale provvisorio di Stranger Things durante lo sviluppo?",
+    "correct_answer": "Montauk",
+    "incorrect_answers": [
+      "The Upside Down",
+      "Hawkins",
+      "Project MKUltra"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Come si chiama l'antica fortezza dove vengono addestrati gli strighi in The Witcher?",
+    "correct_answer": "Kaer Morhen",
+    "incorrect_answers": [
+      "Aretuza",
+      "Cintra",
+      "Novigrad"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Nella serie Dark, come si fa chiamare la versione più anziana di Jonas Kahnwald?",
+    "correct_answer": "Adam",
+    "incorrect_answers": [
+      "Noah",
+      "Sic Mundus",
+      "Hanno"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Come si chiama il grande maestro russo che Beth Harmon affronta nel finale de 'La regina degli scacchi'?",
+    "correct_answer": "Vasily Borgov",
+    "incorrect_answers": [
+      "Benny Watts",
+      "Harry Beltik",
+      "Townes"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Come si chiama il liceo frequentato dai protagonisti in Sex Education?",
+    "correct_answer": "Moordale",
+    "incorrect_answers": [
+      "Bayside",
+      "Shermer",
+      "Sunnydale"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi è l'autore del fumetto da cui è tratta The Umbrella Academy?",
+    "correct_answer": "Gerard Way",
+    "incorrect_answers": [
+      "Gabriel Bá",
+      "Stan Lee",
+      "Alan Moore"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "In Arcane, come si chiamano le due sorelle protagoniste le cui strade si dividono?",
+    "correct_answer": "Vi e Jinx",
+    "incorrect_answers": [
+      "Caitlyn e Mel",
+      "Sevika e Vander",
+      "Ekko e Silco"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "In che decennio storico iniziano le vicende della gang Peaky Blinders?",
+    "correct_answer": "Anni '20",
+    "incorrect_answers": [
+      "Anni '30",
+      "Anni '40",
+      "Fine 1800"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi è lo showrunner e creatore della serie antologica Black Mirror?",
+    "correct_answer": "Charlie Brooker",
+    "incorrect_answers": [
+      "Jordan Peele",
+      "Ryan Murphy",
+      "Noah Hawley"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi è il creatore e sceneggiatore principale della serie The Crown?",
+    "correct_answer": "Peter Morgan",
+    "incorrect_answers": [
+      "Julian Fellowes",
+      "Stephen Poliakoff",
+      "David Hare"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "La serie Mindhunter è basata su un libro scritto da quale vero ex agente dell'FBI?",
+    "correct_answer": "John E. Douglas",
+    "incorrect_answers": [
+      "Robert Ressler",
+      "Holden Ford",
+      "Bill Tench"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Qual è il budget stimato per UN SINGOLO episodio della quarta stagione di Stranger Things?",
+    "correct_answer": "30 milioni di dollari",
+    "incorrect_answers": [
+      "10 milioni di dollari",
+      "15 milioni di dollari",
+      "50 milioni di dollari"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Quale famoso regista ha diretto il film originale Netflix 'The Irishman'?",
+    "correct_answer": "Martin Scorsese",
+    "incorrect_answers": [
+      "Quentin Tarantino",
+      "Francis Ford Coppola",
+      "Steven Spielberg"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi ha diretto il film 'Roma', vincitore di tre premi Oscar e distribuito da Netflix?",
+    "correct_answer": "Alfonso Cuarón",
+    "incorrect_answers": [
+      "Guillermo del Toro",
+      "Alejandro G. Iñárritu",
+      "Pedro Almodóvar"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Qual è il nome del creatore e regista di Squid Game?",
+    "correct_answer": "Hwang Dong-hyuk",
+    "incorrect_answers": [
+      "Bong Joon-ho",
+      "Park Chan-wook",
+      "Lee Jung-jae"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Di quale nazionalità è Wagner Moura, l'attore che interpreta Pablo Escobar in Narcos?",
+    "correct_answer": "Brasiliana",
+    "incorrect_answers": [
+      "Colombiana",
+      "Messicana",
+      "Spagnola"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi sono i due creatori tedeschi della complessa serie Dark?",
+    "correct_answer": "Baran bo Odar e Jantje Friese",
+    "incorrect_answers": [
+      "Tom Tykwer e Henk Handloegten",
+      "Florian Henckel von Donnersmarck",
+      "Fatih Akin"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "In Ozark, qual è il nome del casinò galleggiante gestito dai Byrde?",
+    "correct_answer": "The Missouri Belle",
+    "incorrect_answers": [
+      "The Ozark Queen",
+      "The Riverboat King",
+      "The Silver Lady"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi ha scritto e disegnato le graphic novel originali di Heartstopper?",
+    "correct_answer": "Alice Oseman",
+    "incorrect_answers": [
+      "Becky Albertalli",
+      "Rainbow Rowell",
+      "Mariko Tamaki"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Quali famosi registi hanno co-creato la serie Sense8?",
+    "correct_answer": "Le sorelle Wachowski",
+    "incorrect_answers": [
+      "I fratelli Duffer",
+      "I fratelli Russo",
+      "I fratelli Coen"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "In quale anno del futuro è ambientata la prima stagione di Altered Carbon?",
+    "correct_answer": "2384",
+    "incorrect_answers": [
+      "2077",
+      "2150",
+      "3000"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi è il mangaka autore originale di Alice in Borderland?",
+    "correct_answer": "Haro Aso",
+    "incorrect_answers": [
+      "Tsugumi Ohba",
+      "Hajime Isayama",
+      "Sui Ishida"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Qual è il titolo nobiliare di Simon Basset, protagonista della prima stagione di Bridgerton?",
+    "correct_answer": "Duca di Hastings",
+    "incorrect_answers": [
+      "Visconte Bridgerton",
+      "Conte di Kilmartin",
+      "Marchese di Samadani"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Prima di passare a Netflix, su quale piattaforma era distribuita originariamente Cobra Kai (nel 2018)?",
+    "correct_answer": "YouTube Red / Premium",
+    "incorrect_answers": [
+      "Hulu",
+      "Amazon Prime Video",
+      "Crackle"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Quale attrice interpreta Lucifer Morningstar nella serie The Sandman?",
+    "correct_answer": "Gwendoline Christie",
+    "incorrect_answers": [
+      "Tilda Swinton",
+      "Cate Blanchett",
+      "Charlize Theron"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Quale noto fumettista ha scritto le prime stagioni della serie animata Castlevania?",
+    "correct_answer": "Warren Ellis",
+    "incorrect_answers": [
+      "Garth Ennis",
+      "Grant Morrison",
+      "Brian K. Vaughan"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Chi sono i due famosi produttori dietro la serie animata Love, Death & Robots?",
+    "correct_answer": "Tim Miller e David Fincher",
+    "incorrect_answers": [
+      "Steven Spielberg e George Lucas",
+      "Christopher Nolan e Hans Zimmer",
+      "James Cameron e Peter Jackson"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Quale studio di animazione giapponese ha realizzato Cyberpunk: Edgerunners?",
+    "correct_answer": "Studio Trigger",
+    "incorrect_answers": [
+      "MAPPA",
+      "Kyoto Animation",
+      "Madhouse"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Qual è il nome del vero serial killer interpretato da Eddie Redmayne nel film 'The Good Nurse'?",
+    "correct_answer": "Charles Cullen",
+    "incorrect_answers": [
+      "Ted Bundy",
+      "Jeffrey Dahmer",
+      "John Wayne Gacy"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "La serie Narcos: Mexico si concentra principalmente sull'ascesa di quale cartello?",
+    "correct_answer": "Cartello di Guadalajara",
+    "incorrect_answers": [
+      "Cartello di Sinaloa",
+      "Cartello di Juarez",
+      "Cartello di Tijuana"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "Come si intitola la canzone che fa da sigla iniziale a La Casa di Carta?",
+    "correct_answer": "My Life Is Going On",
+    "incorrect_answers": [
+      "Bella Ciao",
+      "Money Heist Theme",
+      "Resistance"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "A quale gioco da tavolo si ispira il nome del 'Demogorgone' in Stranger Things?",
+    "correct_answer": "Dungeons & Dragons",
+    "incorrect_answers": [
+      "Warhammer",
+      "Magic: The Gathering",
+      "Vampiri: La Masquerade"
+    ],
+    "difficoltà": "difficile"
+  },
+  {
+    "question": "A quanto ammonta esattamente il montepremi finale di Squid Game (in Won sudcoreani)?",
+    "correct_answer": "45,6 miliardi",
+    "incorrect_answers": [
+      "10 miliardi",
+      "100 miliardi",
+      "456 milioni"
+    ],
+    "difficoltà": "difficile"
+  }
+]

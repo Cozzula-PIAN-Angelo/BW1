@@ -16,337 +16,31 @@ const app = document.querySelector("#app");
    DATI QUIZ
 ========================= */
 
-const QUESTIONS = [
-  {
-    question: "In quale anno è stato fondato Netflix?",
-    correct_answer: "1997",
-    incorrect_answers: ["2001", "1999", "2005"],
-    difficulty: "facile",
-  },
-  {
-    question: "Netflix è stato fondato da Reed Hastings e Marc Randolph.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-    difficulty: "facile",
-  },
-  {
-    question: "Qual è la serie originale Netflix più vista di sempre?",
-    correct_answer: "Squid Game",
-    incorrect_answers: ["Stranger Things", "Money Heist", "Bridgerton"],
-    difficulty: "facile",
-  },
-  {
-    question: "In quale paese è ambientata Squid Game?",
-    correct_answer: "Corea del Sud",
-    incorrect_answers: ["Giappone", "Cina", "Tailandia"],
-    difficulty: "facile",
-  },
-  {
-    question:
-      "Stranger Things è ambientata nella città di Hawkins, in quale stato americano?",
-    correct_answer: "Indiana",
-    incorrect_answers: ["Ohio", "Illinois", "Kentucky"],
-    difficulty: "medio",
-  },
-  {
-    question: "Come si chiama il personaggio principale di Stranger Things?",
-    correct_answer: "Eleven",
-    incorrect_answers: ["Max", "Nancy", "Joyce"],
-    difficulty: "facile",
-  },
-  {
-    question: "In quale anno è uscita la prima stagione di Stranger Things?",
-    correct_answer: "2016",
-    incorrect_answers: ["2014", "2018", "2017"],
-    difficulty: "medio",
-  },
-  {
-    question: "La serie Money Heist è originariamente prodotta in quale paese?",
-    correct_answer: "Spagna",
-    incorrect_answers: ["Italia", "Messico", "Argentina"],
-    difficulty: "facile",
-  },
-  {
-    question: "Come si chiama il professore in Money Heist?",
-    correct_answer: "Sergio Marquina",
-    incorrect_answers: [
-      "Andrés de Fonollosa",
-      "Agustín Ramos",
-      "Miguel Fernández",
-    ],
-    difficulty: "difficile",
-  },
-  {
-    question: "In quale città è ambientata la prima rapina di Money Heist?",
-    correct_answer: "Madrid",
-    incorrect_answers: ["Barcellona", "Siviglia", "Valencia"],
-    difficulty: "facile",
-  },
-  {
-    question: "Bridgerton è basato sui romanzi di quale autrice?",
-    correct_answer: "Julia Quinn",
-    incorrect_answers: ["Jane Austen", "Nora Roberts", "Jojo Moyes"],
-    difficulty: "medio",
-  },
-  {
-    question: "In quale periodo storico è ambientata Bridgerton?",
-    correct_answer: "Età Regency",
-    incorrect_answers: ["Era Vittoriana", "Belle Époque", "Rinascimento"],
-    difficulty: "medio",
-  },
-  {
-    question: "Come si chiama il narratore misterioso in Bridgerton?",
-    correct_answer: "Lady Whistledown",
-    incorrect_answers: ["Lady Danbury", "Lady Featherington", "Lady Crown"],
-    difficulty: "difficile",
-  },
-  {
-    question:
-      "The Crown racconta la storia della famiglia reale di quale paese?",
-    correct_answer: "Regno Unito",
-    incorrect_answers: ["Svezia", "Spagna", "Olanda"],
-    difficulty: "facile",
-  },
-  {
-    question: "Qual è il nome del protagonista di Narcos?",
-    correct_answer: "Pablo Escobar",
-    incorrect_answers: ["El Chapo", "Carlos Lehder", "Griselda Blanco"],
-    difficulty: "facile",
-  },
-  {
-    question: "In quale paese è ambientata la serie Narcos?",
-    correct_answer: "Colombia",
-    incorrect_answers: ["Messico", "Brasile", "Perù"],
-    difficulty: "facile",
-  },
-  {
-    question: "La serie Dark è prodotta in quale paese?",
-    correct_answer: "Germania",
-    incorrect_answers: ["Austria", "Svizzera", "Danimarca"],
-    difficulty: "facile",
-  },
-  {
-    question: "Quante stagioni ha la serie Dark?",
-    correct_answer: "3",
-    incorrect_answers: ["2", "4", "5"],
-    difficulty: "medio",
-  },
-  {
-    question: "Ozark è ambientata in quale stato americano?",
-    correct_answer: "Missouri",
-    incorrect_answers: ["Tennessee", "Arkansas", "Kentucky"],
-    difficulty: "medio",
-  },
-  {
-    question: "Come si chiama il protagonista di Ozark?",
-    correct_answer: "Marty Byrde",
-    incorrect_answers: ["Frank Byrde", "Jack Byrde", "Tom Byrde"],
-    difficulty: "medio",
-  },
-  {
-    question: "The Witcher è basato su una serie di romanzi di quale autore?",
-    correct_answer: "Andrzej Sapkowski",
-    incorrect_answers: [
-      "J.R.R. Tolkien",
-      "George R.R. Martin",
-      "Brandon Sanderson",
-    ],
-    difficulty: "medio",
-  },
-  {
-    question: "Chi interpreta Geralt di Rivia in The Witcher?",
-    correct_answer: "Henry Cavill",
-    incorrect_answers: ["Chris Hemsworth", "Tom Hardy", "Kit Harington"],
-    difficulty: "facile",
-  },
-  {
-    question: "Emily in Paris è ambientata principalmente in quale città?",
-    correct_answer: "Parigi",
-    incorrect_answers: ["Lione", "Marsiglia", "Nizza"],
-    difficulty: "facile",
-  },
-  {
-    question: "Lupin è una serie originale Netflix francese.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-    difficulty: "facile",
-  },
-  {
-    question: "Come si chiama il protagonista di Lupin?",
-    correct_answer: "Assane Diop",
-    incorrect_answers: ["Arsène Lupin", "Gabriel Diop", "Omar Diop"],
-    difficulty: "medio",
-  },
-  {
-    question: "Quanti giochi ci sono in Squid Game?",
-    correct_answer: "6",
-    incorrect_answers: ["5", "7", "8"],
-    difficulty: "difficile",
-  },
-  {
-    question: "Come si chiama il protagonista di Squid Game?",
-    correct_answer: "Seong Gi-hun",
-    incorrect_answers: ["Cho Sang-woo", "Jang Deok-su", "Oh Il-nam"],
-    difficulty: "medio",
-  },
-  {
-    question: "Wednesday è uno spin-off di quale serie?",
-    correct_answer: "La famiglia Addams",
-    incorrect_answers: ["Riverdale", "Sabrina", "Chilling Adventures"],
-    difficulty: "facile",
-  },
-  {
-    question: "Chi interpreta Wednesday Addams nella serie Netflix?",
-    correct_answer: "Jenna Ortega",
-    incorrect_answers: ["Millie Bobby Brown", "Sadie Sink", "Sophia Lillis"],
-    difficulty: "facile",
-  },
-  {
-    question: "Cobra Kai è il sequel di quale famoso film?",
-    correct_answer: "Karate Kid",
-    incorrect_answers: ["Bloodsport", "Best of the Best", "Kickboxer"],
-    difficulty: "facile",
-  },
-  {
-    question: "In quale anno è uscita la serie Squid Game?",
-    correct_answer: "2021",
-    incorrect_answers: ["2020", "2022", "2019"],
-    difficulty: "medio",
-  },
-  {
-    question: "Come si chiama il protagonista della serie You?",
-    correct_answer: "Joe Goldberg",
-    incorrect_answers: ["Dan Humphrey", "Mark Sloan", "Jack Pearson"],
-    difficulty: "medio",
-  },
-  {
-    question: "Black Mirror è una serie originale Netflix.",
-    correct_answer: "Falso",
-    incorrect_answers: ["Vero"],
-    difficulty: "difficile",
-  },
-  {
-    question: "Qual è il paese di origine della serie Elite?",
-    correct_answer: "Spagna",
-    incorrect_answers: ["Francia", "Italia", "Portogallo"],
-    difficulty: "facile",
-  },
-  {
-    question:
-      "La serie Mindhunter parla di agenti dell'FBI che studiano i serial killer.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-    difficulty: "facile",
-  },
-  {
-    question: "Come si chiama il protagonista di Tiger King?",
-    correct_answer: "Joe Exotic",
-    incorrect_answers: ["Carole Baskin", "Doc Antle", "Jeff Lowe"],
-    difficulty: "medio",
-  },
-  {
-    question: "La serie Peaky Blinders è ambientata in quale città?",
-    correct_answer: "Birmingham",
-    incorrect_answers: ["Londra", "Manchester", "Liverpool"],
-    difficulty: "medio",
-  },
-  {
-    question:
-      "Qual è il nome della scuola frequentata dai protagonisti di Wednesday?",
-    correct_answer: "Nevermore Academy",
-    incorrect_answers: [
-      "Blackwood School",
-      "Ravencroft Institute",
-      "Shadow Hills",
-    ],
-    difficulty: "difficile",
-  },
-  {
-    question: "In quale anno è uscita la prima stagione di The Crown?",
-    correct_answer: "2016",
-    incorrect_answers: ["2018", "2015", "2017"],
-    difficulty: "medio",
-  },
-  {
-    question:
-      "Qual è il numero del partecipante di Seong Gi-hun in Squid Game?",
-    correct_answer: "456",
-    incorrect_answers: ["001", "067", "218"],
-    difficulty: "difficile",
-  },
-  {
-    question: "In quale città italiana è ambientata la serie Suburra?",
-    correct_answer: "Roma",
-    incorrect_answers: ["Milano", "Napoli", "Torino"],
-    difficulty: "facile",
-  },
-  {
-    question: "Qual è il vero nome di Eleven in Stranger Things?",
-    correct_answer: "Jane Hopper",
-    incorrect_answers: ["Sara Hopper", "El Byers", "Jane Wheeler"],
-    difficulty: "difficile",
-  },
-  {
-    question:
-      "In quale stagione di Stranger Things appare per la prima volta il Demogorgon?",
-    correct_answer: "Stagione 1",
-    incorrect_answers: ["Stagione 2", "Stagione 3", "Stagione 4"],
-    difficulty: "medio",
-  },
-  {
-    question:
-      "Come si chiama la piattaforma concorrente di Netflix fondata da Disney?",
-    correct_answer: "Disney+",
-    incorrect_answers: ["HBO Max", "Paramount+", "Apple TV+"],
-    difficulty: "facile",
-  },
-  {
-    question:
-      "In The Witcher, come si chiama la principessa protetta da Geralt?",
-    correct_answer: "Ciri",
-    incorrect_answers: ["Yennefer", "Triss", "Fringilla"],
-    difficulty: "facile",
-  },
-  {
-    question: "Quante stagioni ha la serie Ozark?",
-    correct_answer: "4",
-    incorrect_answers: ["3", "5", "6"],
-    difficulty: "medio",
-  },
-  {
-    question: "In Dark, quante famiglie sono al centro della storia?",
-    correct_answer: "4",
-    incorrect_answers: ["3", "5", "2"],
-    difficulty: "difficile",
-  },
-  {
-    question:
-      "Come si chiama il villain principale nella stagione 4 di Stranger Things?",
-    correct_answer: "Vecna",
-    incorrect_answers: ["Mind Flayer", "Demodog", "Shadow Monster"],
-    difficulty: "medio",
-  },
-  {
-    question:
-      "In Money Heist, qual è il nome in codice del personaggio interpretato da Úrsula Corberó?",
-    correct_answer: "Tokyo",
-    incorrect_answers: ["Nairobi", "Stoccolma", "Oslo"],
-    difficulty: "facile",
-  },
-  {
-    question: "Qual è il cognome di Wednesday Addams?",
-    correct_answer: "Addams",
-    incorrect_answers: ["Adams", "Addames", "Addam"],
-    difficulty: "difficile",
-  },
-  {
-    question:
-      "In quale anno Netflix ha lanciato il suo primo contenuto originale?",
-    correct_answer: "2013",
-    incorrect_answers: ["2010", "2015", "2011"],
-    difficulty: "difficile",
-  },
-];
+/* prima inserito l'array di 150 domande su JS per usare stringify() e stampare l'array in console versione JSON, per poi copiarlo e incollarlo qui */
+
+// utilizziamo l'array dal json
+let QUESTIONS = []; // si dichiara prima l'array vuoto, così potrà accogliere i file
+// crea varibaile per i punteggi record
+let recordScore = 0;
+// crea una costante per i record salvati e di a JS che sono uguali a dei dati presi dal local storage
+const mySavedRecord = localStorage.getItem('recordNetflix');
+// se i recordSalvati sono diversi da niente
+if (mySavedRecord !== null) {
+  recordScore = parseInt(mySavedRecord); // allora il mio punteggio è il punteggio json ma convertilo in numero intero
+}
+
+// async function prima della funzione di preparazione dell'array per avvisare JS che utilizzero un await
+async function prepareQuiz() {
+  try { // preparare JS alla funzione potenzialmente pericolosa per il sistema, perché richiede dell'attesa
+    const dataJson = await fetch('questions.json'); // la funzione pericolosa è questa che chiede di aspettare (await) la lettura dei dati JSON (fetch())
+    QUESTIONS = await dataJson.json(); // la funzione dice di tradurre il pacco dati json in array comprensibile da JS
+    showWelcome(); // chiamo la partenza qui così JS non lo fa prima di aver trovato tutto
+  } catch (errore) { //se qualcosa va storto, cattura l'errore e spiegami l'errore
+    console.error('Fatal Error:', errore);
+  }
+}
+
+prepareQuiz(); // deve essere la prima chiamata (per ovvi motivi)
 
 let SELECTED_QUESTIONS = [];
 
@@ -702,6 +396,22 @@ function showResult() {
     (correctAnswers / SELECTED_QUESTIONS.length) * 100,
   );
 
+  /* ****************
+Salviamo il record
+***************** */
+
+  // variabile per il NEW RECORD
+  let isNewRecord = false; // interruttore per capire se il record è stato battuto
+
+  // se le risposte corrette superano il record passato
+  if (correctAnswers > recordScore) {
+    recordScore = correctAnswers // allora il nuovo record è correctAnswers
+    // salvataggio nel local storage
+    localStorage.setItem('recordNetflix', recordScore.toString()); // mettilo nel locale storage ma trasformalo di nuovo in stringa
+    isNewRecord = true; // abbiamo un nuovo campione
+  }
+
+
   const results = document.createElement("div");
   results.classList.add("results");
 
@@ -729,7 +439,11 @@ function showResult() {
   wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
 
   const scoreText = document.createElement("li");
-  scoreText.textContent = `Punteggio finale: ${percentage}%`;
+  if (isNewRecord === true) { // se abbiamo un nuovo campione
+    scoreText.textContent = `NEW RECORD: ${recordScore}`; // festeggiamo
+  } else {
+    scoreText.textContent = `Punteggio finale: ${correctAnswers} (RECORD da battere ${recordScore})`;
+  } // altrimenti hai fatto questo
 
   resultList.appendChild(correctText);
   resultList.appendChild(wrongText);
@@ -842,7 +556,9 @@ function showResult() {
   results.appendChild(recapButton); // aggiunta simone
 
   app.appendChild(results);
+
 }
+
 //aggiunta simone
 function showRecap() {
   const recapContainer = document.createElement("div");
@@ -874,6 +590,7 @@ function showRecap() {
   recapContainer.appendChild(recapMenu);
   const results = document.querySelector(".results");
   results.appendChild(recapContainer);
+
 }
 
 /* =========================
@@ -960,6 +677,7 @@ function showRating() {
   ratingDiv.appendChild(ratingSubtitle);
   ratingDiv.appendChild(starsContainer);
   app.appendChild(ratingDiv);
+
 }
 
 showIntro();
