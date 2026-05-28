@@ -322,6 +322,8 @@ let timeLeft = TIMER_DURATION;
 
 function showWelcome() {
   app.innerHTML = "";
+  const welcolmeDiv = document.createElement('div');
+  welcolmeDiv.classList.add('welcomeDiv');
 
   const welcomeTitle = document.createElement("h1");
   welcomeTitle.textContent = "Benvenuto al tuo esame";
@@ -400,13 +402,14 @@ function showWelcome() {
     showQuestion();
   });
 
-  app.appendChild(welcomeTitle);
-  app.appendChild(quizDescription);
-  app.appendChild(instructionList);
+  app.appendChild(welcolmeDiv);
+  welcolmeDiv.appendChild(welcomeTitle);
+  welcolmeDiv.appendChild(quizDescription);
+  welcolmeDiv.appendChild(instructionList);
   /* ******** Aggiunta del menu a tendina al DOM */
-  app.appendChild(labelCount);
-  app.appendChild(selectCount);
-  app.appendChild(startButton);
+  welcolmeDiv.appendChild(labelCount);
+  welcolmeDiv.appendChild(selectCount);
+  welcolmeDiv.appendChild(startButton);
 }
 
 /* =========================
@@ -591,11 +594,11 @@ function showResult() {
   const results = document.createElement("div");
   results.classList.add("results");
 
-  const resultTitle = document.createElement("h1");
+  const resultTitle = document.createElement("h2");
   resultTitle.classList.add("result-title");
   resultTitle.textContent = "Risultato";
 
-  const verdict = document.createElement("h2");
+  const verdict = document.createElement("h3");
 
   if (percentage >= PASS_THRESHOLD) {
     verdict.textContent = "PROMOSSO";
@@ -771,15 +774,15 @@ function showThankYou(rating) {
   const thanksDiv = document.createElement("div");
   thanksDiv.classList.add("thanksDiv");
 
-  const thanksTitle = document.createElement("h1");
-  thanksTitle.textContent = "Grazie!";
+  const thanksTitle = document.createElement("h2");
+  thanksTitle.textContent = "Grazie !";
 
   const thanksMsg = document.createElement("p");
   thanksMsg.classList.add("thanks-message");
-  thanksMsg.textContent = `Hai valutato ${rating} stelle su 10`;
+  thanksMsg.innerHTML = `Hai valutato <span class='ratingFinale'>${rating}</span> stelle su 10 !`; 
 
   const backBtn = document.createElement("button");
-  backBtn.classList.add("start-button");
+  backBtn.classList.add("replay-button");
   backBtn.textContent = "Rigioca";
 
   backBtn.addEventListener("click", () => {
@@ -800,7 +803,7 @@ function showRating() {
   const ratingDiv = document.createElement("div");
   ratingDiv.classList.add("rating");
 
-  const ratingTitle = document.createElement("h1");
+  const ratingTitle = document.createElement("h2");
   ratingTitle.textContent = "Valuta il nostro quiz";
 
   const ratingSubtitle = document.createElement("p");
