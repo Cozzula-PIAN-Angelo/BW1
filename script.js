@@ -374,6 +374,18 @@ let timeLeft = TIMER_DURATION;
 
 function showWelcome() {
   app.innerHTML = "";
+  const queDifDiv = document.createElement('div');
+  queDifDiv.classList.add('queDifDiv');
+  
+  const questionDiv = document.createElement('div');
+  questionDiv.classList.add('questionDiv');
+
+  const difficultyDiv = document.createElement('difficultyDiv');
+  difficultyDiv.classList.add('difficultyDiv');
+
+  const sBtnDiv = document.createElement('div');
+  sBtnDiv.classList.add('sBtnDiv');
+
   const welcolmeDiv = document.createElement("div");
   welcolmeDiv.classList.add("welcomeDiv");
 
@@ -405,30 +417,21 @@ function showWelcome() {
   instructionList.appendChild(instructionLi3);
 
   /* ******** Creazione menu a tendina per scegliere il numero di domande */
+  
   const labelCount = document.createElement("label");
+  labelCount.classList.add('labelCount');
   labelCount.textContent = "Quante domande vuoi affrontare? ";
-  labelCount.style.color = "white";
-  labelCount.style.display = "block";
-  labelCount.style.marginBottom = "10px";
 
   const selectCount = document.createElement("select");
   selectCount.id = "questionCount";
-  selectCount.style.marginBottom = "20px";
-  selectCount.style.padding = "5px";
-  selectCount.style.width = "150px";
 
   /* ******** Creazione menu a tendina per scegliere il livello di difficoltà */
   const labelDiff = document.createElement("label"); // creazione etichetta
-  labelDiff.textContent = "Scegli la difficoltà: ";
-  labelDiff.style.color = "white";
-  labelDiff.style.display = "block";
-  labelDiff.style.marginBottom = "10px";
+  labelDiff.classList.add('labelDiff');
+  labelDiff.textContent = "Scegli la difficoltà da affrontare: ";
 
   const selectDiff = document.createElement("select");
   selectDiff.id = "difficulty";
-  selectDiff.style.marginBottom = "20px";
-  selectDiff.style.padding = "5px";
-  selectDiff.style.width = "150px";
 
   /* ******** Creazione opzioni - livello di difficoltà */
   const difficulties = ["Facile", "Medio", "Difficile", "Tutte"];
@@ -485,15 +488,21 @@ function showWelcome() {
   });
 
   app.appendChild(welcolmeDiv);
+  app.appendChild(queDifDiv);
   welcolmeDiv.appendChild(welcomeTitle);
   welcolmeDiv.appendChild(quizDescription);
   welcolmeDiv.appendChild(instructionList);
+  queDifDiv.appendChild(questionDiv);
+  queDifDiv.appendChild(difficultyDiv);
+  app.appendChild(sBtnDiv);
   /* ******** Aggiunta del menu a tendina al DOM */
-  welcolmeDiv.appendChild(labelCount);
-  welcolmeDiv.appendChild(selectCount);
-  welcolmeDiv.appendChild(startButton);
-  welcolmeDiv.appendChild(labelDiff);
-  welcolmeDiv.appendChild(selectDiff);
+  difficultyDiv.appendChild(labelCount);
+  difficultyDiv.appendChild(selectCount);
+
+  questionDiv.appendChild(labelDiff);
+  questionDiv.appendChild(selectDiff);
+
+  sBtnDiv.appendChild(startButton);
 }
 
 /* =========================
