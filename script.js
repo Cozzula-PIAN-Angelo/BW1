@@ -56,14 +56,44 @@ let wrongAnswers = 0;
 let selectedAnswers = []; // aggiunta simone
 let timerId = null;
 let timeLeft = TIMER_DURATION;
-// etichetta vuota, da rimepire con le scelte della run per avere il record in base a N domande e difficoltà
-let thisRunRecord = "";
+
+/*intro*/
+function showIntro() {
+
+  document.body.classList.add("intro-active");
+  app.innerHTML = "";
+  const intro = document.createElement("div");
+  intro.classList.add("intro-screen");
+  const logo = document.createElement("h1");
+  logo.classList.add("intro-logo");
+  logo.textContent = "N";
+  intro.appendChild(logo);
+  document.body.appendChild(intro);
+  setTimeout(() => {
+    intro.remove();
+    document.body.classList.remove("intro-active");
+    showWelcome();
+  }, 2900);
+};
+
 /* =========================
    WELCOME PAGE
 ========================= */
 
 function showWelcome() {
   app.innerHTML = "";
+  const queDifDiv = document.createElement('div');
+  queDifDiv.classList.add('queDifDiv');
+
+  const questionDiv = document.createElement('div');
+  questionDiv.classList.add('questionDiv');
+
+  const difficultyDiv = document.createElement('difficultyDiv');
+  difficultyDiv.classList.add('difficultyDiv');
+
+  const sBtnDiv = document.createElement('div');
+  sBtnDiv.classList.add('sBtnDiv');
+
   const welcolmeDiv = document.createElement("div");
   welcolmeDiv.classList.add("welcomeDiv");
 
@@ -95,62 +125,81 @@ function showWelcome() {
   instructionList.appendChild(instructionLi3);
 
   /* ******** Creazione menu a tendina per scegliere il numero di domande */
+
   const labelCount = document.createElement("label");
+  labelCount.classList.add('labelCount');
   labelCount.textContent = "Quante domande vuoi affrontare? ";
-  labelCount.style.color = "white";
-  labelCount.style.display = "block";
-  labelCount.style.marginBottom = "10px";
 
   const selectCount = document.createElement("select");
   selectCount.id = "questionCount";
-  selectCount.style.marginBottom = "20px";
-  selectCount.style.padding = "5px";
-  selectCount.style.width = "150px";
 
   /* ******** Creazione menu a tendina per scegliere il livello di difficoltà */
   const labelDiff = document.createElement("label"); // creazione etichetta
-  labelDiff.textContent = "Scegli la difficoltà: ";
-  labelDiff.style.color = "white";
-  labelDiff.style.display = "block";
-  labelDiff.style.marginBottom = "10px";
+  labelDiff.classList.add('labelDiff');
+  labelDiff.textContent = "Scegli la difficoltà da affrontare: ";
 
   const selectDiff = document.createElement("select");
   selectDiff.id = "difficulty";
-  selectDiff.style.marginBottom = "20px";
-  selectDiff.style.padding = "5px";
-  selectDiff.style.width = "150px";
 
-  /* ******** Creazione opzioni - livello di difficoltà */
-  const difficulties = ["Facile", "Medio", "Difficile", "Tutte"];
-  difficulties.forEach((diff) => {
-    // cicla ad ogni voce dell'array una alla volta
-    const option = document.createElement("option"); // crea ogni singola voce dal menù a tendina (genererà le card facile, medio, difficile, tutte)
-    option.value = diff.toLowerCase(); // valore interno al codice in minuscolo, confronto diretto tra costante creata e la chiave dell'array
-    option.textContent = diff; // testo visibile dall'utente (Es: facile)
-    selectDiff.appendChild(option); // funzione appesa, aggiunge option dentro select
-  });
+/* ******** Creazione opzioni - livello di difficoltà */
+const difficulties = ["Facile", "Intermedia", "Difficile", "Tutte"];
+difficulties.forEach((diff) => {
+  // cicla ad ogni voce dell'array una alla volta
+  const option = document.createElement("option");
+  // crea ogni singola voce dal menù a tendina
+  // (genererà le card facile, medio, difficile, tutte)
+  option.value = diff.toLowerCase();
+  // valore interno al codice in minuscolo,
+  // confronto diretto tra costante creata e la chiave dell'array
+  option.textContent = diff;
+  // testo visibile dall'utente (Es: facile)
+  selectDiff.appendChild(option);
 
-  /* ******** Ciclo per creare le opzioni a scaglioni di 10 */
-  for (let i = 10; i <= QUESTIONS.length; i += 10) {
-    const option = document.createElement("option");
-    option.value = i;
-    option.textContent = i;
-    if (i === 10) option.selected = true; // Default a 10
-    selectCount.appendChild(option);
+  // funzione appesa, aggiunge option dentro select
+});
+
+/* ******** Ciclo per creare le opzioni a scaglioni di 10 */
+
+const maxQuestions = 50;
+
+for (let i = 10; i <= maxQuestions; i += 10) {
+  const option = document.createElement("option");
+  option.value = i;
+  option.textContent = i;
+  if (i === 10) option.selected = true;
+  // Default a 10
+  selectCount.appendChild(option);
+}
+
+/* ******** Opzione Hardcore con tutte le domande */
+
+const optionAll = document.createElement("option");
+optionAll.value = QUESTIONS.length;
+optionAll.textContent = "Hardcore (All)";
+selectCount.appendChild(optionAll);
+/* ******** Controllo automatico difficoltà */
+selectDiff.addEventListener("change", () => {
+  // se scegli tutte le difficoltà
+  if (selectDiff.value === "tutte") {
+    // seleziona automaticamente tutte le domande
+    selectCount.value = QUESTIONS.length;
+    // blocca il menu numerico
+    selectCount.disabled = true;
+  } else {
+    // riattiva il menu
+    selectCount.disabled = false;
+    // sicurezza: se supera 50 torna a 50
+    if (Number(selectCount.value) > 50) {
+      selectCount.value = 50;
+    }
   }
+});
 
-  /* ******** Opzione "All" se il totale non è multiplo di 10 */
-  if (QUESTIONS.length % 10 !== 0) {
-    const optionAll = document.createElement("option");
-    optionAll.value = QUESTIONS.length;
-    optionAll.textContent = "Hardcore (All)";
-    selectCount.appendChild(optionAll);
-  }
+const startButton = document.createElement("button");
 
-  const startButton = document.createElement("button");
-  startButton.classList.add("start-button");
+startButton.classList.add("start-button");
 
-  startButton.textContent = "INIZIA";
+startButton.textContent = "INIZIA";
 
   startButton.addEventListener("click", () => {
     /* ******** Lettura del valore dal menu a tendina */
@@ -195,15 +244,21 @@ function showWelcome() {
   });
 
   app.appendChild(welcolmeDiv);
+  app.appendChild(queDifDiv);
   welcolmeDiv.appendChild(welcomeTitle);
   welcolmeDiv.appendChild(quizDescription);
   welcolmeDiv.appendChild(instructionList);
+  queDifDiv.appendChild(questionDiv);
+  queDifDiv.appendChild(difficultyDiv);
+  app.appendChild(sBtnDiv);
   /* ******** Aggiunta del menu a tendina al DOM */
-  welcolmeDiv.appendChild(labelCount);
-  welcolmeDiv.appendChild(selectCount);
-  welcolmeDiv.appendChild(startButton);
-  welcolmeDiv.appendChild(labelDiff);
-  welcolmeDiv.appendChild(selectDiff);
+  difficultyDiv.appendChild(labelCount);
+  difficultyDiv.appendChild(selectCount);
+
+  questionDiv.appendChild(labelDiff);
+  questionDiv.appendChild(selectDiff);
+
+  sBtnDiv.appendChild(startButton);
 }
 
 /* =========================
@@ -668,3 +723,4 @@ function showRating() {
 
 }
 
+showIntro();
