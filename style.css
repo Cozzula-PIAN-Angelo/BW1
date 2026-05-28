@@ -385,9 +385,10 @@ label {
 
 .star {
     margin-right: 8px;
-    font-size: 30px;
+    font-size: 40px;
     cursor: pointer;
-    color: white;
+    color: rgba(54, 53, 53, 0.92);
+    -webkit-text-stroke: 0.25px rgb(199, 198, 198);
 }
 
 .thanks-message {
@@ -405,6 +406,10 @@ label {
     color: gold;
 }
 
+.star:hover {
+    text-shadow: 0 0 10px gold;
+}
+
 .thanksDiv {
     padding: 40px;
     display: flex;
@@ -420,6 +425,9 @@ label {
 .rating {
     color: gold;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ratingFinale {

@@ -519,9 +519,8 @@ function showQuestion() {
   numeroTimer.classList.add("numeroTimer");
 
   const numeroDomanda = document.createElement("p");
-  numeroDomanda.textContent = `Domanda ${
-    currentQuestion + 1
-  } di ${SELECTED_QUESTIONS.length}`;
+  numeroDomanda.textContent = `Domanda ${currentQuestion + 1
+    } di ${SELECTED_QUESTIONS.length}`;
 
   const timer = document.createElement("span");
   timer.id = "timer";
@@ -605,9 +604,17 @@ function showQuestion() {
 ========================= */
 
 function startTimer() {
-  timeLeft = TIMER_DURATION;
-
   const timer = document.getElementById("timer");
+  timer.style.color = "white";
+
+  /* ******** Calcolo dinamico: base 5s + scatti da 5s ogni 15 caratteri */
+  const currentQ = SELECTED_QUESTIONS[currentQuestion];
+  timeLeft = 5 + (Math.floor(currentQ.question.length / 15) * 5);
+
+  /* ******** Per domande Vero/Falso: sottrai 5s, assicurandoti di non scendere mai sotto i 5s totali */
+  if (currentQ.incorrect_answers.length === 1) {
+    timeLeft = Math.max(5, timeLeft - 5);
+  }
 
   timer.textContent = timeLeft;
 
@@ -624,9 +631,9 @@ function startTimer() {
       stopTimer();
       //aggiunta simone
       selectedAnswers[currentQuestion] = {
-        question: question.question,
+        question: currentQ.question,
         selected: "Non risposta",
-        correct: question.correct_answer,
+        correct: currentQ.correct_answer,
       };
 
       wrongAnswers++;
@@ -638,10 +645,8 @@ function startTimer() {
       });
 
       // evidenzia corretta
-      const question = SELECTED_QUESTIONS[currentQuestion];
-
       allButtons.forEach((btn) => {
-        if (btn.textContent === question.correct_answer) {
+        if (btn.textContent === currentQ.correct_answer) {
           btn.classList.add("correct");
         }
       });
@@ -654,9 +659,6 @@ function startTimer() {
   }, 1000);
 }
 
-function stopTimer() {
-  clearInterval(timerId);
-}
 function stopTimer() {
   clearInterval(timerId);
 }
@@ -911,6 +913,9 @@ function showRating() {
     star.addEventListener("click", () => {
       selectedRating = i;
       highlightStars(selectedRating);
+      setTimeout(() => {
+        showThankYou(selectedRating);
+      }, 1000);
     });
 
     starsContainer.appendChild(star);
@@ -923,22 +928,9 @@ function showRating() {
     });
   }
 
-  const confirmBtn = document.createElement("button");
-  confirmBtn.classList.add("start-button");
-  confirmBtn.textContent = "INVIA";
-
-  confirmBtn.addEventListener("click", () => {
-    if (selectedRating === 0) {
-      alert("Seleziona almeno una stella!");
-      return;
-    }
-    showThankYou(selectedRating);
-  });
-
   ratingDiv.appendChild(ratingTitle);
   ratingDiv.appendChild(ratingSubtitle);
   ratingDiv.appendChild(starsContainer);
-  ratingDiv.appendChild(confirmBtn);
   app.appendChild(ratingDiv);
 }
 
