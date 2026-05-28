@@ -475,9 +475,9 @@
     "question": "Qual'è la serie Netflix preferita da Angelo?",
     "correct_answer": "Arcane",
     "incorrect_answers": [
-      "bojack horseman",
+      "Bojack Horseman",
       "Castlevania",
-      "Love,Death & robots"
+      "Love, Death & Robots"
     ],
     "difficulty": "difficile"
   },
