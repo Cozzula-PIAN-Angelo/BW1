@@ -521,10 +521,18 @@ function showQuestion() {
 ========================= */
 
 function startTimer() {
-  timeLeft = TIMER_DURATION;
-
   const timer = document.getElementById("timer");
+  timer.style.color = "white";
 
+  /* ******** Calcolo dinamico: base 5s + scatti da 5s ogni 15 caratteri */
+  const currentQ = SELECTED_QUESTIONS[currentQuestion];
+  timeLeft = 5 + (Math.floor(currentQ.question.length / 15) * 5);
+
+  /* ******** Per domande Vero/Falso: sottrai 5s, assicurandoti di non scendere mai sotto i 5s totali */
+  if (currentQ.incorrect_answers.length === 1) {
+    timeLeft = Math.max(5, timeLeft - 5);
+  }
+  
   timer.textContent = timeLeft;
 
   timerId = setInterval(() => {
@@ -540,9 +548,9 @@ function startTimer() {
       stopTimer();
       //aggiunta simone
       selectedAnswers[currentQuestion] = {
-        question: question.question,
+        question: currentQ.question,
         selected: "Non risposta",
-        correct: question.correct_answer,
+        correct: currentQ.correct_answer,
       };
 
       wrongAnswers++;
@@ -554,10 +562,8 @@ function startTimer() {
       });
 
       // evidenzia corretta
-      const question = SELECTED_QUESTIONS[currentQuestion];
-
       allButtons.forEach((btn) => {
-        if (btn.textContent === question.correct_answer) {
+        if (btn.textContent === currentQ.correct_answer) {
           btn.classList.add("correct");
         }
       });
@@ -570,9 +576,6 @@ function startTimer() {
   }, 1000);
 }
 
-function stopTimer() {
-  clearInterval(timerId);
-}
 function stopTimer() {
   clearInterval(timerId);
 }
