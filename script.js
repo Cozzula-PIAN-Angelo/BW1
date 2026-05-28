@@ -435,9 +435,8 @@ function showQuestion() {
   numeroTimer.classList.add("numeroTimer");
 
   const numeroDomanda = document.createElement("p");
-  numeroDomanda.textContent = `Domanda ${
-    currentQuestion + 1
-  } di ${SELECTED_QUESTIONS.length}`;
+  numeroDomanda.textContent = `Domanda ${currentQuestion + 1
+    } di ${SELECTED_QUESTIONS.length}`;
 
   const timer = document.createElement("span");
   timer.id = "timer";
@@ -532,7 +531,7 @@ function startTimer() {
   if (currentQ.incorrect_answers.length === 1) {
     timeLeft = Math.max(5, timeLeft - 5);
   }
-  
+
   timer.textContent = timeLeft;
 
   timerId = setInterval(() => {
@@ -779,7 +778,7 @@ function showThankYou(rating) {
 
   const thanksMsg = document.createElement("p");
   thanksMsg.classList.add("thanks-message");
-  thanksMsg.innerHTML = `Hai valutato <span class='ratingFinale'>${rating}</span> stelle su 10 !`; 
+  thanksMsg.innerHTML = `Hai valutato <span class='ratingFinale'>${rating}</span> stelle su 10 !`;
 
   const backBtn = document.createElement("button");
   backBtn.classList.add("replay-button");
@@ -830,6 +829,9 @@ function showRating() {
     star.addEventListener("click", () => {
       selectedRating = i;
       highlightStars(selectedRating);
+      setTimeout(() => {
+        showThankYou(selectedRating);
+      }, 1000);
     });
 
     starsContainer.appendChild(star);
@@ -842,22 +844,9 @@ function showRating() {
     });
   }
 
-  const confirmBtn = document.createElement("button");
-  confirmBtn.classList.add("start-button");
-  confirmBtn.textContent = "INVIA";
-
-  confirmBtn.addEventListener("click", () => {
-    if (selectedRating === 0) {
-      alert("Seleziona almeno una stella!");
-      return;
-    }
-    showThankYou(selectedRating);
-  });
-
   ratingDiv.appendChild(ratingTitle);
   ratingDiv.appendChild(ratingSubtitle);
   ratingDiv.appendChild(starsContainer);
-  ratingDiv.appendChild(confirmBtn);
   app.appendChild(ratingDiv);
 }
 
