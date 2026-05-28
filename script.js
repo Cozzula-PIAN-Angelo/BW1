@@ -16,285 +16,31 @@ const app = document.querySelector("#app");
    DATI QUIZ
 ========================= */
 
-const QUESTIONS = [
-  {
-    question: "In quale anno è stato fondato Netflix?",
-    correct_answer: "1997",
-    incorrect_answers: ["2001", "1999", "2005"],
-  },
-  {
-    question: "Netflix è stato fondato da Reed Hastings e Marc Randolph.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-  },
-  {
-    question: "Qual è la serie originale Netflix più vista di sempre?",
-    correct_answer: "Squid Game",
-    incorrect_answers: ["Stranger Things", "Money Heist", "Bridgerton"],
-  },
-  {
-    question: "In quale paese è ambientata Squid Game?",
-    correct_answer: "Corea del Sud",
-    incorrect_answers: ["Giappone", "Cina", "Tailandia"],
-  },
-  {
-    question:
-      "Stranger Things è ambientata nella città di Hawkins, in quale stato americano?",
-    correct_answer: "Indiana",
-    incorrect_answers: ["Ohio", "Illinois", "Kentucky"],
-  },
-  {
-    question: "Come si chiama il personaggio principale di Stranger Things?",
-    correct_answer: "Eleven",
-    incorrect_answers: ["Max", "Nancy", "Joyce"],
-  },
-  {
-    question: "In quale anno è uscita la prima stagione di Stranger Things?",
-    correct_answer: "2016",
-    incorrect_answers: ["2014", "2018", "2017"],
-  },
-  {
-    question: "La serie Money Heist è originariamente prodotta in quale paese?",
-    correct_answer: "Spagna",
-    incorrect_answers: ["Italia", "Messico", "Argentina"],
-  },
-  {
-    question: "Come si chiama il professore in Money Heist?",
-    correct_answer: "Sergio Marquina",
-    incorrect_answers: [
-      "Andrés de Fonollosa",
-      "Agustín Ramos",
-      "Miguel Fernández",
-    ],
-  },
-  {
-    question: "In quale città è ambientata la prima rapina di Money Heist?",
-    correct_answer: "Madrid",
-    incorrect_answers: ["Barcellona", "Siviglia", "Valencia"],
-  },
-  {
-    question: "Bridgerton è basato sui romanzi di quale autrice?",
-    correct_answer: "Julia Quinn",
-    incorrect_answers: ["Jane Austen", "Nora Roberts", "Jojo Moyes"],
-  },
-  {
-    question: "In quale periodo storico è ambientata Bridgerton?",
-    correct_answer: "Età Regency",
-    incorrect_answers: ["Era Vittoriana", "Belle Époque", "Rinascimento"],
-  },
-  {
-    question: "Come si chiama il narratore misterioso in Bridgerton?",
-    correct_answer: "Lady Whistledown",
-    incorrect_answers: ["Lady Danbury", "Lady Featherington", "Lady Crown"],
-  },
-  {
-    question:
-      "The Crown racconta la storia della famiglia reale di quale paese?",
-    correct_answer: "Regno Unito",
-    incorrect_answers: ["Svezia", "Spagna", "Olanda"],
-  },
-  {
-    question: "Qual è il nome del protagonista di Narcos?",
-    correct_answer: "Pablo Escobar",
-    incorrect_answers: ["El Chapo", "Carlos Lehder", "Griselda Blanco"],
-  },
-  {
-    question: "In quale paese è ambientata la serie Narcos?",
-    correct_answer: "Colombia",
-    incorrect_answers: ["Messico", "Brasile", "Perù"],
-  },
-  {
-    question: "La serie Dark è prodotta in quale paese?",
-    correct_answer: "Germania",
-    incorrect_answers: ["Austria", "Svizzera", "Danimarca"],
-  },
-  {
-    question: "Quante stagioni ha la serie Dark?",
-    correct_answer: "3",
-    incorrect_answers: ["2", "4", "5"],
-  },
-  {
-    question: "Ozark è ambientata in quale stato americano?",
-    correct_answer: "Missouri",
-    incorrect_answers: ["Tennessee", "Arkansas", "Kentucky"],
-  },
-  {
-    question: "Come si chiama il protagonista di Ozark?",
-    correct_answer: "Marty Byrde",
-    incorrect_answers: ["Frank Byrde", "Jack Byrde", "Tom Byrde"],
-  },
-  {
-    question: "The Witcher è basato su una serie di romanzi di quale autore?",
-    correct_answer: "Andrzej Sapkowski",
-    incorrect_answers: [
-      "J.R.R. Tolkien",
-      "George R.R. Martin",
-      "Brandon Sanderson",
-    ],
-  },
-  {
-    question: "Chi interpreta Geralt di Rivia in The Witcher?",
-    correct_answer: "Henry Cavill",
-    incorrect_answers: ["Chris Hemsworth", "Tom Hardy", "Kit Harington"],
-  },
-  {
-    question: "Emily in Paris è ambientata principalmente in quale città?",
-    correct_answer: "Parigi",
-    incorrect_answers: ["Lione", "Marsiglia", "Nizza"],
-  },
-  {
-    question: "Lupin è una serie originale Netflix francese.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-  },
-  {
-    question: "Come si chiama il protagonista di Lupin?",
-    correct_answer: "Assane Diop",
-    incorrect_answers: ["Arsène Lupin", "Gabriel Diop", "Omar Diop"],
-  },
-  {
-    question:
-      "Squid Game ha vinto il Golden Globe come miglior serie drammatica.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-  },
-  {
-    question: "Quanti giochi ci sono in Squid Game?",
-    correct_answer: "6",
-    incorrect_answers: ["5", "7", "8"],
-  },
-  {
-    question: "Come si chiama il protagonista di Squid Game?",
-    correct_answer: "Seong Gi-hun",
-    incorrect_answers: ["Cho Sang-woo", "Jang Deok-su", "Oh Il-nam"],
-  },
-  {
-    question: "Wednesday è uno spin-off di quale serie?",
-    correct_answer: "La famiglia Addams",
-    incorrect_answers: ["Riverdale", "Sabrina", "Chilling Adventures"],
-  },
-  {
-    question: "Chi interpreta Wednesday Addams nella serie Netflix?",
-    correct_answer: "Jenna Ortega",
-    incorrect_answers: ["Millie Bobby Brown", "Sadie Sink", "Sophia Lillis"],
-  },
-  {
-    question: "Cobra Kai è il sequel di quale famoso film?",
-    correct_answer: "Karate Kid",
-    incorrect_answers: ["Bloodsport", "Best of the Best", "Kickboxer"],
-  },
-  {
-    question: "In quale anno è uscita la serie Squid Game?",
-    correct_answer: "2021",
-    incorrect_answers: ["2020", "2022", "2019"],
-  },
-  {
-    question:
-      "La serie You è incentrata su un protagonista che lavora in una libreria.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-  },
-  {
-    question: "Come si chiama il protagonista della serie You?",
-    correct_answer: "Joe Goldberg",
-    incorrect_answers: ["Dan Humphrey", "Mark Sloan", "Jack Pearson"],
-  },
-  {
-    question: "Black Mirror è una serie originale Netflix.",
-    correct_answer: "Falso",
-    incorrect_answers: ["Vero"],
-  },
-  {
-    question: "Qual è il paese di origine della serie Elite?",
-    correct_answer: "Spagna",
-    incorrect_answers: ["Francia", "Italia", "Portogallo"],
-  },
-  {
-    question:
-      "La serie Mindhunter parla di agenti dell'FBI che studiano i serial killer.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-  },
-  {
-    question: "Tiger King è una serie di genere true crime.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-  },
-  {
-    question: "Come si chiama il protagonista di Tiger King?",
-    correct_answer: "Joe Exotic",
-    incorrect_answers: ["Carole Baskin", "Doc Antle", "Jeff Lowe"],
-  },
-  {
-    question: "La serie Peaky Blinders è ambientata in quale città?",
-    correct_answer: "Birmingham",
-    incorrect_answers: ["Londra", "Manchester", "Liverpool"],
-  },
-  {
-    question: "Peaky Blinders è una serie originale Netflix.",
-    correct_answer: "Falso",
-    incorrect_answers: ["Vero"],
-  },
-  {
-    question:
-      "Qual è il nome della scuola frequentata dai protagonisti di Wednesday?",
-    correct_answer: "Nevermore Academy",
-    incorrect_answers: [
-      "Blackwood School",
-      "Ravencroft Institute",
-      "Shadow Hills",
-    ],
-  },
-  {
-    question: "In quale anno è uscita la prima stagione di The Crown?",
-    correct_answer: "2016",
-    incorrect_answers: ["2018", "2015", "2017"],
-  },
-  {
-    question: "La serie Anatomy of a Scandal è basata su un romanzo.",
-    correct_answer: "Vero",
-    incorrect_answers: ["Falso"],
-  },
-  {
-    question:
-      "Qual è il numero del partecipante di Seong Gi-hun in Squid Game?",
-    correct_answer: "456",
-    incorrect_answers: ["001", "067", "218"],
-  },
-  {
-    question: "Qual'è la serie netflix preferita da Claudio?",
-    correct_answer: "Rick and Morty",
-    incorrect_answers: ["One Piece", "The Office", "Cabinet of Curiosities"],
-  },
-  {
-    question: "Qual'è la serie netflix preferita da Simona?",
-    correct_answer: "Mouse",
-    incorrect_answers: ["Vincenzo", "Kingdom", "Alice in Borderland"],
-  },
-  {
-    question: "Qual'è la serie netflix preferita da Simone?",
-    correct_answer: "Bojack Horsman",
-    incorrect_answers: [
-      "Strappare lungo i bordi",
-      "House of cards",
-      "La regina degli scacchi",
-    ],
-  },
-  {
-    question: "Qual'è la serie netflix preferita da Valentina?",
-    correct_answer: "Formula 1 - Drive to survive",
-    incorrect_answers: ["Squid Game", "Black Mirror", "La casa di carta"],
-  },
-  {
-    question: "Qual'è la serie Netflix preferita da Angelo?",
-    correct_answer: "Arcane",
-    incorrect_answers: [
-      "bojack horseman",
-      "Castlevania",
-      "Love,Death & robots",
-    ],
-  },
-];
+/* prima inserito l'array di 150 domande su JS per usare stringify() e stampare l'array in console versione JSON, per poi copiarlo e incollarlo qui */
+
+// utilizziamo l'array dal json
+let QUESTIONS = []; // si dichiara prima l'array vuoto, così potrà accogliere i file
+// crea varibaile per i punteggi record
+let recordScore = 0;
+// crea una costante per i record salvati e di a JS che sono uguali a dei dati presi dal local storage
+const mySavedRecord = localStorage.getItem('recordNetflix');
+// se i recordSalvati sono diversi da niente
+if (mySavedRecord !== null) {
+  recordScore = parseInt(mySavedRecord); // allora il mio punteggio è il punteggio json ma convertilo in numero intero
+}
+
+// async function prima della funzione di preparazione dell'array per avvisare JS che utilizzero un await
+async function prepareQuiz() {
+  try { // preparare JS alla funzione potenzialmente pericolosa per il sistema, perché richiede dell'attesa
+    const dataJson = await fetch('questions.json'); // la funzione pericolosa è questa che chiede di aspettare (await) la lettura dei dati JSON (fetch())
+    QUESTIONS = await dataJson.json(); // la funzione dice di tradurre il pacco dati json in array comprensibile da JS
+    showWelcome(); // chiamo la partenza qui così JS non lo fa prima di aver trovato tutto
+  } catch (errore) { //se qualcosa va storto, cattura l'errore e spiegami l'errore
+    console.error('Fatal Error:', errore);
+  }
+}
+
+prepareQuiz(); // deve essere la prima chiamata (per ovvi motivi)
 
 let SELECTED_QUESTIONS = [];
 
@@ -590,6 +336,22 @@ function showResult() {
     (correctAnswers / SELECTED_QUESTIONS.length) * 100,
   );
 
+  /* ****************
+Salviamo il record
+***************** */
+
+  // variabile per il NEW RECORD
+  let isNewRecord = false; // interruttore per capire se il record è stato battuto
+
+  // se le risposte corrette superano il record passato
+  if (correctAnswers > recordScore) {
+    recordScore = correctAnswers // allora il nuovo record è correctAnswers
+    // salvataggio nel local storage
+    localStorage.setItem('recordNetflix', recordScore.toString()); // mettilo nel locale storage ma trasformalo di nuovo in stringa
+    isNewRecord = true; // abbiamo un nuovo campione
+  }
+
+
   const results = document.createElement("div");
   results.classList.add("results");
 
@@ -617,7 +379,11 @@ function showResult() {
   wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
 
   const scoreText = document.createElement("li");
-  scoreText.textContent = `Punteggio finale: ${percentage}%`;
+  if (isNewRecord === true) { // se abbiamo un nuovo campione
+    scoreText.textContent = `NEW RECORD: ${recordScore}`; // festeggiamo
+  } else {
+    scoreText.textContent = `Punteggio finale: ${correctAnswers} (RECORD da battere ${recordScore})`;
+  } // altrimenti hai fatto questo
 
   resultList.appendChild(correctText);
   resultList.appendChild(wrongText);
@@ -730,7 +496,9 @@ function showResult() {
   results.appendChild(recapButton); // aggiunta simone
 
   app.appendChild(results);
+
 }
+
 //aggiunta simone
 function showRecap() {
   const recapContainer = document.createElement("div");
@@ -762,6 +530,7 @@ function showRecap() {
   recapContainer.appendChild(recapMenu);
   const results = document.querySelector(".results");
   results.appendChild(recapContainer);
+
 }
 
 /* =========================
@@ -848,6 +617,5 @@ function showRating() {
   ratingDiv.appendChild(ratingSubtitle);
   ratingDiv.appendChild(starsContainer);
   app.appendChild(ratingDiv);
-}
 
-showWelcome();
+}
