@@ -147,7 +147,7 @@ function showWelcome() {
   selectDiff.id = "difficulty";
 
   /* ******** Creazione opzioni - livello di difficoltà */
-  const difficulties = ["Facile", "Medio", "Difficile", "Tutte"];
+  const difficulties = ["Facile", "Intermedia", "Difficile", "Tutte"];
   difficulties.forEach((diff) => {
     // cicla ad ogni voce dell'array una alla volta
     const option = document.createElement("option"); // crea ogni singola voce dal menù a tendina (genererà le card facile, medio, difficile, tutte)
