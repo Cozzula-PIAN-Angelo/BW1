@@ -368,6 +368,25 @@ let selectedAnswers = []; // aggiunta simone
 let timerId = null;
 let timeLeft = TIMER_DURATION;
 
+/*intro*/
+function showIntro() {
+
+  document.body.classList.add("intro-active");
+  app.innerHTML = "";
+  const intro = document.createElement("div");
+  intro.classList.add("intro-screen");
+  const logo = document.createElement("h1");
+  logo.classList.add("intro-logo");
+  logo.textContent = "N";
+  intro.appendChild(logo);
+  document.body.appendChild(intro);
+  setTimeout(() => {
+    intro.remove();
+    document.body.classList.remove("intro-active");
+    showWelcome();
+  }, 2900);
+};
+
 /* =========================
    WELCOME PAGE
 ========================= */
@@ -943,4 +962,4 @@ function showRating() {
   app.appendChild(ratingDiv);
 }
 
-showWelcome();
+showIntro();

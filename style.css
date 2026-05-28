@@ -1,489 +1,548 @@
- /*font*/
+/*font*/
 
- @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
- /*reset iniziale*/
+/*reset iniziale*/
 
- * {
-     box-sizing: border-box;
-     margin: 0;
-     padding: 0;
- }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
- body {
-     font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
-     letter-spacing: 3px;
-     background-image:
-         linear-gradient(rgba(0, 0, 0, 0.45)),
-         url("assets/img/25052026_1779715029_iOS.png");
-     background-size: cover;
-     background-position: top;
-     background-repeat: no-repeat;
-     min-height: 100vh;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     padding: 12px;
- }
+body {
+    font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+    letter-spacing: 3px;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.45)),
+        url("assets/img/25052026_1779715029_iOS.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+}
 
- .brand {
-     width: 100%;
-     max-width: 720px;
-     text-align: left;
- }
+.brand {
+    width: 100%;
+    max-width: 720px;
+    text-align: left;
+}
 
- .brand-logo {
-     height: 40px;
-     background-color: transparent;
-     margin-bottom: 20px;
-     margin-top: 130px;
-     filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.7));
- }
+.brand-logo {
+    height: 40px;
+    background-color: transparent;
+    margin-bottom: 20px;
+    margin-top: 130px;
+    filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.7));
+}
 
- #app {
-     border-radius: 4px;
-     max-width: 720px;
-     width: 100%;
-     background: rgba(15, 15, 15, 0.4);
-     border: 1px solid red;
-     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-     backdrop-filter: blur(6px);
- }
+#app {
+    border-radius: 4px;
+    max-width: 720px;
+    width: 100%;
+    background: rgba(15, 15, 15, 0.4);
+    border: 1px solid red;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+}
 
 
- /*quiz*/
+/*quiz*/
 
- .cardQuiz {
-     height: auto;
-     padding: 40px;
- }
+.cardQuiz {
+    height: auto;
+    padding: 40px;
+}
 
- .cardQuiz h2 {
-     color: white;
-     margin-bottom: 20px;
- }
+.cardQuiz h2 {
+    color: white;
+    margin-bottom: 20px;
+}
 
- .numeroTimer {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     margin-bottom: 30px;
- }
+.numeroTimer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
 
- .numeroTimer p {
-     font-size: 14px;
-     color: white;
- }
+.numeroTimer p {
+    font-size: 14px;
+    color: white;
+}
 
- .numeroTimer span {
-     color: white;
-     font-size: 30px;
- }
+.numeroTimer span {
+    color: white;
+    font-size: 30px;
+}
 
- .risposte button {
-     display: flex;
-     margin-bottom: 10px;
-     width: 100%;
-     height: 50px;
-     border-radius: 4px;
-     align-items: center;
-     padding-left: 10px;
-     background-color: rgba(54, 53, 53, 0.92);
-     color: white;
- }
+.risposte button {
+    display: flex;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    align-items: center;
+    padding-left: 10px;
+    background-color: rgba(54, 53, 53, 0.92);
+    color: white;
+}
 
- #app button.correct {
-     background-color: green;
-     color: white;
- }
+#app button.correct {
+    background-color: green;
+    color: white;
+}
 
- #app button.wrong {
-     background-color: red;
-     color: white;
- }
+#app button.wrong {
+    background-color: red;
+    color: white;
+}
 
- #app button:not(.correct):not(.wrong):hover {
-     background-color: rgb(36, 35, 35);
-     cursor: pointer;
-     border: 0.8px solid red;
- }
+#app button:not(.correct):not(.wrong):hover {
+    background-color: rgb(36, 35, 35);
+    cursor: pointer;
+    border: 0.8px solid red;
+}
 
- /*benvenuto*/
+/*intro aiutato da internet */
 
- h1 {
-     color: white;
-     font-size: 3rem;
-     margin-bottom: 30px;
- }
+body.intro-active {
 
- .quiz-description {
-     color: white;
-     margin-bottom: 20px;
- }
+    background: black !important;
+    overflow: hidden;
+}
 
- .instruction-list {
-     color: white;
-     list-style-type: circle;
-     margin-bottom: 40px;
- }
+body.intro-active #app,
+body.intro-active .brand {
+    opacity: 0;
+}
 
- .instruction-list li {
-     margin-bottom: 10px;
- }
-
- .welcomeDiv {
-     padding-top: 40px;
-     padding-left: 40px;
-     padding-right: 40px;
- }
-
- .queDifDiv {
-     display: flex;
-     padding-left: 40px;
-     justify-content: space-around;
- }
-
- .questionDiv {
-     margin-right: 10px;
- }
-
- .questionDiv label {
-     font-size: 14px;
- }
-
- .difficultyDiv label {
-     font-size: 14px;
- }
-
- .queDifDiv button:first-child {
-     margin-top: 200px;
- }
-
- .sBtnDiv {
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    background: black;
     display: flex;
     justify-content: center;
-     padding-left: 30px;
-     padding-right: 45px;
-     padding-bottom: 40px;
- }
+    align-items: center;
+    z-index: 999999;
+}
 
- .labelCount {
-     color: white;
-     margin-left: -45px;
-     display: block;
-     margin-bottom: 15px;
- }
+.intro-logo {
+    color: #E50914;
+    font-size: 220px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow:
+        0 0 20px rgba(229, 9, 20, 0.7),
+        0 0 40px rgba(229, 9, 20, 0.5);
+    animation: netflixIntro 2.9s ease forwards;
 
- .labelDiff {
-     color: white;
-     margin-left: -45px;
-     display: block;
-     margin-bottom: 15px;
- }
+}
 
- #difficulty {
-     margin-bottom: 20px;
-     padding: 5px;
-     width: 150px;
- }
+/* creazione animazione con percentuale */
 
- #questionCount {
-     margin-bottom: 20px;
-     padding: 5px;
-     width: 150px;
- }
+@keyframes netflixIntro {
 
- /* ******** Stile unificato per input e tendina (select) */
+    0% {
+        transform: scale(0.05);
+        opacity: 0;
+    }
 
- input[type="number"],
- select {
-     background-color: rgba(54, 53, 53, 0.92);
-     color: white;
-     border: 1px solid red;
-     padding: 10px;
-     border-radius: 8px;
-     font-size: 0.8rem;
-     width: 17%;
-     height: 50px;
-     margin-bottom: 20px;
-     text-align: center;
-     margin-right: 30px;
- }
+    20% {
+        opacity: 1;
+    }
 
- select:focus {
-     background-color: rgba(54, 53, 53, 0.92);
-     color: white;
-     border: 1px solid red;
-     outline: none;
- }
+    45% {
+        transform: scale(1);
+        opacity: 1;
+    }
 
- #app .start-button {
-     display: inline-block;
-     color: white;
-     text-align: center;
-     width: 77.5%;
-     background-color: rgba(54, 53, 53, 0.92);
-     height: 50px;
-     border-radius: 4px;
-     margin-top: 7.5px;
- }
+    100% {
+        transform: scale(18);
+        opacity: 0;
+    }
+}
 
- .results p {
-     color: white;
- }
+/*benvenuto*/
 
- .results h2 {
-     #app h2 {
-         margin-bottom: 30px;
-         font-size: 24px;
-         color: white;
-         font-weight: bold;
-         text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
-     }
- }
+h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
 
- .results h3 {
-     margin-bottom: 30px;
-     font-size: 24px;
-     color: white;
-     font-weight: bold;
-     text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
- }
+.quiz-description {
+    color: white;
+    margin-bottom: 20px;
+}
 
- .results {
-     padding: 40px;
-     display: flex;
-     flex-direction: column;
-     position: relative;
- }
+.instruction-list {
+    color: white;
+    list-style-type: circle;
+    margin-bottom: 40px;
+}
 
- .result-title {
-     color: white;
-     font-size: 3rem;
-     margin-bottom: 30px;
- }
+.instruction-list li {
+    margin-bottom: 10px;
+}
 
- .result-list {
-     color: white;
-     list-style-type: circle;
-     margin-bottom: 40px;
- }
+.welcomeDiv {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
 
- .result-list li {
-     margin-bottom: 10px;
- }
+.queDifDiv {
+    display: flex;
+    padding-left: 40px;
+    justify-content: space-around;
+}
 
- #app .result-button {
-     display: inline-block;
-     color: red;
-     text-align: center;
-     width: 17%;
-     background-color: rgba(54, 53, 53, 0.92);
-     height: 50px;
-     border-radius: 4px;
- }
+.questionDiv {
+    margin-right: 10px;
+}
 
- /* circle bar */
+.questionDiv label {
+    font-size: 14px;
+}
 
- .percentage-container {
-     width: 200px;
-     height: 200px;
- }
+.difficultyDiv label {
+    font-size: 14px;
+}
 
- .empty-bar-circle {
-     fill: transparent;
-     stroke: rgb(36, 35, 35);
-     stroke-width: 20px;
- }
+.queDifDiv button:first-child {
+    margin-top: 200px;
+}
 
- .empty-bar-circle {
-     fill: transparent;
-     stroke: rgb(36, 35, 35);
-     stroke-width: 20px;
- }
+.sBtnDiv {
+    display: flex;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 45px;
+    padding-bottom: 40px;
+}
 
- .percentage-circle {
-     fill: transparent;
-     /* Interno vuoto */
-     stroke-width: 20px;
-     /* spessore dello stroke */
- }
+.labelCount {
+    color: white;
+    margin-left: -45px;
+    display: block;
+    margin-bottom: 15px;
+}
 
- .percentage-text {
-     stroke-width: 2px;
-     fill: white;
-     font-size: 3rem;
-     text-anchor: middle;
-     transform: translate(18px);
- }
+.labelDiff {
+    color: white;
+    margin-left: -45px;
+    display: block;
+    margin-bottom: 15px;
+}
 
- .notifica {
-     width: 60%;
-     border-radius: 3px;
-     position: absolute;
-     font-size: 0.8rem;
-     padding: 5px;
-     background-color: rgba(54, 53, 53, 0.235);
-     border: 1px solid rgba(255, 0, 0, 0.650);
-     color: rgba(255, 0, 0, 0.650);
-     top: -75px;
-     right: -55px;
-     opacity: 0;
-     transition: opacity 0.3s ease 0.3s;
-     pointer-events: none;
- }
+#difficulty {
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 150px;
+}
 
- .notifica-on {
-     opacity: 1;
-     transition: opacity 0.3 ease 0.5;
- }
+#questionCount {
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 150px;
+}
 
- .circle-div {
-     width: 200px;
-     height: 200px;
-     position: fixed;
-     right: 80px;
-     top: 130px;
- }
+/* ******** Stile unificato per input e tendina (select) */
 
- /* recap menu */
+input[type="number"],
+select {
+    background-color: rgba(54, 53, 53, 0.92);
+    color: white;
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    width: 17%;
+    height: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-right: 30px;
+}
 
- .recap-container {
-     margin-top: 30px;
- }
+select:focus {
+    background-color: rgba(54, 53, 53, 0.92);
+    color: white;
+    border: 1px solid red;
+    outline: none;
+}
 
- #app .recap-button {
-     width: 100%;
-     height: 50px;
-     border-radius: 4px;
-     background-color: rgba(54, 53, 53, 0.92);
-     color: red;
-     margin-top: 20px;
- }
+#app .start-button {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    width: 77.5%;
+    background-color: rgba(54, 53, 53, 0.92);
+    height: 50px;
+    border-radius: 4px;
+    margin-top: 7.5px;
+}
 
- #app .recap-button:hover {
-     background-color: rgb(36, 35, 35);
-     cursor: pointer;
-     border: 0.8px solid red;
- }
+.results p {
+    color: white;
+}
 
- .recap-menu {
-     display: flex;
-     flex-direction: column;
-     gap: 20px;
-     margin-top: 20px;
- }
+.results h2 {
+    #app h2 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+    }
+}
 
- .recap-card {
-     background-color: rgba(54, 53, 53, 0.5);
-     padding: 20px;
-     border-radius: 4px;
- }
+.results h3 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
 
- .recap-card h3 {
-     color: white;
-     margin-bottom: 15px;
-     font-size: 18px;
- }
+.results {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
 
- .recap-card p {
-     color: white;
-     margin-bottom: 8px;
- }
+.result-title {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
 
- .good-answer {
-     color: lightgreen !important;
- }
+.result-list {
+    color: white;
+    list-style-type: circle;
+    margin-bottom: 40px;
+}
 
- .bad-answer {
-     color: red !important;
- }
+.result-list li {
+    margin-bottom: 10px;
+}
 
- .good-card {
-     border: 1px solid lightgreen;
- }
+#app .result-button {
+    display: inline-block;
+    color: red;
+    text-align: center;
+    width: 17%;
+    background-color: rgba(54, 53, 53, 0.92);
+    height: 50px;
+    border-radius: 4px;
+}
 
- .bad-card {
-     border: 1px solid red;
-     cursor: default;
- }
+/* circle bar */
 
- /*rating*/
+.percentage-container {
+    width: 200px;
+    height: 200px;
+}
 
- .rating h2 {
-     margin-bottom: 30px;
-     font-size: 40px;
-     color: white;
-     font-weight: bold;
-     text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
- }
+.empty-bar-circle {
+    fill: transparent;
+    stroke: rgb(36, 35, 35);
+    stroke-width: 20px;
+}
 
- .rating-subtitle {
-     color: white;
-     margin-bottom: 20px;
- }
+.empty-bar-circle {
+    fill: transparent;
+    stroke: rgb(36, 35, 35);
+    stroke-width: 20px;
+}
 
- .star {
-     margin-right: 8px;
-     font-size: 40px;
-     cursor: pointer;
-     color: rgba(54, 53, 53, 0.92);
-     -webkit-text-stroke: 0.25px rgb(199, 198, 198);
- }
+.percentage-circle {
+    fill: transparent;
+    /* Interno vuoto */
+    stroke-width: 20px;
+    /* spessore dello stroke */
+}
 
- .rating {
-     color: gold;
-     padding: 40px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
- }
+.percentage-text {
+    stroke-width: 2px;
+    fill: white;
+    font-size: 3rem;
+    text-anchor: middle;
+    transform: translate(18px);
+}
 
- .ratingFinale {
-     color: gold;
- }
+.notifica {
+    width: 60%;
+    border-radius: 3px;
+    position: absolute;
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(54, 53, 53, 0.235);
+    border: 1px solid rgba(255, 0, 0, 0.650);
+    color: rgba(255, 0, 0, 0.650);
+    top: -75px;
+    right: -55px;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.3s;
+    pointer-events: none;
+}
 
- /*ringraziamenti*/
+.notifica-on {
+    opacity: 1;
+    transition: opacity 0.3 ease 0.5;
+}
 
- .thanks-message {
-     color: white;
-     font-size: 32px;
- }
+.circle-div {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    right: 80px;
+    top: 130px;
+}
 
- .thanksDiv h2 {
-     margin-bottom: 20px;
-     color: white;
-     font-size: 60px;
- }
+/* recap menu */
 
- .star.active {
-     color: gold;
- }
+.recap-container {
+    margin-top: 30px;
+}
 
- .star:hover {
-     text-shadow: 0 0 10px gold;
- }
+#app .recap-button {
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    background-color: rgba(54, 53, 53, 0.92);
+    color: red;
+    margin-top: 20px;
+}
 
- .thanksDiv {
-     padding: 40px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     gap: 25px;
-     background-image: linear-gradient(rgba(0, 0, 0, 0.65)), url(assets/img/Valutaci-1.jpg);
-     background-repeat: no-repeat;
-     background-size: cover;
-     margin: 1px;
- }
+#app .recap-button:hover {
+    background-color: rgb(36, 35, 35);
+    cursor: pointer;
+    border: 0.8px solid red;
+}
 
- .replay-button {
-     display: inline-block;
-     color: white;
-     text-align: center;
-     width: 50%;
-     background-color: rgba(54, 53, 53, 0.92);
-     height: 50px;
-     border-radius: 4px;
-     margin-top: 20px;
-     font-size: 24px;
- }
+.recap-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.recap-card {
+    background-color: rgba(54, 53, 53, 0.5);
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.recap-card h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.recap-card p {
+    color: white;
+    margin-bottom: 8px;
+}
+
+.good-answer {
+    color: lightgreen !important;
+}
+
+.bad-answer {
+    color: red !important;
+}
+
+.good-card {
+    border: 1px solid lightgreen;
+}
+
+.bad-card {
+    border: 1px solid red;
+    cursor: default;
+}
+
+/*rating*/
+
+.rating h2 {
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+.rating-subtitle {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.star {
+    margin-right: 8px;
+    font-size: 40px;
+    cursor: pointer;
+    color: rgba(54, 53, 53, 0.92);
+    -webkit-text-stroke: 0.25px rgb(199, 198, 198);
+}
+
+.rating {
+    color: gold;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ratingFinale {
+    color: gold;
+}
+
+/*ringraziamenti*/
+
+.thanks-message {
+    color: white;
+    font-size: 32px;
+}
+
+.thanksDiv h2 {
+    margin-bottom: 20px;
+    color: white;
+    font-size: 60px;
+}
+
+.star.active {
+    color: gold;
+}
+
+.star:hover {
+    text-shadow: 0 0 10px gold;
+}
+
+.thanksDiv {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65)), url(assets/img/Valutaci-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 1px;
+}
+
+.replay-button {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    width: 50%;
+    background-color: rgba(54, 53, 53, 0.92);
+    height: 50px;
+    border-radius: 4px;
+    margin-top: 20px;
+    font-size: 24px;
+}
