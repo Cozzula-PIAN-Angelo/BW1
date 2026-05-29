@@ -176,25 +176,18 @@ for (let i = 10; i <= maxQuestions; i += 10) {
 
 const optionAll = document.createElement("option");
 optionAll.value = QUESTIONS.length;
-optionAll.textContent = "Hardcore (All)";
+optionAll.textContent = "TUTTE";
 selectCount.appendChild(optionAll);
 /* ******** Controllo automatico difficoltà */
-selectDiff.addEventListener("change", () => {
-  // se scegli tutte le difficoltà
-  if (selectDiff.value === "tutte") {
-    // seleziona automaticamente tutte le domande
-    selectCount.value = QUESTIONS.length;
-    // blocca il menu numerico
-    selectCount.disabled = true;
+
+selectCount.addEventListener('click', () => {
+  if (Number(selectCount.value) === QUESTIONS.length) {
+    selectDiff.value = 'tutte';
+    selectDiff.disabled = 'tutte';
   } else {
-    // riattiva il menu
-    selectCount.disabled = false;
-    // sicurezza: se supera 50 torna a 50
-    if (Number(selectCount.value) > 50) {
-      selectCount.value = 50;
-    }
+    selectDiff.disabled = false;
   }
-});
+})
 
 const startButton = document.createElement("button");
 
