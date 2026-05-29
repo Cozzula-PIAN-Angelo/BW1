@@ -17,8 +17,6 @@ Cosa troverai in questo documento:
 - [▶️ Come avviare il progetto](#%EF%B8%8F-come-avviare-il-progetto)
 - [👨‍💻 Team](#%E2%80%8D-team)
 
-
-
 ---
 
 ## 🚀 Funzionalità
@@ -28,8 +26,8 @@ Cosa troverai in questo documento:
 - Risposte mescolate casualmente
 - Sistema di punteggio finale
 - Stato finale:
-    - ✅ PROMOSSO
-    - ❌ BOCCIATO
+  - ✅ PROMOSSO
+  - ❌ BOCCIATO
 - Barra percentuale circolare realizzata in SVG
 - Record personale salvato
 - Possibilità di ricominciare il quiz
@@ -67,7 +65,7 @@ stato → render → eventi
 
 ### Stato globale
 
-![[Pasted image 20260529115627.png]]
+![Stato globale](assets/img/Stato%20globale.png)
 
 Gestisce:
 
@@ -82,15 +80,16 @@ Funzioni principali:
 
 - **`showWelcome()`**
 
-	![[Pasted image 20260529115600.png]]
+  ![ShowWelcome](assets/img/ShowWelcome.png)
 
 - **`showQuestion()`**
 
-	![[Pasted image 20260529115721.png]]
+  ![ShowQuestion](assets/img/ShowQuestion.png)
 
 - **`showResult()`**
 
-	![[Screenshot 2026-05-29 at 11.58.37.png]]
+  ![ShowResult](assets/img/ShowResult.png)
+
 ### Gestione eventi
 
 Tutti gli eventi vengono gestiti tramite:
@@ -99,7 +98,7 @@ Tutti gli eventi vengono gestiti tramite:
 addEventListener()
 ```
 
-![[Screenshot 2026-05-29 at 11.59.43.png]]
+![GestioneEventi](assets/img/Gestione%20eventi.png)
 
 ---
 
@@ -111,16 +110,15 @@ Ogni domanda ha:
 - Countdown dinamico
 - Cambio colore negli ultimi 5 secondi
 
-	![[Screenshot 2026-05-29 at 12.13.35.png]]
+  ![SistemaTimer](assets/img/Sistema%20timer.png)
 
 Alla scadenza:
 
 - La risposta viene considerata errata e mostra la risposta corretta in verde
 
-	![[Pasted image 20260529120816.png]]
+  ![ScadenzaTimer](assets/img/Scadenza%20timer.png)
 
 - Il quiz passa automaticamente alla domanda successiva
-
 
 ---
 
@@ -134,10 +132,10 @@ Il risultato finale viene calcolato in percentuale:
 
 ### Valutazione finale
 
-|Percentuale|Risultato|
-|---|---|
-|≥ 60%|PROMOSSO|
-|< 60%|BOCCIATO|
+| Percentuale | Risultato |
+| ----------- | --------- |
+| ≥ 60%       | PROMOSSO  |
+| < 60%       | BOCCIATO  |
 
 ---
 
@@ -150,8 +148,7 @@ strokeDasharray
 strokeDashoffset
 ```
 
-![[Screenshot 2026-05-29 at 12.17.28.png]]
-
+![PercentualeCerchio](assets/img/Percentuale%20cerchio.png)
 
 Colori:
 
@@ -179,11 +176,9 @@ cd netflix-quiz
 
 ---
 
-## 😊 Valutaci! Il tuo feedback è importante 
+## 😊 Valutaci! Il tuo feedback è importante
 
-![[Screenshot 2026-05-29 at 12.20.23.png]]
-
-
+![Valutaci](assets/img/Valutaci-0.png)
 
 ---
 
