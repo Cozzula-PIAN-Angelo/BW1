@@ -65,7 +65,7 @@ stato → render → eventi
 
 ### Stato globale
 
-![[Pasted image 20260529115627.png]]
+![Stato globale](assets/img/Stato%20globale.png)
 
 Gestisce:
 
@@ -80,7 +80,7 @@ Funzioni principali:
 
 - **`showWelcome()`**
 
-  ![[Pasted image 20260529115600.png]]
+  ![ShowWelcome](assets/img/ShowWelcome.png)
 
 - **`showQuestion()`**
 
