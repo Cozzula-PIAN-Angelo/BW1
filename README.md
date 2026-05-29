@@ -7,15 +7,15 @@ Al termine del quiz, l'utente potrà anche lasciare una valutazione dell'esperie
 
 Cosa troverai in questo documento:
 
-- [Funzionalita](#funzionalita)
-- [Tecnologie utilizzate](#tecnologie-utilizzate)
-- [Struttura del progetto](#struttura-del-progetto)
-- [Logica del progetto](#logica-del-progetto)
-- [Sistema Timer](#sistema-timer)
-- [Sistema di punteggio](#sistema-di-punteggio)
-- [SVG Progress Circle](#SVG-progress-circle)
-- [Come avviare il progetto](#come-avviare-il-progetto)
-- [Team](#team)
+- [🚀 Funzionalita](#-funzionalita)
+- [🛠️ Tecnologie utilizzate](#-tecnologie-utilizzate)
+- [📂 Struttura del progetto](#-struttura-del-progetto)
+- [🧠 Logica del progetto](#-logica-del-progetto)
+- [⏱️ Sistema Timer](#-sistema-timer)
+- [📊 Sistema di punteggio](#-sistema-di-punteggio)
+- [🎨 SVG Progress Circle](#-SVG-progress-circle)
+- [▶️ Come avviare il progetto](#-come-avviare-il-progetto)
+- [👨‍💻 Team](#-team)
 
 
 
