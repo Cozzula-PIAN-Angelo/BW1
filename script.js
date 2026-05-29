@@ -159,18 +159,22 @@ function showWelcome() {
     // funzione appesa, aggiunge option dentro select
   });
 
-  /* ******** Ciclo per creare le opzioni a scaglioni di 10 */
+/* ******** Opzione Hardcore con tutte le domande */
 
-  const maxQuestions = 50;
+const optionAll = document.createElement("option");
+optionAll.value = QUESTIONS.length;
+optionAll.textContent = "TUTTE";
+selectCount.appendChild(optionAll);
+/* ******** Controllo automatico difficoltà */
 
-  for (let i = 10; i <= maxQuestions; i += 10) {
-    const option = document.createElement("option");
-    option.value = i;
-    option.textContent = i;
-    if (i === 10) option.selected = true;
-    // Default a 10
-    selectCount.appendChild(option);
+selectCount.addEventListener('click', () => {
+  if (Number(selectCount.value) === QUESTIONS.length) {
+    selectDiff.value = 'tutte';
+    selectDiff.disabled = 'tutte';
+  } else {
+    selectDiff.disabled = false;
   }
+})
 
   /* ******** Opzione Hardcore con tutte le domande */
 

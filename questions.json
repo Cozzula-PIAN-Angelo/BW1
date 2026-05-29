@@ -22,7 +22,7 @@
     "correct_answer": "Squid Game",
     "incorrect_answers": [
       "Stranger Things",
-      "Money Heist",
+      "La Casa Di Carta",
       "Bridgerton"
     ],
     "difficulty": "facile"
@@ -68,7 +68,7 @@
     "difficulty": "difficile"
   },
   {
-    "question": "La serie Money Heist è originariamente prodotta in quale paese?",
+    "question": "La serie La Casa Di Carta è originariamente prodotta in quale paese?",
     "correct_answer": "Spagna",
     "incorrect_answers": [
       "Italia",
@@ -78,7 +78,7 @@
     "difficulty": "facile"
   },
   {
-    "question": "Come si chiama il professore in Money Heist?",
+    "question": "Come si chiama il professore in La Casa Di Carta?",
     "correct_answer": "Sergio Marquina",
     "incorrect_answers": [
       "Andrés de Fonollosa",
@@ -88,7 +88,7 @@
     "difficulty": "intermedia"
   },
   {
-    "question": "In quale città è ambientata la prima rapina di Money Heist?",
+    "question": "In quale città è ambientata la prima rapina di La Casa Di Carta?",
     "correct_answer": "Madrid",
     "incorrect_answers": [
       "Barcellona",
@@ -1454,7 +1454,7 @@
     "correct_answer": "My Life Is Going On",
     "incorrect_answers": [
       "Bella Ciao",
-      "Money Heist Theme",
+      "La Casa Di Carta Theme",
       "Resistance"
     ],
     "difficulty": "difficile"
