@@ -159,13 +159,26 @@ function showWelcome() {
     // funzione appesa, aggiunge option dentro select
   });
 
-/* ******** Opzione Hardcore con tutte le domande */
+  /* ** Ciclo per creare le opzioni a scaglioni di 10 */
+
+const maxQuestions = 50;
+
+for (let i = 10; i <= maxQuestions; i += 10) {
+  const option = document.createElement("option");
+  option.value = i;
+  option.textContent = i;
+  if (i === 10) option.selected = true;
+  // Default a 10
+  selectCount.appendChild(option);
+}
+
+/* * Opzione Hardcore con tutte le domande */
 
 const optionAll = document.createElement("option");
 optionAll.value = QUESTIONS.length;
-optionAll.textContent = "TUTTE";
+optionAll.textContent = "HARDCORE";
 selectCount.appendChild(optionAll);
-/* ******** Controllo automatico difficoltà */
+/** Controllo automatico difficoltà */
 
 selectCount.addEventListener('click', () => {
   if (Number(selectCount.value) === QUESTIONS.length) {
@@ -175,30 +188,6 @@ selectCount.addEventListener('click', () => {
     selectDiff.disabled = false;
   }
 })
-
-  /* ******** Opzione Hardcore con tutte le domande */
-
-  const optionAll = document.createElement("option");
-  optionAll.value = QUESTIONS.length;
-  optionAll.textContent = "Hardcore (All)";
-  selectCount.appendChild(optionAll);
-  /* ******** Controllo automatico difficoltà */
-  selectDiff.addEventListener("change", () => {
-    // se scegli tutte le difficoltà
-    if (selectDiff.value === "tutte") {
-      // seleziona automaticamente tutte le domande
-      selectCount.value = QUESTIONS.length;
-      // blocca il menu numerico
-      selectCount.disabled = true;
-    } else {
-      // riattiva il menu
-      selectCount.disabled = false;
-      // sicurezza: se supera 50 torna a 50
-      if (Number(selectCount.value) > 50) {
-        selectCount.value = 50;
-      }
-    }
-  });
 
   const startButton = document.createElement("button");
 
