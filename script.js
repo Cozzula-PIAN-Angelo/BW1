@@ -22,19 +22,14 @@ const app = document.querySelector("#app");
 let QUESTIONS = []; // si dichiara prima l'array vuoto, così potrà accogliere i file
 // crea varibaile per i punteggi record
 let recordScore = 0;
-// crea una costante per i record salvati e di a JS che sono uguali a dei dati presi dal local storage
-const mySavedRecord = localStorage.getItem('recordNetflix');
-// se i recordSalvati sono diversi da niente
-if (mySavedRecord !== null) {
-  recordScore = parseInt(mySavedRecord); // allora il mio punteggio è il punteggio json ma convertilo in numero intero
-}
+
 
 // async function prima della funzione di preparazione dell'array per avvisare JS che utilizzero un await
 async function prepareQuiz() {
   try { // preparare JS alla funzione potenzialmente pericolosa per il sistema, perché richiede dell'attesa
     const dataJson = await fetch('questions.json'); // la funzione pericolosa è questa che chiede di aspettare (await) la lettura dei dati JSON (fetch())
     QUESTIONS = await dataJson.json(); // la funzione dice di tradurre il pacco dati json in array comprensibile da JS
-    showWelcome(); // chiamo la partenza qui così JS non lo fa prima di aver trovato tutto
+    showIntro(); // chiamo la partenza qui così JS non lo fa prima di aver trovato tutto
   } catch (errore) { //se qualcosa va storto, cattura l'errore e spiegami l'errore
     console.error('Fatal Error:', errore);
   }
@@ -61,6 +56,7 @@ let wrongAnswers = 0;
 let selectedAnswers = []; // aggiunta simone
 let timerId = null;
 let timeLeft = TIMER_DURATION;
+let runName = ""; // dichiaro nome della run per avere il nome del record a fine gioco
 
 /*intro*/
 function showIntro() {
@@ -146,24 +142,24 @@ function showWelcome() {
   const selectDiff = document.createElement("select");
   selectDiff.id = "difficulty";
 
-/* ******** Creazione opzioni - livello di difficoltà */
-const difficulties = ["Facile", "Intermedia", "Difficile", "Tutte"];
-difficulties.forEach((diff) => {
-  // cicla ad ogni voce dell'array una alla volta
-  const option = document.createElement("option");
-  // crea ogni singola voce dal menù a tendina
-  // (genererà le card facile, medio, difficile, tutte)
-  option.value = diff.toLowerCase();
-  // valore interno al codice in minuscolo,
-  // confronto diretto tra costante creata e la chiave dell'array
-  option.textContent = diff;
-  // testo visibile dall'utente (Es: facile)
-  selectDiff.appendChild(option);
+  /* ******** Creazione opzioni - livello di difficoltà */
+  const difficulties = ["Facile", "Intermedia", "Difficile", "Tutte"];
+  difficulties.forEach((diff) => {
+    // cicla ad ogni voce dell'array una alla volta
+    const option = document.createElement("option");
+    // crea ogni singola voce dal menù a tendina
+    // (genererà le card facile, medio, difficile, tutte)
+    option.value = diff.toLowerCase();
+    // valore interno al codice in minuscolo,
+    // confronto diretto tra costante creata e la chiave dell'array
+    option.textContent = diff;
+    // testo visibile dall'utente (Es: facile)
+    selectDiff.appendChild(option);
 
-  // funzione appesa, aggiunge option dentro select
-});
+    // funzione appesa, aggiunge option dentro select
+  });
 
-/* ******** Ciclo per creare le opzioni a scaglioni di 10 */
+  /* ** Ciclo per creare le opzioni a scaglioni di 10 */
 
 const maxQuestions = 50;
 
@@ -176,40 +172,55 @@ for (let i = 10; i <= maxQuestions; i += 10) {
   selectCount.appendChild(option);
 }
 
-/* ******** Opzione Hardcore con tutte le domande */
+/* * Opzione Hardcore con tutte le domande */
 
 const optionAll = document.createElement("option");
 optionAll.value = QUESTIONS.length;
-optionAll.textContent = "Hardcore (All)";
+optionAll.textContent = "HARDCORE";
 selectCount.appendChild(optionAll);
-/* ******** Controllo automatico difficoltà */
-selectDiff.addEventListener("change", () => {
-  // se scegli tutte le difficoltà
-  if (selectDiff.value === "tutte") {
-    // seleziona automaticamente tutte le domande
-    selectCount.value = QUESTIONS.length;
-    // blocca il menu numerico
-    selectCount.disabled = true;
+/** Controllo automatico difficoltà */
+
+selectCount.addEventListener('click', () => {
+  if (Number(selectCount.value) === QUESTIONS.length) {
+    selectDiff.value = 'tutte';
+    selectDiff.disabled = 'tutte';
   } else {
-    // riattiva il menu
-    selectCount.disabled = false;
-    // sicurezza: se supera 50 torna a 50
-    if (Number(selectCount.value) > 50) {
-      selectCount.value = 50;
-    }
+    selectDiff.disabled = false;
   }
-});
+})
 
-const startButton = document.createElement("button");
+  const startButton = document.createElement("button");
 
-startButton.classList.add("start-button");
+  startButton.classList.add("start-button");
 
-startButton.textContent = "INIZIA";
+  startButton.textContent = "INIZIA";
 
   startButton.addEventListener("click", () => {
     /* ******** Lettura del valore dal menu a tendina */
     const chosenCount = parseInt(selectCount.value) || 10;
     const chosenDifficulty = selectDiff.value; // legge il valore della difficoltà
+
+    // creazione di diverse etichette per diversi record
+    // se la difficoltà sceltà è uguale a tutte e la lunghezza è uguale a TUTTE le domande
+    if (chosenDifficulty === 'tutte' && chosenCount === QUESTIONS.length) {
+      thisRunRecord = "record_hardcore"; // allora questo è il record per hardcore
+      runName = "Modalità Hardcore";
+    } else {
+      thisRunRecord = `record_${chosenDifficulty}_${chosenCount}`;
+      runName = `Modalità ${chosenDifficulty} a ${chosenCount} Domande`;
+    } // altrimenti è il record per difficoltà_numeroDomande
+
+    // la cattura dei dati dal local storage va messa solo al click di inizio, altrimenti non può sapere quale record specifico serve
+
+    // crea una costante per i record salvati e dice a JS che sono uguali a dei dati (etichetta dinamica) presi dal local storage 
+    const mySavedRecord = localStorage.getItem(thisRunRecord);
+    // se i recordSalvati sono diversi da niente
+    if (mySavedRecord !== null) {
+      recordScore = parseInt(mySavedRecord); // allora il mio punteggio è il punteggio json ma convertilo in numero intero
+    } else { // altrimenti non hai un punteggio (sei nuovo)
+      recordScore = 0;
+    }
+
 
     currentQuestion = 0; // torna alla prima domanda
     correctAnswers = 0; // azzera le risposte corrette
@@ -434,8 +445,8 @@ Salviamo il record
   // se le risposte corrette superano il record passato
   if (correctAnswers > recordScore) {
     recordScore = correctAnswers // allora il nuovo record è correctAnswers
-    // salvataggio nel local storage
-    localStorage.setItem('recordNetflix', recordScore.toString()); // mettilo nel locale storage ma trasformalo di nuovo in stringa
+    // salvataggio nel local storage con etichetta thisRunRecord per salvare difficoltà di questa run
+    localStorage.setItem(thisRunRecord, recordScore.toString()); // mettilo nel locale storage ma trasformalo di nuovo in stringa
     isNewRecord = true; // abbiamo un nuovo campione
   }
 
@@ -445,7 +456,7 @@ Salviamo il record
 
   const resultTitle = document.createElement("h2");
   resultTitle.classList.add("result-title");
-  resultTitle.textContent = "Risultato";
+  resultTitle.textContent = `${runName} - RISULTATI`
 
   const verdict = document.createElement("h3");
 
@@ -642,7 +653,9 @@ function showThankYou(rating) {
   backBtn.textContent = "Rigioca";
 
   backBtn.addEventListener("click", () => {
-    showWelcome();
+    const netfixIntro = new Audio('./assets/audio/netflix-intro.mp3');
+    netfixIntro.play();
+    showIntro();
   });
 
   thanksDiv.appendChild(thanksTitle);
@@ -708,4 +721,4 @@ function showRating() {
 
 }
 
-showIntro();
+
