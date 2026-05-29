@@ -189,7 +189,7 @@ Come ci siamo divisi il progetto:
 - Claudio
 - Simona
 - Simone
-- Valentina: Mi sono occupata di inserire i colori per le risposte giuste e sbagliate, la risposta giusta in caso di timer finito, testare il quiz live, creare questo README
+- Valentina
 - Angelo
 
 ---
