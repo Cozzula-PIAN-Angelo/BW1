@@ -5,547 +5,546 @@
 /*reset iniziale*/
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
-    letter-spacing: 3px;
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.45)),
-        url("assets/img/25052026_1779715029_iOS.png");
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 12px;
+  font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+  letter-spacing: 3px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.45)),
+    url("assets/img/25052026_1779715029_iOS.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
 }
 
 .brand {
-    width: 100%;
-    max-width: 720px;
-    text-align: left;
+  width: 100%;
+  max-width: 720px;
+  text-align: left;
 }
 
 .brand-logo {
-    height: 40px;
-    background-color: transparent;
-    margin-bottom: 20px;
-    margin-top: 130px;
-    filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.7));
+  height: 40px;
+  background-color: transparent;
+  margin-bottom: 20px;
+  margin-top: 130px;
+  filter: drop-shadow(0 0 6px rgba(229, 9, 20, 0.7));
 }
 
 #app {
-    border-radius: 4px;
-    max-width: 720px;
-    width: 100%;
-    background: rgba(15, 15, 15, 0.4);
-    border: 1px solid red;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(6px);
+  border-radius: 4px;
+  max-width: 720px;
+  width: 100%;
+  background: rgba(15, 15, 15, 0.4);
+  border: 1px solid red;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
 }
-
 
 /*quiz*/
 
 .cardQuiz {
-    height: auto;
-    padding: 40px;
+  height: auto;
+  padding: 40px;
 }
 
 .cardQuiz h2 {
-    color: white;
-    margin-bottom: 20px;
+  color: white;
+  margin-bottom: 20px;
 }
 
 .numeroTimer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .numeroTimer p {
-    font-size: 14px;
-    color: white;
+  font-size: 14px;
+  color: white;
 }
 
 .numeroTimer span {
-    color: white;
-    font-size: 30px;
+  color: white;
+  font-size: 30px;
 }
 
 .risposte button {
-    display: flex;
-    margin-bottom: 10px;
-    width: 100%;
-    height: 50px;
-    border-radius: 4px;
-    align-items: center;
-    padding-left: 10px;
-    background-color: rgba(54, 53, 53, 0.92);
-    color: white;
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  align-items: center;
+  padding-left: 10px;
+  background-color: rgba(54, 53, 53, 0.92);
+  color: white;
 }
 
 #app button.correct {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
 #app button.wrong {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 #app button:not(.correct):not(.wrong):hover {
-    background-color: rgb(36, 35, 35);
-    cursor: pointer;
-    border: 0.8px solid red;
+  background-color: rgb(36, 35, 35);
+  cursor: pointer;
+  border: 0.8px solid red;
 }
 
 /*intro aiutato da internet */
 
 body.intro-active {
-
-    background: black !important;
-    overflow: hidden;
+  background: black !important;
+  overflow: hidden;
 }
 
 body.intro-active #app,
 body.intro-active .brand {
-    opacity: 0;
+  opacity: 0;
 }
 
 .intro-screen {
-    position: fixed;
-    inset: 0;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999;
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
 }
 
 .intro-logo {
-    color: #E50914;
-    font-size: 220px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    text-shadow:
-        0 0 20px rgba(229, 9, 20, 0.7),
-        0 0 40px rgba(229, 9, 20, 0.5);
-    animation: netflixIntro 2.9s ease forwards;
-
+  color: #e50914;
+  font-size: 220px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow:
+    0 0 20px rgba(229, 9, 20, 0.7),
+    0 0 40px rgba(229, 9, 20, 0.5);
+  animation: netflixIntro 2.9s ease forwards;
 }
 
 /* creazione animazione con percentuale */
 
 @keyframes netflixIntro {
+  0% {
+    transform: scale(0.05);
+    opacity: 0;
+  }
 
-    0% {
-        transform: scale(0.05);
-        opacity: 0;
-    }
+  20% {
+    opacity: 1;
+  }
 
-    20% {
-        opacity: 1;
-    }
+  45% {
+    transform: scale(1);
+    opacity: 1;
+  }
 
-    45% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(18);
-        opacity: 0;
-    }
+  100% {
+    transform: scale(18);
+    opacity: 0;
+  }
 }
 
 /*benvenuto*/
 
 h1 {
-    color: white;
-    font-size: 3rem;
-    margin-bottom: 30px;
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 30px;
 }
 
 .quiz-description {
-    color: white;
-    margin-bottom: 20px;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
 .instruction-list {
-    color: white;
-    list-style-type: circle;
-    margin-bottom: 40px;
+  color: white;
+  margin-bottom: 40px;
+  list-style-type: none;
 }
 
 .instruction-list li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .welcomeDiv {
-    padding-top: 40px;
-    padding-left: 40px;
-    padding-right: 40px;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .queDifDiv {
-    display: flex;
-    padding-left: 40px;
-    justify-content: space-around;
+  display: flex;
+  padding-left: 40px;
+  justify-content: space-around;
 }
 
 .questionDiv {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .questionDiv label {
-    font-size: 14px;
+  font-size: 16px;
 }
 
 .difficultyDiv label {
-    font-size: 14px;
+  font-size: 16px;
 }
 
 .queDifDiv button:first-child {
-    margin-top: 200px;
+  margin-top: 200px;
 }
 
 .sBtnDiv {
-    display: flex;
-    justify-content: center;
-    padding-left: 44px;
-    padding-right: 45px;
-    padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  padding-left: 28px;
+  padding-right: 48px;
+  padding-bottom: 40px;
 }
 
 .labelCount {
-    color: white;
-    margin-left: -45px;
-    display: block;
-    margin-bottom: 15px;
+  color: white;
+  margin-left: -45px;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .labelDiff {
-    color: white;
-    margin-left: -45px;
-    display: block;
-    margin-bottom: 15px;
+  color: white;
+  margin-left: -45px;
+  display: block;
+  margin-bottom: 15px;
 }
 
 #difficulty {
-    margin-bottom: 20px;
-    padding: 5px;
-    width: 165px;
-    font-size: 24px;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 165px;
+  font-size: 24px;
 }
 
 #questionCount {
-    margin-bottom: 20px;
-    padding: 5px;
-    width: 165px;
-    font-size: 24px;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 165px;
+  font-size: 24px;
 }
 
 /* ******** Stile unificato per input e tendina (select) */
 
 input[type="number"],
 select {
-    background-color: rgba(54, 53, 53, 0.92);
-    color: white;
-    border: 1px solid red;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    width: 17%;
-    height: 50px;
-    margin-bottom: 20px;
-    text-align: center;
-    margin-right: 30px;
+  background-color: rgba(54, 53, 53, 0.92);
+  color: white;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  width: 17%;
+  height: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-right: 30px;
 }
 
 select:focus {
-    background-color: rgba(54, 53, 53, 0.92);
-    color: white;
-    border: 1px solid red;
-    outline: none;
+  background-color: rgba(54, 53, 53, 0.92);
+  color: white;
+  border: 1px solid red;
+  outline: none;
 }
 
 #app .start-button {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    width: 82%;
-    background-color: rgba(54, 53, 53, 0.92);
-    height: 50px;
-    border-radius: 4px;
-    margin-top: 7.5px;
-    font-size: 24px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  width: 80.3%;
+  background-color: rgba(54, 53, 53, 0.92);
+  height: 50px;
+  border-radius: 4px;
+  margin-top: 7.5px;
+  font-size: 24px;
 }
 
 .results p {
-    color: white;
+  color: white;
 }
 
 .results h2 {
-    #app h2 {
-        margin-bottom: 30px;
-        font-size: 24px;
-        color: white;
-        font-weight: bold;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
-    }
-}
-
-.results h3 {
+  #app h2 {
     margin-bottom: 30px;
     font-size: 24px;
     color: white;
     font-weight: bold;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+  }
+}
+
+.results h3 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
 }
 
 .results {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .result-title {
-    color: white;
-    font-size: 3rem;
-    margin-bottom: 30px;
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 30px;
 }
 
 .result-list {
-    color: white;
-    list-style-type: circle;
-    margin-bottom: 40px;
+  color: white;
+  list-style-type: circle;
+  margin-bottom: 40px;
 }
 
 .result-list li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #app .result-button {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    width: 17%;
-    background-color: rgba(54, 53, 53, 0.92);
-    height: 50px;
-    border-radius: 4px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  width: 17%;
+  background-color: rgba(54, 53, 53, 0.92);
+  height: 50px;
+  border-radius: 4px;
 }
 
 /* circle bar */
 
 .percentage-container {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
 }
 
 .empty-bar-circle {
-    fill: transparent;
-    stroke: rgb(36, 35, 35);
-    stroke-width: 20px;
+  fill: transparent;
+  stroke: rgb(36, 35, 35);
+  stroke-width: 20px;
 }
 
 .empty-bar-circle {
-    fill: transparent;
-    stroke: rgb(36, 35, 35);
-    stroke-width: 20px;
+  fill: transparent;
+  stroke: rgb(36, 35, 35);
+  stroke-width: 20px;
 }
 
 .percentage-circle {
-    fill: transparent;
-    /* Interno vuoto */
-    stroke-width: 20px;
-    /* spessore dello stroke */
+  fill: transparent;
+  /* Interno vuoto */
+  stroke-width: 20px;
+  /* spessore dello stroke */
 }
 
 .percentage-text {
-    stroke-width: 2px;
-    fill: white;
-    font-size: 3rem;
-    text-anchor: middle;
-    transform: translate(18px);
+  stroke-width: 2px;
+  fill: white;
+  font-size: 3rem;
+  text-anchor: middle;
+  transform: translate(18px);
 }
 
 .notifica {
-    width: 60%;
-    border-radius: 3px;
-    position: absolute;
-    font-size: 0.8rem;
-    padding: 5px;
-    background-color: rgba(54, 53, 53, 0.235);
-    border: 1px solid rgba(255, 0, 0, 0.650);
-    color: rgba(255, 0, 0, 0.650);
-    top: -75px;
-    right: -55px;
-    opacity: 0;
-    transition: opacity 0.3s ease 0.3s;
-    pointer-events: none;
+  width: 60%;
+  border-radius: 3px;
+  position: absolute;
+  font-size: 0.8rem;
+  padding: 5px;
+  background-color: rgba(54, 53, 53, 0.235);
+  border: 1px solid rgba(255, 0, 0, 0.65);
+  color: rgba(255, 0, 0, 0.65);
+  top: -65px;
+  right: -65px;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.3s;
+  pointer-events: none;
 }
 
 .notifica-on {
-    opacity: 1;
-    transition: opacity 0.3 ease 0.5;
+  opacity: 1;
+  transition: opacity 0.3 ease 0.5;
 }
 
 .circle-div {
-    width: 200px;
-    height: 200px;
-    position: fixed;
-    right: 80px;
-    top: 130px;
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  right: 80px;
+  top: 160px;
 }
 
 /* recap menu */
 
 .recap-container {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 #app .recap-button {
-    width: 100%;
-    height: 50px;
-    border-radius: 4px;
-    background-color: rgba(54, 53, 53, 0.92);
-    color: white;
-    margin-top: 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  background-color: rgba(54, 53, 53, 0.92);
+  color: white;
+  margin-top: 20px;
 }
 
 #app .recap-button:hover {
-    background-color: rgb(36, 35, 35);
-    cursor: pointer;
-    border: 0.8px solid red;
+  background-color: rgb(36, 35, 35);
+  cursor: pointer;
+  border: 0.8px solid red;
 }
 
 .recap-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .recap-card {
-    background-color: rgba(54, 53, 53, 0.5);
-    padding: 20px;
-    border-radius: 4px;
+  background-color: rgba(54, 53, 53, 0.5);
+  padding: 20px;
+  border-radius: 4px;
 }
 
 .recap-card h3 {
-    color: white;
-    margin-bottom: 15px;
-    font-size: 18px;
+  color: white;
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
 .recap-card p {
-    color: white;
-    margin-bottom: 8px;
+  color: white;
+  margin-bottom: 8px;
 }
 
 .good-answer {
-    color: lightgreen !important;
+  color: lightgreen !important;
 }
 
 .bad-answer {
-    color: red !important;
+  color: red !important;
 }
 
 .good-card {
-    border: 1px solid lightgreen;
+  border: 1px solid lightgreen;
 }
 
 .bad-card {
-    border: 1px solid red;
-    cursor: default;
+  border: 1px solid red;
+  cursor: default;
 }
 
 /*rating*/
 
 .rating h2 {
-    margin-bottom: 30px;
-    font-size: 40px;
-    color: white;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+  margin-bottom: 30px;
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
 }
 
 .rating-subtitle {
-    color: white;
-    margin-bottom: 20px;
+  color: white;
+  margin-bottom: 20px;
 }
 
 .star {
-    margin-right: 8px;
-    font-size: 40px;
-    cursor: pointer;
-    color: rgba(54, 53, 53, 0.92);
-    -webkit-text-stroke: 0.25px rgb(199, 198, 198);
+  margin-right: 8px;
+  font-size: 40px;
+  cursor: pointer;
+  color: rgba(54, 53, 53, 0.92);
+  -webkit-text-stroke: 0.25px rgb(199, 198, 198);
 }
 
 .rating {
-    color: gold;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  color: gold;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ratingFinale {
-    color: gold;
+  color: gold;
 }
 
 /*ringraziamenti*/
 
 .thanks-message {
-    color: white;
-    font-size: 32px;
+  color: white;
+  font-size: 32px;
 }
 
 .thanksDiv h2 {
-    margin-bottom: 20px;
-    color: white;
-    font-size: 60px;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 60px;
 }
 
 .star.active {
-    color: gold;
+  color: gold;
 }
 
 .star:hover {
-    text-shadow: 0 0 10px gold;
+  text-shadow: 0 0 10px gold;
 }
 
 .thanksDiv {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65)), url(assets/img/Valutaci-1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 1px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.65)), url(assets/img/Valutaci-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 1px;
 }
 
 .replay-button {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    width: 50%;
-    background-color: rgba(54, 53, 53, 0.92);
-    height: 50px;
-    border-radius: 4px;
-    margin-top: 20px;
-    font-size: 24px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  width: 50%;
+  background-color: rgba(54, 53, 53, 0.92);
+  height: 50px;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-size: 24px;
 }

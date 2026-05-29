@@ -23,15 +23,16 @@ let QUESTIONS = []; // si dichiara prima l'array vuoto, così potrà accogliere 
 // crea varibaile per i punteggi record
 let recordScore = 0;
 
-
 // async function prima della funzione di preparazione dell'array per avvisare JS che utilizzero un await
 async function prepareQuiz() {
-  try { // preparare JS alla funzione potenzialmente pericolosa per il sistema, perché richiede dell'attesa
-    const dataJson = await fetch('questions.json'); // la funzione pericolosa è questa che chiede di aspettare (await) la lettura dei dati JSON (fetch())
+  try {
+    // preparare JS alla funzione potenzialmente pericolosa per il sistema, perché richiede dell'attesa
+    const dataJson = await fetch("questions.json"); // la funzione pericolosa è questa che chiede di aspettare (await) la lettura dei dati JSON (fetch())
     QUESTIONS = await dataJson.json(); // la funzione dice di tradurre il pacco dati json in array comprensibile da JS
     showIntro(); // chiamo la partenza qui così JS non lo fa prima di aver trovato tutto
-  } catch (errore) { //se qualcosa va storto, cattura l'errore e spiegami l'errore
-    console.error('Fatal Error:', errore);
+  } catch (errore) {
+    //se qualcosa va storto, cattura l'errore e spiegami l'errore
+    console.error("Fatal Error:", errore);
   }
 }
 
@@ -60,7 +61,6 @@ let runName = ""; // dichiaro nome della run per avere il nome del record a fine
 
 /*intro*/
 function showIntro() {
-
   document.body.classList.add("intro-active");
   app.innerHTML = "";
   const intro = document.createElement("div");
@@ -75,7 +75,7 @@ function showIntro() {
     document.body.classList.remove("intro-active");
     showWelcome();
   }, 2900);
-};
+}
 
 /* =========================
    WELCOME PAGE
@@ -83,17 +83,17 @@ function showIntro() {
 
 function showWelcome() {
   app.innerHTML = "";
-  const queDifDiv = document.createElement('div');
-  queDifDiv.classList.add('queDifDiv');
+  const queDifDiv = document.createElement("div");
+  queDifDiv.classList.add("queDifDiv");
 
-  const questionDiv = document.createElement('div');
-  questionDiv.classList.add('questionDiv');
+  const questionDiv = document.createElement("div");
+  questionDiv.classList.add("questionDiv");
 
-  const difficultyDiv = document.createElement('difficultyDiv');
-  difficultyDiv.classList.add('difficultyDiv');
+  const difficultyDiv = document.createElement("difficultyDiv");
+  difficultyDiv.classList.add("difficultyDiv");
 
-  const sBtnDiv = document.createElement('div');
-  sBtnDiv.classList.add('sBtnDiv');
+  const sBtnDiv = document.createElement("div");
+  sBtnDiv.classList.add("sBtnDiv");
 
   const welcolmeDiv = document.createElement("div");
   welcolmeDiv.classList.add("welcomeDiv");
@@ -105,7 +105,7 @@ function showWelcome() {
   quizDescription.classList.add("quiz-description");
 
   quizDescription.textContent =
-    "Una serie di 10 domande sul mondo dell'informatica e del web. Per ogni domanda hai 20 secondi di tempo.";
+    "Una serie di domande sul mondo Netflix e la sua libreria.";
 
   const instructionList = document.createElement("ul");
   instructionList.classList.add("instruction-list");
@@ -116,10 +116,11 @@ function showWelcome() {
 
   const instructionLi2 = document.createElement("li");
   instructionLi2.textContent =
-    "Una volta cliccata una risposta, la domanda è chiusa.";
+    "Una volta selezionata una risposta, non può essere cambiata.";
 
   const instructionLi3 = document.createElement("li");
-  instructionLi3.textContent = "Il quiz dura circa 3 minuti.";
+  instructionLi3.textContent =
+    "Il quiz avrà una durata variabile in base al numero di domande e alla difficoltà scelta.";
 
   instructionList.appendChild(instructionLi1);
   instructionList.appendChild(instructionLi2);
@@ -128,7 +129,7 @@ function showWelcome() {
   /* ******** Creazione menu a tendina per scegliere il numero di domande */
 
   const labelCount = document.createElement("label");
-  labelCount.classList.add('labelCount');
+  labelCount.classList.add("labelCount");
   labelCount.textContent = "Quante domande vuoi affrontare? ";
 
   const selectCount = document.createElement("select");
@@ -136,7 +137,7 @@ function showWelcome() {
 
   /* ******** Creazione menu a tendina per scegliere il livello di difficoltà */
   const labelDiff = document.createElement("label"); // creazione etichetta
-  labelDiff.classList.add('labelDiff');
+  labelDiff.classList.add("labelDiff");
   labelDiff.textContent = "Scegli la difficoltà da affrontare: ";
 
   const selectDiff = document.createElement("select");
@@ -161,33 +162,33 @@ function showWelcome() {
 
   /* ** Ciclo per creare le opzioni a scaglioni di 10 */
 
-const maxQuestions = 50;
+  const maxQuestions = 50;
 
-for (let i = 10; i <= maxQuestions; i += 10) {
-  const option = document.createElement("option");
-  option.value = i;
-  option.textContent = i;
-  if (i === 10) option.selected = true;
-  // Default a 10
-  selectCount.appendChild(option);
-}
-
-/* * Opzione Hardcore con tutte le domande */
-
-const optionAll = document.createElement("option");
-optionAll.value = QUESTIONS.length;
-optionAll.textContent = "HARDCORE";
-selectCount.appendChild(optionAll);
-/** Controllo automatico difficoltà */
-
-selectCount.addEventListener('click', () => {
-  if (Number(selectCount.value) === QUESTIONS.length) {
-    selectDiff.value = 'tutte';
-    selectDiff.disabled = 'tutte';
-  } else {
-    selectDiff.disabled = false;
+  for (let i = 10; i <= maxQuestions; i += 10) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = i;
+    if (i === 10) option.selected = true;
+    // Default a 10
+    selectCount.appendChild(option);
   }
-})
+
+  /* * Opzione Hardcore con tutte le domande */
+
+  const optionAll = document.createElement("option");
+  optionAll.value = QUESTIONS.length;
+  optionAll.textContent = "HARDCORE";
+  selectCount.appendChild(optionAll);
+  /** Controllo automatico difficoltà */
+
+  selectCount.addEventListener("click", () => {
+    if (Number(selectCount.value) === QUESTIONS.length) {
+      selectDiff.value = "tutte";
+      selectDiff.disabled = "tutte";
+    } else {
+      selectDiff.disabled = false;
+    }
+  });
 
   const startButton = document.createElement("button");
 
@@ -202,7 +203,7 @@ selectCount.addEventListener('click', () => {
 
     // creazione di diverse etichette per diversi record
     // se la difficoltà sceltà è uguale a tutte e la lunghezza è uguale a TUTTE le domande
-    if (chosenDifficulty === 'tutte' && chosenCount === QUESTIONS.length) {
+    if (chosenDifficulty === "tutte" && chosenCount === QUESTIONS.length) {
       thisRunRecord = "record_hardcore"; // allora questo è il record per hardcore
       runName = "Modalità Hardcore";
     } else {
@@ -212,15 +213,15 @@ selectCount.addEventListener('click', () => {
 
     // la cattura dei dati dal local storage va messa solo al click di inizio, altrimenti non può sapere quale record specifico serve
 
-    // crea una costante per i record salvati e dice a JS che sono uguali a dei dati (etichetta dinamica) presi dal local storage 
+    // crea una costante per i record salvati e dice a JS che sono uguali a dei dati (etichetta dinamica) presi dal local storage
     const mySavedRecord = localStorage.getItem(thisRunRecord);
     // se i recordSalvati sono diversi da niente
     if (mySavedRecord !== null) {
       recordScore = parseInt(mySavedRecord); // allora il mio punteggio è il punteggio json ma convertilo in numero intero
-    } else { // altrimenti non hai un punteggio (sei nuovo)
+    } else {
+      // altrimenti non hai un punteggio (sei nuovo)
       recordScore = 0;
     }
-
 
     currentQuestion = 0; // torna alla prima domanda
     correctAnswers = 0; // azzera le risposte corrette
@@ -280,8 +281,9 @@ function showQuestion() {
   numeroTimer.classList.add("numeroTimer");
 
   const numeroDomanda = document.createElement("p");
-  numeroDomanda.textContent = `Domanda ${currentQuestion + 1
-    } di ${SELECTED_QUESTIONS.length}`;
+  numeroDomanda.textContent = `Domanda ${
+    currentQuestion + 1
+  } di ${SELECTED_QUESTIONS.length}`;
 
   const timer = document.createElement("span");
   timer.id = "timer";
@@ -370,7 +372,7 @@ function startTimer() {
 
   /* ******** Calcolo dinamico: base 5s + scatti da 5s ogni 15 caratteri */
   const currentQ = SELECTED_QUESTIONS[currentQuestion];
-  timeLeft = 5 + (Math.floor(currentQ.question.length / 15) * 5);
+  timeLeft = 5 + Math.floor(currentQ.question.length / 15) * 5;
 
   /* ******** Per domande Vero/Falso: sottrai 5s, assicurandoti di non scendere mai sotto i 5s totali */
   if (currentQ.incorrect_answers.length === 1) {
@@ -444,19 +446,18 @@ Salviamo il record
 
   // se le risposte corrette superano il record passato
   if (correctAnswers > recordScore) {
-    recordScore = correctAnswers // allora il nuovo record è correctAnswers
+    recordScore = correctAnswers; // allora il nuovo record è correctAnswers
     // salvataggio nel local storage con etichetta thisRunRecord per salvare difficoltà di questa run
     localStorage.setItem(thisRunRecord, recordScore.toString()); // mettilo nel locale storage ma trasformalo di nuovo in stringa
     isNewRecord = true; // abbiamo un nuovo campione
   }
-
 
   const results = document.createElement("div");
   results.classList.add("results");
 
   const resultTitle = document.createElement("h2");
   resultTitle.classList.add("result-title");
-  resultTitle.textContent = `${runName} - RISULTATI`
+  resultTitle.textContent = `${runName} - RISULTATI`;
 
   const verdict = document.createElement("h3");
 
@@ -478,7 +479,8 @@ Salviamo il record
   wrongText.textContent = `Risposte sbagliate: ${wrongAnswers}`;
 
   const scoreText = document.createElement("li");
-  if (isNewRecord === true) { // se abbiamo un nuovo campione
+  if (isNewRecord === true) {
+    // se abbiamo un nuovo campione
     scoreText.textContent = `NEW RECORD: ${recordScore}`; // festeggiamo
   } else {
     scoreText.textContent = `Punteggio finale: ${correctAnswers} (RECORD da battere ${recordScore})`;
@@ -595,7 +597,6 @@ Salviamo il record
   results.appendChild(recapButton); // aggiunta simone
 
   app.appendChild(results);
-
 }
 
 //aggiunta simone
@@ -629,7 +630,6 @@ function showRecap() {
   recapContainer.appendChild(recapMenu);
   const results = document.querySelector(".results");
   results.appendChild(recapContainer);
-
 }
 
 /* =========================
@@ -653,7 +653,7 @@ function showThankYou(rating) {
   backBtn.textContent = "Rigioca";
 
   backBtn.addEventListener("click", () => {
-    const netfixIntro = new Audio('./assets/audio/netflix-intro.mp3');
+    const netfixIntro = new Audio("./assets/audio/netflix-intro.mp3");
     netfixIntro.play();
     showIntro();
   });
@@ -718,7 +718,4 @@ function showRating() {
   ratingDiv.appendChild(ratingSubtitle);
   ratingDiv.appendChild(starsContainer);
   app.appendChild(ratingDiv);
-
 }
-
-
