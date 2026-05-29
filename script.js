@@ -142,65 +142,65 @@ function showWelcome() {
   const selectDiff = document.createElement("select");
   selectDiff.id = "difficulty";
 
-/* ******** Creazione opzioni - livello di difficoltà */
-const difficulties = ["Facile", "Intermedia", "Difficile", "Tutte"];
-difficulties.forEach((diff) => {
-  // cicla ad ogni voce dell'array una alla volta
-  const option = document.createElement("option");
-  // crea ogni singola voce dal menù a tendina
-  // (genererà le card facile, medio, difficile, tutte)
-  option.value = diff.toLowerCase();
-  // valore interno al codice in minuscolo,
-  // confronto diretto tra costante creata e la chiave dell'array
-  option.textContent = diff;
-  // testo visibile dall'utente (Es: facile)
-  selectDiff.appendChild(option);
+  /* ******** Creazione opzioni - livello di difficoltà */
+  const difficulties = ["Facile", "Intermedia", "Difficile", "Tutte"];
+  difficulties.forEach((diff) => {
+    // cicla ad ogni voce dell'array una alla volta
+    const option = document.createElement("option");
+    // crea ogni singola voce dal menù a tendina
+    // (genererà le card facile, medio, difficile, tutte)
+    option.value = diff.toLowerCase();
+    // valore interno al codice in minuscolo,
+    // confronto diretto tra costante creata e la chiave dell'array
+    option.textContent = diff;
+    // testo visibile dall'utente (Es: facile)
+    selectDiff.appendChild(option);
 
-  // funzione appesa, aggiunge option dentro select
-});
+    // funzione appesa, aggiunge option dentro select
+  });
 
-/* ******** Ciclo per creare le opzioni a scaglioni di 10 */
+  /* ******** Ciclo per creare le opzioni a scaglioni di 10 */
 
-const maxQuestions = 50;
+  const maxQuestions = 50;
 
-for (let i = 10; i <= maxQuestions; i += 10) {
-  const option = document.createElement("option");
-  option.value = i;
-  option.textContent = i;
-  if (i === 10) option.selected = true;
-  // Default a 10
-  selectCount.appendChild(option);
-}
-
-/* ******** Opzione Hardcore con tutte le domande */
-
-const optionAll = document.createElement("option");
-optionAll.value = QUESTIONS.length;
-optionAll.textContent = "Hardcore (All)";
-selectCount.appendChild(optionAll);
-/* ******** Controllo automatico difficoltà */
-selectDiff.addEventListener("change", () => {
-  // se scegli tutte le difficoltà
-  if (selectDiff.value === "tutte") {
-    // seleziona automaticamente tutte le domande
-    selectCount.value = QUESTIONS.length;
-    // blocca il menu numerico
-    selectCount.disabled = true;
-  } else {
-    // riattiva il menu
-    selectCount.disabled = false;
-    // sicurezza: se supera 50 torna a 50
-    if (Number(selectCount.value) > 50) {
-      selectCount.value = 50;
-    }
+  for (let i = 10; i <= maxQuestions; i += 10) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = i;
+    if (i === 10) option.selected = true;
+    // Default a 10
+    selectCount.appendChild(option);
   }
-});
 
-const startButton = document.createElement("button");
+  /* ******** Opzione Hardcore con tutte le domande */
 
-startButton.classList.add("start-button");
+  const optionAll = document.createElement("option");
+  optionAll.value = QUESTIONS.length;
+  optionAll.textContent = "Hardcore (All)";
+  selectCount.appendChild(optionAll);
+  /* ******** Controllo automatico difficoltà */
+  selectDiff.addEventListener("change", () => {
+    // se scegli tutte le difficoltà
+    if (selectDiff.value === "tutte") {
+      // seleziona automaticamente tutte le domande
+      selectCount.value = QUESTIONS.length;
+      // blocca il menu numerico
+      selectCount.disabled = true;
+    } else {
+      // riattiva il menu
+      selectCount.disabled = false;
+      // sicurezza: se supera 50 torna a 50
+      if (Number(selectCount.value) > 50) {
+        selectCount.value = 50;
+      }
+    }
+  });
 
-startButton.textContent = "INIZIA";
+  const startButton = document.createElement("button");
+
+  startButton.classList.add("start-button");
+
+  startButton.textContent = "INIZIA";
 
   startButton.addEventListener("click", () => {
     /* ******** Lettura del valore dal menu a tendina */
@@ -660,7 +660,9 @@ function showThankYou(rating) {
   backBtn.textContent = "Rigioca";
 
   backBtn.addEventListener("click", () => {
-    showWelcome();
+    const netfixIntro = new Audio('./assets/audio/netflix-intro.mp3');
+    netfixIntro.play();
+    showIntro();
   });
 
   thanksDiv.appendChild(thanksTitle);
