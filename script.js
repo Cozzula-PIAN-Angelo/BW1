@@ -29,7 +29,7 @@ async function prepareQuiz() {
   try { // preparare JS alla funzione potenzialmente pericolosa per il sistema, perché richiede dell'attesa
     const dataJson = await fetch('questions.json'); // la funzione pericolosa è questa che chiede di aspettare (await) la lettura dei dati JSON (fetch())
     QUESTIONS = await dataJson.json(); // la funzione dice di tradurre il pacco dati json in array comprensibile da JS
-    showWelcome(); // chiamo la partenza qui così JS non lo fa prima di aver trovato tutto
+    showIntro(); // chiamo la partenza qui così JS non lo fa prima di aver trovato tutto
   } catch (errore) { //se qualcosa va storto, cattura l'errore e spiegami l'errore
     console.error('Fatal Error:', errore);
   }
@@ -56,6 +56,7 @@ let wrongAnswers = 0;
 let selectedAnswers = []; // aggiunta simone
 let timerId = null;
 let timeLeft = TIMER_DURATION;
+let runName = ""; // dichiaro nome della run per avere il nome del record a fine gioco
 
 /*intro*/
 function showIntro() {
@@ -210,13 +211,15 @@ startButton.textContent = "INIZIA";
     // se la difficoltà sceltà è uguale a tutte e la lunghezza è uguale a TUTTE le domande
     if (chosenDifficulty === 'tutte' && chosenCount === QUESTIONS.length) {
       thisRunRecord = "record_hardcore"; // allora questo è il record per hardcore
+      runName = "Modalità Hardcore";
     } else {
       thisRunRecord = `record_${chosenDifficulty}_${chosenCount}`;
+      runName = `Modalità ${chosenDifficulty} a ${chosenCount} Domande`;
     } // altrimenti è il record per difficoltà_numeroDomande
 
     // la cattura dei dati dal local storage va messa solo al click di inizio, altrimenti non può sapere quale record specifico serve
 
-    // crea una costante per i record salvati e di a JS che sono uguali a dei dati (etichetta dinamica) presi dal local storage 
+    // crea una costante per i record salvati e dice a JS che sono uguali a dei dati (etichetta dinamica) presi dal local storage 
     const mySavedRecord = localStorage.getItem(thisRunRecord);
     // se i recordSalvati sono diversi da niente
     if (mySavedRecord !== null) {
@@ -460,7 +463,7 @@ Salviamo il record
 
   const resultTitle = document.createElement("h2");
   resultTitle.classList.add("result-title");
-  resultTitle.textContent = "Risultato";
+  resultTitle.textContent = `${runName} - RISULTATI`
 
   const verdict = document.createElement("h3");
 
@@ -723,4 +726,4 @@ function showRating() {
 
 }
 
-showIntro();
+
