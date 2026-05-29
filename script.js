@@ -22,12 +22,7 @@ const app = document.querySelector("#app");
 let QUESTIONS = []; // si dichiara prima l'array vuoto, così potrà accogliere i file
 // crea varibaile per i punteggi record
 let recordScore = 0;
-// crea una costante per i record salvati e di a JS che sono uguali a dei dati presi dal local storage
-const mySavedRecord = localStorage.getItem('recordNetflix');
-// se i recordSalvati sono diversi da niente
-if (mySavedRecord !== null) {
-  recordScore = parseInt(mySavedRecord); // allora il mio punteggio è il punteggio json ma convertilo in numero intero
-}
+
 
 // async function prima della funzione di preparazione dell'array per avvisare JS che utilizzero un await
 async function prepareQuiz() {
@@ -210,6 +205,26 @@ startButton.textContent = "INIZIA";
     /* ******** Lettura del valore dal menu a tendina */
     const chosenCount = parseInt(selectCount.value) || 10;
     const chosenDifficulty = selectDiff.value; // legge il valore della difficoltà
+
+    // creazione di diverse etichette per diversi record
+    // se la difficoltà sceltà è uguale a tutte e la lunghezza è uguale a TUTTE le domande
+    if (chosenDifficulty === 'tutte' && chosenCount === QUESTIONS.length) {
+      thisRunRecord = "record_hardcore"; // allora questo è il record per hardcore
+    } else {
+      thisRunRecord = `record_${chosenDifficulty}_${chosenCount}`;
+    } // altrimenti è il record per difficoltà_numeroDomande
+
+    // la cattura dei dati dal local storage va messa solo al click di inizio, altrimenti non può sapere quale record specifico serve
+
+    // crea una costante per i record salvati e di a JS che sono uguali a dei dati (etichetta dinamica) presi dal local storage 
+    const mySavedRecord = localStorage.getItem(thisRunRecord);
+    // se i recordSalvati sono diversi da niente
+    if (mySavedRecord !== null) {
+      recordScore = parseInt(mySavedRecord); // allora il mio punteggio è il punteggio json ma convertilo in numero intero
+    } else { // altrimenti non hai un punteggio (sei nuovo)
+      recordScore = 0;
+    }
+
 
     currentQuestion = 0; // torna alla prima domanda
     correctAnswers = 0; // azzera le risposte corrette
@@ -434,8 +449,8 @@ Salviamo il record
   // se le risposte corrette superano il record passato
   if (correctAnswers > recordScore) {
     recordScore = correctAnswers // allora il nuovo record è correctAnswers
-    // salvataggio nel local storage
-    localStorage.setItem('recordNetflix', recordScore.toString()); // mettilo nel locale storage ma trasformalo di nuovo in stringa
+    // salvataggio nel local storage con etichetta thisRunRecord per salvare difficoltà di questa run
+    localStorage.setItem(thisRunRecord, recordScore.toString()); // mettilo nel locale storage ma trasformalo di nuovo in stringa
     isNewRecord = true; // abbiamo un nuovo campione
   }
 
