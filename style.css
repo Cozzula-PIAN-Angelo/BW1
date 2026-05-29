@@ -244,12 +244,14 @@ h1 {
     margin-bottom: 20px;
     padding: 5px;
     width: 150px;
+    font-size: 24px;
 }
 
 #questionCount {
     margin-bottom: 20px;
     padding: 5px;
     width: 150px;
+    font-size: 24px;
 }
 
 /* ******** Stile unificato per input e tendina (select) */
@@ -285,6 +287,7 @@ select:focus {
     height: 50px;
     border-radius: 4px;
     margin-top: 7.5px;
+    font-size: 24px;
 }
 
 .results p {
@@ -334,7 +337,7 @@ select:focus {
 
 #app .result-button {
     display: inline-block;
-    color: red;
+    color: white;
     text-align: center;
     width: 17%;
     background-color: rgba(54, 53, 53, 0.92);
@@ -416,7 +419,7 @@ select:focus {
     height: 50px;
     border-radius: 4px;
     background-color: rgba(54, 53, 53, 0.92);
-    color: red;
+    color: white;
     margin-top: 20px;
 }
 
